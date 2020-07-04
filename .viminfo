@@ -14,8 +14,8 @@
 $
 
 # Command Line History (newest to oldest):
-:q!
 :wq!
+:q!
 :wq
 :wq!ç
 :q
@@ -105,18 +105,20 @@ $
 	º
 
 # File marks:
-'0  1  0  ~/.git/config
-'1  13  8  ~/practicando_a_fondo/debug.yaml
-'2  14  33  ~/practicando_a_fondo/stat.yaml
-'3  2  8  ~/practicando_a_fondo/stat.yaml
-'4  10  16  ~/practicando_a_fondo/stat.yaml
-'5  15  22  ~/practicando_a_fondo/service.yml
-'6  10  2  ~/practicando_a_fondo/service.yml
-'7  14  93  ~/practicando_a_fondo/file.yml
-'8  4  6  ~/practicando_a_fondo/file.yml
-'9  12  6  ~/practicando_a_fondo/file.yml
+'0  24  0  ~/istalacion_git.txt
+'1  1  0  ~/.git/config
+'2  13  8  ~/practicando_a_fondo/debug.yaml
+'3  14  33  ~/practicando_a_fondo/stat.yaml
+'4  2  8  ~/practicando_a_fondo/stat.yaml
+'5  10  16  ~/practicando_a_fondo/stat.yaml
+'6  15  22  ~/practicando_a_fondo/service.yml
+'7  10  2  ~/practicando_a_fondo/service.yml
+'8  14  93  ~/practicando_a_fondo/file.yml
+'9  4  6  ~/practicando_a_fondo/file.yml
 
 # Jumplist (newest first):
+-'  24  0  ~/istalacion_git.txt
+-'  1  0  ~/istalacion_git.txt
 -'  1  0  ~/.git/config
 -'  13  8  ~/practicando_a_fondo/debug.yaml
 -'  14  33  ~/practicando_a_fondo/stat.yaml
@@ -214,9 +216,32 @@ $
 -'  5  0  ~/jinja2/presentacion.j2
 -'  1  0  ~/jinja2/presentacion.j2
 -'  1  0  ~/jinja2/play.yaml
--'  14  33  ~/practicando_a_fondo/stat.yaml
 
 # History of marks within files (newest to oldest):
+
+> ~/istalacion_git.txt
+	"	24	0
+	^	24	0
+	.	23	29
+	+	3	70
+	+	5	41
+	+	6	51
+	+	16	0
+	+	10	0
+	+	6	0
+	+	5	0
+	+	16	49
+	+	7	80
+	+	21	23
+	+	18	11
+	+	21	0
+	+	19	0
+	+	18	10
+	+	21	25
+	+	20	29
+	+	22	12
+	+	20	14
+	+	23	29
 
 > ~/.git/config
 	"	1	0
@@ -516,11 +541,3 @@ $
 
 > ~/practicando_a_fondo/roles/usuarios/tasks/b.yml
 	"	1	0
-
-> ~/practicando_a_fondo/roles/usuarios/tasks/b.yaml
-	"	8	11
-	^	8	12
-	.	8	11
-	+	10	0
-	+	7	11
-	+	8	11
