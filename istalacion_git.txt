@@ -1,0 +1,24 @@
+
+# Instalar git: yum install git
+# Iniciar git.En el directorio que vamos a trabajar ejecutar: git init
+# Hacer configuracion de usuario y correo para git:
+$git config --global user.name "Mona Lisa"
+$git config --global user.email monalisa@example.com
+# Crear remote: En githup.com añadimos la rama ya que en este solo exite master
+
+# Añadir remote:
+$ git remote add origin https://github.com/user/repo.git
+
+# Verificar remote:
+$ git remote -v
+# Verify new remote
+> origin  https://github.com/user/repo.git (fetch)
+> origin  https://github.com/user/repo.git (push)
+
+# Hacer un:
+$git fetch
+# Hacer pull, traer la rama remota a local
+$ git pull origin python 
+# Hacer push, subir la rama local a la rama remota
+git push origin python:python
+
