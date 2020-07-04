@@ -1,0 +1,18 @@
+---
+- hosts: grupo2
+  vars:
+    - package: vsftpd
+    - service: vsftpd
+  tasks:
+    - name: instalar {{ package }}
+      yum:
+        name: "{{ package }}"
+        state: latest
+    
+    - name: iniciando {{ service }}
+      service: 
+        name: "{{ service }}"
+        state: started
+        enabled: true
+
+...

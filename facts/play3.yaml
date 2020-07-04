@@ -1,0 +1,28 @@
+---
+- hosts: grupo2
+  tasks:
+    - name: instalar utilizando los local facts
+      yum:
+        name: "{{ item }}"
+        state: latest
+      with_items:
+        - "{{ ansible_local.new.pkg.db_pkg }}"
+        - "{{ ansible_local.new.pkg.web_pkg }}"
+                
+    - name: start service
+      service:
+        name: "{{ ansible_local.new.pkg.web_srv }}"
+        state: started
+        enabled: true
+
+
+# "ansible_local": {
+#           "new": {
+#
+#                         "pkg": {
+#                 "db_pkg": "mariadb-server", 
+#
+#  #                "web_pkg": "httpd", 
+     #               "web_srv": "httpd"
+
+

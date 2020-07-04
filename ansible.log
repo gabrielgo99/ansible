@@ -1,0 +1,1102 @@
+2020-07-03 03:25:11,836 p=66470 u=srv_ansible n=ansible | ansible4 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
+2020-07-03 03:25:11,861 p=66470 u=srv_ansible n=ansible | ansible5 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
+2020-07-03 03:25:12,019 p=66470 u=srv_ansible n=ansible | ansible2 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
+2020-07-03 03:25:12,068 p=66470 u=srv_ansible n=ansible | ansible3 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
+2020-07-03 03:25:12,186 p=66470 u=srv_ansible n=ansible | ansible1 | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    }, 
+    "changed": false, 
+    "ping": "pong"
+}
+2020-07-03 07:24:18,143 p=66730 u=srv_ansible n=ansible | ERROR! conflicting action statements: group, dest
+
+The error appears to be in '/home/srv_ansible/copy1.yml': line 5, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  tasks:
+    - name: copiar este archivo
+      ^ here
+
+2020-07-03 07:25:19,255 p=66740 u=srv_ansible n=ansible | ERROR! A malformed block was encountered while loading tasks: {u'group': u'apache', u'name': u'copiar este archivo', u'dest': u'/var/www/copy1.html', u'content': u'{{ ansible_hostname }}\n', u'mode': 420, u'owner': u'apache', u'copy': None} should be a list or None but is <class 'ansible.parsing.yaml.objects.AnsibleMapping'>
+
+The error appears to be in '/home/srv_ansible/copy1.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- hosts: grupo2
+  ^ here
+
+2020-07-03 07:27:21,612 p=66750 u=srv_ansible n=ansible | ERROR! conflicting action statements: dest, owner
+
+The error appears to be in '/home/srv_ansible/copy1.yml': line 5, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  tasks:
+    - name: copiar este archivo
+      ^ here
+
+2020-07-03 07:28:14,009 p=66759 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 07:28:14,018 p=66759 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 07:28:15,959 p=66759 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 07:28:15,976 p=66759 u=srv_ansible n=ansible | TASK [copiar este archivo] ************************************************************************
+2020-07-03 07:28:17,308 p=66759 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 07:28:17,310 p=66759 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 07:28:17,310 p=66759 u=srv_ansible n=ansible | ansible3                   : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-03 07:37:23,289 p=66803 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 07:37:23,298 p=66803 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 07:37:25,087 p=66803 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 07:37:25,102 p=66803 u=srv_ansible n=ansible | TASK [copiar este archivo] ************************************************************************
+2020-07-03 07:37:26,401 p=66803 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 07:37:26,404 p=66803 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 07:37:26,404 p=66803 u=srv_ansible n=ansible | ansible3                   : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-03 07:41:11,692 p=66845 u=srv_ansible n=ansible | ERROR! A playbook must be a list of plays, got a <class 'ansible.parsing.yaml.objects.AnsibleUnicode'> instead
+
+The error appears to be in '/home/srv_ansible/copy1.yml': line 1, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+hola
+^ here
+
+2020-07-03 07:45:56,979 p=66861 u=srv_ansible n=ansible | ERROR! the playbook: copy1.yml could not be found
+2020-07-03 07:46:03,361 p=66866 u=srv_ansible n=ansible | ERROR! the playbook: copy1.yaml could not be found
+2020-07-03 07:46:55,211 p=66875 u=srv_ansible n=ansible | ERROR! 'host' is not a valid attribute for a Play
+
+The error appears to be in '/home/srv_ansible/practicando_a_fondo/copy.yaml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- host: grupo2
+  ^ here
+
+2020-07-03 07:47:18,306 p=66884 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 07:47:18,315 p=66884 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 07:47:20,080 p=66884 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 07:47:20,096 p=66884 u=srv_ansible n=ansible | TASK [Copiar archivo] *****************************************************************************
+2020-07-03 07:47:21,357 p=66884 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 07:47:21,358 p=66884 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 07:47:21,359 p=66884 u=srv_ansible n=ansible | ansible3                   : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-03 07:53:17,921 p=66926 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 07:53:17,930 p=66926 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 07:53:19,758 p=66926 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 07:53:19,775 p=66926 u=srv_ansible n=ansible | TASK [Copiar archivo] *****************************************************************************
+2020-07-03 07:53:21,061 p=66926 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 07:53:21,063 p=66926 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 07:53:21,063 p=66926 u=srv_ansible n=ansible | ansible3                   : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-03 07:54:24,343 p=66965 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 07:54:24,352 p=66965 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 07:54:26,110 p=66965 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 07:54:26,126 p=66965 u=srv_ansible n=ansible | TASK [Copiar archivo] *****************************************************************************
+2020-07-03 07:54:27,328 p=66965 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 07:54:27,330 p=66965 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 07:54:27,330 p=66965 u=srv_ansible n=ansible | ansible3                   : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-03 07:57:20,885 p=67003 u=srv_ansible n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: No JSON object could be decoded
+
+Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to be in '/home/srv_ansible/practicando_a_fondo/copy.yaml': line 7, column 37, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+      copy:
+        src: "Hola este es el host "{{ ansible_hostname }}"
+                                    ^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2020-07-03 07:58:20,545 p=67012 u=srv_ansible n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: No JSON object could be decoded
+
+Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to be in '/home/srv_ansible/practicando_a_fondo/copy.yaml': line 7, column 38, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+      copy:
+        src: "Hola este es el host " {{ ansible_hostname }} ""
+                                     ^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2020-07-03 07:58:52,134 p=67022 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 07:58:52,143 p=67022 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 07:58:53,886 p=67022 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 07:58:53,902 p=67022 u=srv_ansible n=ansible | TASK [Copiar archivo] *****************************************************************************
+2020-07-03 07:58:54,123 p=67022 u=srv_ansible n=ansible | An exception occurred during task execution. To see the full traceback, use -vvv. The error was: If you are using a module and expect the file to exist on the remote, see the remote_src option
+2020-07-03 07:58:54,123 p=67022 u=srv_ansible n=ansible | fatal: [ansible3]: FAILED! => {"changed": false, "msg": "Could not find or access 'Hola este es el host  ansible3 '\nSearched in:\n\t/home/srv_ansible/practicando_a_fondo/files/Hola este es el host  ansible3 \n\t/home/srv_ansible/practicando_a_fondo/Hola este es el host  ansible3 \n\t/home/srv_ansible/practicando_a_fondo/files/Hola este es el host  ansible3 \n\t/home/srv_ansible/practicando_a_fondo/Hola este es el host  ansible3  on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2020-07-03 07:58:54,124 p=67022 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 07:58:54,125 p=67022 u=srv_ansible n=ansible | ansible3                   : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-07-03 08:00:52,583 p=67052 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 08:00:52,592 p=67052 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 08:00:54,300 p=67052 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 08:00:54,316 p=67052 u=srv_ansible n=ansible | TASK [Copiar archivo] *****************************************************************************
+2020-07-03 08:00:55,595 p=67052 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 08:00:55,597 p=67052 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 08:00:55,597 p=67052 u=srv_ansible n=ansible | ansible3                   : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-03 08:12:06,230 p=67118 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 08:12:06,239 p=67118 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 08:12:08,041 p=67118 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 08:12:08,058 p=67118 u=srv_ansible n=ansible | TASK [Copiar archivo] *****************************************************************************
+2020-07-03 08:12:09,277 p=67118 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 08:12:09,291 p=67118 u=srv_ansible n=ansible | TASK [Modulo lineinfile] **************************************************************************
+2020-07-03 08:12:10,025 p=67118 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 08:12:10,027 p=67118 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 08:12:10,027 p=67118 u=srv_ansible n=ansible | ansible3                   : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-03 08:15:14,955 p=67165 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 08:15:14,964 p=67165 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 08:15:16,702 p=67165 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 08:15:16,718 p=67165 u=srv_ansible n=ansible | TASK [Copiar archivo] *****************************************************************************
+2020-07-03 08:15:17,967 p=67165 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 08:15:17,981 p=67165 u=srv_ansible n=ansible | TASK [Modulo lineinfile] **************************************************************************
+2020-07-03 08:15:18,685 p=67165 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 08:15:18,687 p=67165 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 08:15:18,687 p=67165 u=srv_ansible n=ansible | ansible3                   : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-03 08:31:38,088 p=67224 u=srv_ansible n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: No JSON object could be decoded
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/srv_ansible/practicando_a_fondo/copy2-block.yml': line 16, column 14, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+      º- name: Crear archivo
+        shell:  touch /root/C123.txt
+             ^ here
+
+2020-07-03 08:31:55,227 p=67233 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 08:31:55,236 p=67233 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 08:31:57,088 p=67233 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 08:31:57,104 p=67233 u=srv_ansible n=ansible | TASK [Crear archivo] ******************************************************************************
+2020-07-03 08:31:57,824 p=67233 u=srv_ansible n=ansible | [WARNING]: Consider using the file module with state=touch rather than running 'touch'.  If you
+need to use command because file is insufficient you can add 'warn: false' to this command task or
+set 'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2020-07-03 08:31:57,824 p=67233 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 08:31:57,837 p=67233 u=srv_ansible n=ansible | TASK [Crear archivo] ******************************************************************************
+2020-07-03 08:31:58,375 p=67233 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 08:31:58,389 p=67233 u=srv_ansible n=ansible | TASK [Crear archivo] ******************************************************************************
+2020-07-03 08:31:58,936 p=67233 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 08:31:58,950 p=67233 u=srv_ansible n=ansible | TASK [Crear archivo] ******************************************************************************
+2020-07-03 08:31:59,481 p=67233 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 08:31:59,482 p=67233 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 08:31:59,483 p=67233 u=srv_ansible n=ansible | ansible3                   : ok=5    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-03 08:35:04,676 p=67295 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 08:35:04,685 p=67295 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 08:35:06,531 p=67295 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 08:35:06,548 p=67295 u=srv_ansible n=ansible | TASK [Crear archivo] ******************************************************************************
+2020-07-03 08:35:07,320 p=67295 u=srv_ansible n=ansible | [WARNING]: Consider using the file module with state=touch rather than running 'touch'.  If you
+need to use command because file is insufficient you can add 'warn: false' to this command task or
+set 'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2020-07-03 08:35:07,320 p=67295 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 08:35:07,334 p=67295 u=srv_ansible n=ansible | TASK [Crear archivo] ******************************************************************************
+2020-07-03 08:35:07,887 p=67295 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 08:35:07,901 p=67295 u=srv_ansible n=ansible | TASK [Crear archivo] ******************************************************************************
+2020-07-03 08:35:08,463 p=67295 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 08:35:08,478 p=67295 u=srv_ansible n=ansible | TASK [Crear archivo] ******************************************************************************
+2020-07-03 08:35:09,050 p=67295 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 08:35:09,052 p=67295 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 08:35:09,052 p=67295 u=srv_ansible n=ansible | ansible3                   : ok=5    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-03 08:38:35,747 p=67356 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 08:38:35,757 p=67356 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 08:38:37,502 p=67356 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 08:38:37,518 p=67356 u=srv_ansible n=ansible | TASK [Crear archivo] ******************************************************************************
+2020-07-03 08:38:38,239 p=67356 u=srv_ansible n=ansible | [WARNING]: Consider using the file module with state=touch rather than running 'touch'.  If you
+need to use command because file is insufficient you can add 'warn: false' to this command task or
+set 'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2020-07-03 08:38:38,239 p=67356 u=srv_ansible n=ansible | fatal: [ansible3]: FAILED! => {"changed": true, "cmd": "touch /rot/123.txt", "delta": "0:00:00.004554", "end": "2020-07-03 18:46:22.080601", "msg": "non-zero return code", "rc": 1, "start": "2020-07-03 18:46:22.076047", "stderr": "touch: cannot touch ‘/rot/123.txt’: No such file or directory", "stderr_lines": ["touch: cannot touch ‘/rot/123.txt’: No such file or directory"], "stdout": "", "stdout_lines": []}
+2020-07-03 08:38:38,253 p=67356 u=srv_ansible n=ansible | TASK [El task anterior fallo, creando archivo] ****************************************************
+2020-07-03 08:38:38,780 p=67356 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 08:38:38,782 p=67356 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 08:38:38,782 p=67356 u=srv_ansible n=ansible | ansible3                   : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=1    ignored=0   
+2020-07-03 08:39:50,417 p=67400 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 08:39:50,426 p=67400 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 08:39:52,145 p=67400 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 08:39:52,161 p=67400 u=srv_ansible n=ansible | TASK [Crear archivo] ******************************************************************************
+2020-07-03 08:39:52,879 p=67400 u=srv_ansible n=ansible | [WARNING]: Consider using the file module with state=touch rather than running 'touch'.  If you
+need to use command because file is insufficient you can add 'warn: false' to this command task or
+set 'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2020-07-03 08:39:52,879 p=67400 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 08:39:52,881 p=67400 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 08:39:52,881 p=67400 u=srv_ansible n=ansible | ansible3                   : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-03 08:41:45,513 p=67434 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 08:41:45,522 p=67434 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 08:41:47,348 p=67434 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 08:41:47,365 p=67434 u=srv_ansible n=ansible | TASK [Crear archivo] ******************************************************************************
+2020-07-03 08:41:48,123 p=67434 u=srv_ansible n=ansible | [WARNING]: Consider using the file module with state=touch rather than running 'touch'.  If you
+need to use command because file is insufficient you can add 'warn: false' to this command task or
+set 'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2020-07-03 08:41:48,123 p=67434 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 08:41:48,138 p=67434 u=srv_ansible n=ansible | TASK [crea esto] **********************************************************************************
+2020-07-03 08:41:48,708 p=67434 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 08:41:48,710 p=67434 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 08:41:48,710 p=67434 u=srv_ansible n=ansible | ansible3                   : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-03 08:41:58,654 p=67476 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 08:41:58,664 p=67476 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 08:42:00,107 p=67476 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 08:42:00,124 p=67476 u=srv_ansible n=ansible | TASK [Crear archivo] ******************************************************************************
+2020-07-03 08:42:00,880 p=67476 u=srv_ansible n=ansible | [WARNING]: Consider using the file module with state=touch rather than running 'touch'.  If you
+need to use command because file is insufficient you can add 'warn: false' to this command task or
+set 'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2020-07-03 08:42:00,880 p=67476 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 08:42:00,894 p=67476 u=srv_ansible n=ansible | TASK [crea esto] **********************************************************************************
+2020-07-03 08:42:01,452 p=67476 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 08:42:01,454 p=67476 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 08:42:01,454 p=67476 u=srv_ansible n=ansible | ansible3                   : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-03 08:42:06,683 p=67516 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 08:42:06,691 p=67516 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 08:42:08,140 p=67516 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 08:42:08,157 p=67516 u=srv_ansible n=ansible | TASK [Crear archivo] ******************************************************************************
+2020-07-03 08:42:08,945 p=67516 u=srv_ansible n=ansible | [WARNING]: Consider using the file module with state=touch rather than running 'touch'.  If you
+need to use command because file is insufficient you can add 'warn: false' to this command task or
+set 'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2020-07-03 08:42:08,946 p=67516 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 08:42:08,960 p=67516 u=srv_ansible n=ansible | TASK [crea esto] **********************************************************************************
+2020-07-03 08:42:09,514 p=67516 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 08:42:09,516 p=67516 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 08:42:09,516 p=67516 u=srv_ansible n=ansible | ansible3                   : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-03 08:45:43,211 p=67556 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 08:45:43,220 p=67556 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 08:45:45,215 p=67556 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 08:45:45,232 p=67556 u=srv_ansible n=ansible | TASK [Crear archivo] ******************************************************************************
+2020-07-03 08:45:45,985 p=67556 u=srv_ansible n=ansible | [WARNING]: Consider using the file module with state=touch rather than running 'touch'.  If you
+need to use command because file is insufficient you can add 'warn: false' to this command task or
+set 'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2020-07-03 08:45:45,985 p=67556 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 08:45:45,999 p=67556 u=srv_ansible n=ansible | TASK [crea esto] **********************************************************************************
+2020-07-03 08:45:46,556 p=67556 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 08:45:46,570 p=67556 u=srv_ansible n=ansible | TASK [Crear archivo A] ****************************************************************************
+2020-07-03 08:45:47,134 p=67556 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 08:45:47,149 p=67556 u=srv_ansible n=ansible | TASK [crea esto A] ********************************************************************************
+2020-07-03 08:45:47,708 p=67556 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 08:45:47,710 p=67556 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 08:45:47,710 p=67556 u=srv_ansible n=ansible | ansible3                   : ok=5    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-03 08:54:50,861 p=67619 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 08:54:50,870 p=67619 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 08:54:52,702 p=67619 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 08:54:52,719 p=67619 u=srv_ansible n=ansible | TASK [install httpd] ******************************************************************************
+2020-07-03 08:55:13,295 p=67619 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 08:55:13,297 p=67619 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 08:55:13,297 p=67619 u=srv_ansible n=ansible | ansible3                   : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-03 08:56:50,354 p=67653 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 08:56:50,363 p=67653 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 08:56:52,451 p=67653 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 08:56:52,467 p=67653 u=srv_ansible n=ansible | TASK [install httpd] ******************************************************************************
+2020-07-03 08:56:56,900 p=67653 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 08:56:56,917 p=67653 u=srv_ansible n=ansible | TASK [debug installation] *************************************************************************
+2020-07-03 08:56:56,964 p=67653 u=srv_ansible n=ansible | ok: [ansible3] => {
+    "installation": {
+        "changed": false, 
+        "changes": {
+            "installed": [], 
+            "updated": []
+        }, 
+        "failed": false, 
+        "msg": "", 
+        "rc": 0, 
+        "results": [
+            "All packages providing httpd are up to date", 
+            ""
+        ]
+    }
+}
+2020-07-03 08:56:56,966 p=67653 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 08:56:56,966 p=67653 u=srv_ansible n=ansible | ansible3                   : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-03 09:00:18,403 p=67691 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 09:00:18,412 p=67691 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 09:00:20,232 p=67691 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 09:00:20,248 p=67691 u=srv_ansible n=ansible | TASK [install httpd] ******************************************************************************
+2020-07-03 09:00:23,813 p=67691 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 09:00:23,827 p=67691 u=srv_ansible n=ansible | TASK [debug installation] *************************************************************************
+2020-07-03 09:00:23,869 p=67691 u=srv_ansible n=ansible | ok: [ansible3] => {
+    "installation": {
+        "changed": false, 
+        "changes": {
+            "installed": [], 
+            "updated": []
+        }, 
+        "failed": false, 
+        "msg": "", 
+        "rc": 0, 
+        "results": [
+            "All packages providing httpd are up to date", 
+            ""
+        ]
+    }
+}
+2020-07-03 09:00:23,872 p=67691 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 09:00:23,873 p=67691 u=srv_ansible n=ansible | ansible3                   : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-03 09:00:37,105 p=67727 u=srv_ansible n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: No JSON object could be decoded
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/srv_ansible/practicando_a_fondo/file.yml': line 11, column 12, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+    - name: debug
+        var: file
+           ^ here
+
+2020-07-03 09:01:13,405 p=67749 u=srv_ansible n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: No JSON object could be decoded
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/srv_ansible/practicando_a_fondo/file.yml': line 11, column 13, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+    - name: debug
+        vars: file
+            ^ here
+
+2020-07-03 09:04:50,603 p=67758 u=srv_ansible n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: No JSON object could be decoded
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/srv_ansible/practicando_a_fondo/file.yml': line 11, column 14, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+    - name: debug
+        debug:
+             ^ here
+
+2020-07-03 09:05:32,470 p=67768 u=srv_ansible n=ansible | ERROR! 'task' is not a valid attribute for a Play
+
+The error appears to be in '/home/srv_ansible/practicando_a_fondo/file.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- hosts: grupo2
+  ^ here
+
+2020-07-03 09:06:14,188 p=67779 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 09:06:14,197 p=67779 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 09:06:15,957 p=67779 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 09:06:15,973 p=67779 u=srv_ansible n=ansible | TASK [crear archivo] ******************************************************************************
+2020-07-03 09:06:17,242 p=67779 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 09:06:17,255 p=67779 u=srv_ansible n=ansible | TASK [debug] **************************************************************************************
+2020-07-03 09:06:17,297 p=67779 u=srv_ansible n=ansible | ok: [ansible3] => {
+    "file": {
+        "changed": true, 
+        "checksum": "40bd001563085fc35165329ea1ff5c5ecbdbbeef", 
+        "dest": "/root/123.txt", 
+        "diff": [], 
+        "failed": false, 
+        "gid": 0, 
+        "group": "root", 
+        "md5sum": "202cb962ac59075b964b07152d234b70", 
+        "mode": "0644", 
+        "owner": "root", 
+        "secontext": "unconfined_u:object_r:admin_home_t:s0", 
+        "size": 3, 
+        "src": "/home/srv_ansible/.ansible/tmp/ansible-tmp-1593759976.04-67802-204865842969967/source", 
+        "state": "file", 
+        "uid": 0
+    }
+}
+2020-07-03 09:06:17,301 p=67779 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 09:06:17,302 p=67779 u=srv_ansible n=ansible | ansible3                   : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-03 09:10:35,372 p=67823 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 09:10:35,381 p=67823 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 09:10:37,216 p=67823 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 09:10:37,233 p=67823 u=srv_ansible n=ansible | TASK [servicio] ***********************************************************************************
+2020-07-03 09:10:38,273 p=67823 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 09:10:38,275 p=67823 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 09:10:38,275 p=67823 u=srv_ansible n=ansible | ansible3                   : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-03 09:13:04,324 p=67858 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 09:13:04,333 p=67858 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 09:13:06,103 p=67858 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 09:13:06,118 p=67858 u=srv_ansible n=ansible | TASK [servicio] ***********************************************************************************
+2020-07-03 09:13:07,080 p=67858 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 09:13:07,097 p=67858 u=srv_ansible n=ansible | TASK [debug servicio] *****************************************************************************
+2020-07-03 09:13:07,151 p=67858 u=srv_ansible n=ansible | ok: [ansible3] => {
+    "srv": {
+        "changed": false, 
+        "enabled": true, 
+        "failed": false, 
+        "name": "httpd", 
+        "state": "started", 
+        "status": {
+            "ActiveEnterTimestamp": "Wed 2020-07-01 19:45:25 CEST", 
+            "ActiveEnterTimestampMonotonic": "119832142367", 
+            "ActiveExitTimestampMonotonic": "0", 
+            "ActiveState": "active", 
+            "After": "system.slice network.target remote-fs.target basic.target systemd-journald.socket -.mount nss-lookup.target tmp.mount", 
+            "AllowIsolate": "no", 
+            "AmbientCapabilities": "0", 
+            "AssertResult": "yes", 
+            "AssertTimestamp": "Wed 2020-07-01 19:45:25 CEST", 
+            "AssertTimestampMonotonic": "119832017420", 
+            "Before": "shutdown.target multi-user.target", 
+            "BlockIOAccounting": "no", 
+            "BlockIOWeight": "18446744073709551615", 
+            "CPUAccounting": "no", 
+            "CPUQuotaPerSecUSec": "infinity", 
+            "CPUSchedulingPolicy": "0", 
+            "CPUSchedulingPriority": "0", 
+            "CPUSchedulingResetOnFork": "no", 
+            "CPUShares": "18446744073709551615", 
+            "CanIsolate": "no", 
+            "CanReload": "yes", 
+            "CanStart": "yes", 
+            "CanStop": "yes", 
+            "CapabilityBoundingSet": "18446744073709551615", 
+            "ConditionResult": "yes", 
+            "ConditionTimestamp": "Wed 2020-07-01 19:45:25 CEST", 
+            "ConditionTimestampMonotonic": "119832017420", 
+            "Conflicts": "shutdown.target", 
+            "ControlGroup": "/system.slice/httpd.service", 
+            "ControlPID": "0", 
+            "DefaultDependencies": "yes", 
+            "Delegate": "no", 
+            "Description": "The Apache HTTP Server", 
+            "DevicePolicy": "auto", 
+            "Documentation": "man:httpd(8) man:apachectl(8)", 
+            "EnvironmentFile": "/etc/sysconfig/httpd (ignore_errors=no)", 
+            "ExecMainCode": "0", 
+            "ExecMainExitTimestampMonotonic": "0", 
+            "ExecMainPID": "35465", 
+            "ExecMainStartTimestamp": "Wed 2020-07-01 19:45:25 CEST", 
+            "ExecMainStartTimestampMonotonic": "119832018973", 
+            "ExecMainStatus": "0", 
+            "ExecReload": "{ path=/usr/sbin/httpd ; argv[]=/usr/sbin/httpd $OPTIONS -k graceful ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", 
+            "ExecStart": "{ path=/usr/sbin/httpd ; argv[]=/usr/sbin/httpd $OPTIONS -DFOREGROUND ; ignore_errors=no ; start_time=[Wed 2020-07-01 19:45:25 CEST] ; stop_time=[n/a] ; pid=35465 ; code=(null) ; status=0/0 }", 
+            "ExecStop": "{ path=/bin/kill ; argv[]=/bin/kill -WINCH ${MAINPID} ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }", 
+            "FailureAction": "none", 
+            "FileDescriptorStoreMax": "0", 
+            "FragmentPath": "/usr/lib/systemd/system/httpd.service", 
+            "GuessMainPID": "yes", 
+            "IOScheduling": "0", 
+            "Id": "httpd.service", 
+            "IgnoreOnIsolate": "no", 
+            "IgnoreOnSnapshot": "no", 
+            "IgnoreSIGPIPE": "yes", 
+            "InactiveEnterTimestampMonotonic": "0", 
+            "InactiveExitTimestamp": "Wed 2020-07-01 19:45:25 CEST", 
+            "InactiveExitTimestampMonotonic": "119832019521", 
+            "JobTimeoutAction": "none", 
+            "JobTimeoutUSec": "0", 
+            "KillMode": "control-group", 
+            "KillSignal": "18", 
+            "LimitAS": "18446744073709551615", 
+            "LimitCORE": "18446744073709551615", 
+            "LimitCPU": "18446744073709551615", 
+            "LimitDATA": "18446744073709551615", 
+            "LimitFSIZE": "18446744073709551615", 
+            "LimitLOCKS": "18446744073709551615", 
+            "LimitMEMLOCK": "65536", 
+            "LimitMSGQUEUE": "819200", 
+            "LimitNICE": "0", 
+            "LimitNOFILE": "4096", 
+            "LimitNPROC": "4021", 
+            "LimitRSS": "18446744073709551615", 
+            "LimitRTPRIO": "0", 
+            "LimitRTTIME": "18446744073709551615", 
+            "LimitSIGPENDING": "4021", 
+            "LimitSTACK": "18446744073709551615", 
+            "LoadState": "loaded", 
+            "MainPID": "35465", 
+            "MemoryAccounting": "no", 
+            "MemoryCurrent": "18446744073709551615", 
+            "MemoryLimit": "18446744073709551615", 
+            "MountFlags": "0", 
+            "Names": "httpd.service", 
+            "NeedDaemonReload": "no", 
+            "Nice": "0", 
+            "NoNewPrivileges": "no", 
+            "NonBlocking": "no", 
+            "NotifyAccess": "main", 
+            "OOMScoreAdjust": "0", 
+            "OnFailureJobMode": "replace", 
+            "PermissionsStartOnly": "no", 
+            "PrivateDevices": "no", 
+            "PrivateNetwork": "no", 
+            "PrivateTmp": "yes", 
+            "ProtectHome": "no", 
+            "ProtectSystem": "no", 
+            "RefuseManualStart": "no", 
+            "RefuseManualStop": "no", 
+            "RemainAfterExit": "no", 
+            "Requires": "basic.target -.mount system.slice", 
+            "RequiresMountsFor": "/var/tmp", 
+            "Restart": "no", 
+            "RestartUSec": "100ms", 
+            "Result": "success", 
+            "RootDirectoryStartOnly": "no", 
+            "RuntimeDirectoryMode": "0755", 
+            "SameProcessGroup": "no", 
+            "SecureBits": "0", 
+            "SendSIGHUP": "no", 
+            "SendSIGKILL": "yes", 
+            "Slice": "system.slice", 
+            "StandardError": "inherit", 
+            "StandardInput": "null", 
+            "StandardOutput": "journal", 
+            "StartLimitAction": "none", 
+            "StartLimitBurst": "5", 
+            "StartLimitInterval": "10000000", 
+            "StartupBlockIOWeight": "18446744073709551615", 
+            "StartupCPUShares": "18446744073709551615", 
+            "StatusErrno": "0", 
+            "StatusText": "Total requests: 67; Current requests/sec: 0; Current traffic:   0 B/sec", 
+            "StopWhenUnneeded": "no", 
+            "SubState": "running", 
+            "SyslogLevelPrefix": "yes", 
+            "SyslogPriority": "30", 
+            "SystemCallErrorNumber": "0", 
+            "TTYReset": "no", 
+            "TTYVHangup": "no", 
+            "TTYVTDisallocate": "no", 
+            "TasksAccounting": "no", 
+            "TasksCurrent": "11", 
+            "TasksMax": "18446744073709551615", 
+            "TimeoutStartUSec": "1min 30s", 
+            "TimeoutStopUSec": "1min 30s", 
+            "TimerSlackNSec": "50000", 
+            "Transient": "no", 
+            "Type": "notify", 
+            "UMask": "0022", 
+            "UnitFilePreset": "disabled", 
+            "UnitFileState": "enabled", 
+            "WantedBy": "multi-user.target", 
+            "WatchdogTimestamp": "Wed 2020-07-01 19:45:25 CEST", 
+            "WatchdogTimestampMonotonic": "119832142218", 
+            "WatchdogUSec": "0"
+        }
+    }
+}
+2020-07-03 09:13:07,154 p=67858 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 09:13:07,155 p=67858 u=srv_ansible n=ansible | ansible3                   : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-03 09:17:23,161 p=67895 u=srv_ansible n=ansible | ERROR! Hosts list cannot be empty - please check your playbook
+2020-07-03 09:17:51,270 p=67904 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 09:17:51,279 p=67904 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 09:17:52,984 p=67904 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 09:17:53,000 p=67904 u=srv_ansible n=ansible | TASK [verificar archivos] *************************************************************************
+2020-07-03 09:17:53,674 p=67904 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 09:17:53,688 p=67904 u=srv_ansible n=ansible | TASK [debug] **************************************************************************************
+2020-07-03 09:17:53,733 p=67904 u=srv_ansible n=ansible | ok: [ansible3] => {
+    "file": {
+        "changed": false, 
+        "failed": false, 
+        "stat": {
+            "atime": 1593796313.470294, 
+            "attr_flags": "", 
+            "attributes": [], 
+            "block_size": 4096, 
+            "blocks": 8, 
+            "charset": "us-ascii", 
+            "checksum": "40bd001563085fc35165329ea1ff5c5ecbdbbeef", 
+            "ctime": 1593796313.4722939, 
+            "dev": 64768, 
+            "device_type": 0, 
+            "executable": false, 
+            "exists": true, 
+            "gid": 0, 
+            "gr_name": "root", 
+            "inode": 187072, 
+            "isblk": false, 
+            "ischr": false, 
+            "isdir": false, 
+            "isfifo": false, 
+            "isgid": false, 
+            "islnk": false, 
+            "isreg": true, 
+            "issock": false, 
+            "isuid": false, 
+            "mimetype": "text/plain", 
+            "mode": "0644", 
+            "mtime": 1593796313.024309, 
+            "nlink": 1, 
+            "path": "/root/123.txt", 
+            "pw_name": "root", 
+            "readable": true, 
+            "rgrp": true, 
+            "roth": true, 
+            "rusr": true, 
+            "size": 3, 
+            "uid": 0, 
+            "version": "18446744072532032690", 
+            "wgrp": false, 
+            "woth": false, 
+            "writeable": true, 
+            "wusr": true, 
+            "xgrp": false, 
+            "xoth": false, 
+            "xusr": false
+        }
+    }
+}
+2020-07-03 09:17:53,735 p=67904 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 09:17:53,735 p=67904 u=srv_ansible n=ansible | ansible3                   : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-03 09:23:20,557 p=67942 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 09:23:20,565 p=67942 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 09:23:22,372 p=67942 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 09:23:22,388 p=67942 u=srv_ansible n=ansible | TASK [verificar archivos] *************************************************************************
+2020-07-03 09:23:23,103 p=67942 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 09:23:23,118 p=67942 u=srv_ansible n=ansible | TASK [debug] **************************************************************************************
+2020-07-03 09:23:23,166 p=67942 u=srv_ansible n=ansible | ok: [ansible3] => {
+    "file": {
+        "changed": false, 
+        "failed": false, 
+        "stat": {
+            "atime": 1593796956.3208156, 
+            "attr_flags": "", 
+            "attributes": [], 
+            "block_size": 4096, 
+            "blocks": 8, 
+            "charset": "us-ascii", 
+            "checksum": "40bd001563085fc35165329ea1ff5c5ecbdbbeef", 
+            "ctime": 1593796313.4722939, 
+            "dev": 64768, 
+            "device_type": 0, 
+            "executable": false, 
+            "exists": true, 
+            "gid": 0, 
+            "gr_name": "root", 
+            "inode": 187072, 
+            "isblk": false, 
+            "ischr": false, 
+            "isdir": false, 
+            "isfifo": false, 
+            "isgid": false, 
+            "islnk": false, 
+            "isreg": true, 
+            "issock": false, 
+            "isuid": false, 
+            "mimetype": "text/plain", 
+            "mode": "0644", 
+            "mtime": 1593796313.024309, 
+            "nlink": 1, 
+            "path": "/root/123.txt", 
+            "pw_name": "root", 
+            "readable": true, 
+            "rgrp": true, 
+            "roth": true, 
+            "rusr": true, 
+            "size": 3, 
+            "uid": 0, 
+            "version": "18446744072532032690", 
+            "wgrp": false, 
+            "woth": false, 
+            "writeable": true, 
+            "wusr": true, 
+            "xgrp": false, 
+            "xoth": false, 
+            "xusr": false
+        }
+    }
+}
+2020-07-03 09:23:23,183 p=67942 u=srv_ansible n=ansible | TASK [si el archivo existe] ***********************************************************************
+2020-07-03 09:23:23,224 p=67942 u=srv_ansible n=ansible | fatal: [ansible3]: FAILED! => {"msg": "The conditional check 'file.stat.exits == false' failed. The error was: error while evaluating conditional (file.stat.exits == false): 'dict object' has no attribute 'exits'\n\nThe error appears to be in '/home/srv_ansible/practicando_a_fondo/stat.yaml': line 12, column 7, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n    - name: si el archivo existe\n      ^ here\n"}
+2020-07-03 09:23:23,230 p=67942 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 09:23:23,230 p=67942 u=srv_ansible n=ansible | ansible3                   : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-07-03 09:24:41,577 p=67980 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 09:24:41,586 p=67980 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 09:24:43,347 p=67980 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 09:24:43,363 p=67980 u=srv_ansible n=ansible | TASK [verificar archivos] *************************************************************************
+2020-07-03 09:24:44,039 p=67980 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 09:24:44,054 p=67980 u=srv_ansible n=ansible | TASK [debug] **************************************************************************************
+2020-07-03 09:24:44,097 p=67980 u=srv_ansible n=ansible | ok: [ansible3] => {
+    "file": {
+        "changed": false, 
+        "failed": false, 
+        "stat": {
+            "atime": 1593796956.3208156, 
+            "attr_flags": "", 
+            "attributes": [], 
+            "block_size": 4096, 
+            "blocks": 8, 
+            "charset": "us-ascii", 
+            "checksum": "40bd001563085fc35165329ea1ff5c5ecbdbbeef", 
+            "ctime": 1593796313.4722939, 
+            "dev": 64768, 
+            "device_type": 0, 
+            "executable": false, 
+            "exists": true, 
+            "gid": 0, 
+            "gr_name": "root", 
+            "inode": 187072, 
+            "isblk": false, 
+            "ischr": false, 
+            "isdir": false, 
+            "isfifo": false, 
+            "isgid": false, 
+            "islnk": false, 
+            "isreg": true, 
+            "issock": false, 
+            "isuid": false, 
+            "mimetype": "text/plain", 
+            "mode": "0644", 
+            "mtime": 1593796313.024309, 
+            "nlink": 1, 
+            "path": "/root/123.txt", 
+            "pw_name": "root", 
+            "readable": true, 
+            "rgrp": true, 
+            "roth": true, 
+            "rusr": true, 
+            "size": 3, 
+            "uid": 0, 
+            "version": "18446744072532032690", 
+            "wgrp": false, 
+            "woth": false, 
+            "writeable": true, 
+            "wusr": true, 
+            "xgrp": false, 
+            "xoth": false, 
+            "xusr": false
+        }
+    }
+}
+2020-07-03 09:24:44,114 p=67980 u=srv_ansible n=ansible | TASK [si el archivo existe] ***********************************************************************
+2020-07-03 09:24:44,154 p=67980 u=srv_ansible n=ansible | skipping: [ansible3]
+2020-07-03 09:24:44,156 p=67980 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 09:24:44,157 p=67980 u=srv_ansible n=ansible | ansible3                   : ok=3    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-07-03 09:27:26,260 p=68018 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 09:27:26,268 p=68018 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 09:27:28,095 p=68018 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 09:27:28,111 p=68018 u=srv_ansible n=ansible | TASK [verificar archivos] *************************************************************************
+2020-07-03 09:27:28,807 p=68018 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 09:27:28,822 p=68018 u=srv_ansible n=ansible | TASK [debug] **************************************************************************************
+2020-07-03 09:27:28,866 p=68018 u=srv_ansible n=ansible | ok: [ansible3] => {
+    "file": {
+        "changed": false, 
+        "failed": false, 
+        "stat": {
+            "exists": false
+        }
+    }
+}
+2020-07-03 09:27:28,884 p=68018 u=srv_ansible n=ansible | TASK [si el archivo existe] ***********************************************************************
+2020-07-03 09:27:29,605 p=68018 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 09:27:29,607 p=68018 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 09:27:29,607 p=68018 u=srv_ansible n=ansible | ansible3                   : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-03 09:31:14,369 p=68064 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 09:31:14,378 p=68064 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 09:31:16,144 p=68064 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 09:31:16,161 p=68064 u=srv_ansible n=ansible | TASK [verificar archivos] *************************************************************************
+2020-07-03 09:31:16,877 p=68064 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 09:31:16,892 p=68064 u=srv_ansible n=ansible | TASK [debug] **************************************************************************************
+2020-07-03 09:31:16,939 p=68064 u=srv_ansible n=ansible | ok: [ansible3] => {
+    "file": {
+        "changed": false, 
+        "failed": false, 
+        "stat": {
+            "atime": 1593797552.2001038, 
+            "attr_flags": "", 
+            "attributes": [], 
+            "block_size": 4096, 
+            "blocks": 0, 
+            "charset": "binary", 
+            "checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709", 
+            "ctime": 1593797586.5158505, 
+            "dev": 64768, 
+            "device_type": 0, 
+            "executable": true, 
+            "exists": true, 
+            "gid": 0, 
+            "gr_name": "root", 
+            "inode": 33584016, 
+            "isblk": false, 
+            "ischr": false, 
+            "isdir": false, 
+            "isfifo": false, 
+            "isgid": false, 
+            "islnk": false, 
+            "isreg": true, 
+            "issock": false, 
+            "isuid": false, 
+            "mimetype": "inode/x-empty", 
+            "mode": "0755", 
+            "mtime": 1593797552.2001038, 
+            "nlink": 1, 
+            "path": "/root/123.txt", 
+            "pw_name": "root", 
+            "readable": true, 
+            "rgrp": true, 
+            "roth": true, 
+            "rusr": true, 
+            "size": 0, 
+            "uid": 0, 
+            "version": "2016609978", 
+            "wgrp": false, 
+            "woth": false, 
+            "writeable": true, 
+            "wusr": true, 
+            "xgrp": true, 
+            "xoth": true, 
+            "xusr": true
+        }
+    }
+}
+2020-07-03 09:31:16,956 p=68064 u=srv_ansible n=ansible | TASK [si el archivo existe] ***********************************************************************
+2020-07-03 09:31:16,996 p=68064 u=srv_ansible n=ansible | skipping: [ansible3]
+2020-07-03 09:31:16,998 p=68064 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 09:31:16,999 p=68064 u=srv_ansible n=ansible | ansible3                   : ok=3    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-07-03 09:32:05,699 p=68101 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 09:32:05,707 p=68101 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 09:32:07,082 p=68101 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 09:32:07,097 p=68101 u=srv_ansible n=ansible | TASK [verificar archivos] *************************************************************************
+2020-07-03 09:32:07,766 p=68101 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 09:32:07,780 p=68101 u=srv_ansible n=ansible | TASK [debug] **************************************************************************************
+2020-07-03 09:32:07,825 p=68101 u=srv_ansible n=ansible | ok: [ansible3] => {
+    "file": {
+        "changed": false, 
+        "failed": false, 
+        "stat": {
+            "atime": 1593797697.7317939, 
+            "attr_flags": "", 
+            "attributes": [], 
+            "block_size": 4096, 
+            "blocks": 0, 
+            "charset": "binary", 
+            "checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709", 
+            "ctime": 1593797736.3903842, 
+            "dev": 64768, 
+            "device_type": 0, 
+            "executable": true, 
+            "exists": true, 
+            "gid": 0, 
+            "gr_name": "root", 
+            "inode": 33584016, 
+            "isblk": false, 
+            "ischr": false, 
+            "isdir": false, 
+            "isfifo": false, 
+            "isgid": false, 
+            "islnk": false, 
+            "isreg": true, 
+            "issock": false, 
+            "isuid": false, 
+            "mimetype": "inode/x-empty", 
+            "mode": "0777", 
+            "mtime": 1593797552.2001038, 
+            "nlink": 1, 
+            "path": "/root/123.txt", 
+            "pw_name": "root", 
+            "readable": true, 
+            "rgrp": true, 
+            "roth": true, 
+            "rusr": true, 
+            "size": 0, 
+            "uid": 0, 
+            "version": "2016609978", 
+            "wgrp": true, 
+            "woth": true, 
+            "writeable": true, 
+            "wusr": true, 
+            "xgrp": true, 
+            "xoth": true, 
+            "xusr": true
+        }
+    }
+}
+2020-07-03 09:32:07,842 p=68101 u=srv_ansible n=ansible | TASK [si el archivo existe] ***********************************************************************
+2020-07-03 09:32:07,879 p=68101 u=srv_ansible n=ansible | skipping: [ansible3]
+2020-07-03 09:32:07,881 p=68101 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 09:32:07,881 p=68101 u=srv_ansible n=ansible | ansible3                   : ok=3    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-07-03 09:34:44,203 p=68136 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 09:34:44,212 p=68136 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 09:34:45,916 p=68136 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 09:34:45,931 p=68136 u=srv_ansible n=ansible | TASK [verificar archivos] *************************************************************************
+2020-07-03 09:34:46,598 p=68136 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 09:34:46,612 p=68136 u=srv_ansible n=ansible | TASK [debug] **************************************************************************************
+2020-07-03 09:34:46,655 p=68136 u=srv_ansible n=ansible | ok: [ansible3] => {
+    "file": {
+        "changed": false, 
+        "failed": false, 
+        "stat": {
+            "atime": 1593797744.7160802, 
+            "attr_flags": "", 
+            "attributes": [], 
+            "block_size": 4096, 
+            "blocks": 0, 
+            "charset": "binary", 
+            "checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709", 
+            "ctime": 1593797736.3903842, 
+            "dev": 64768, 
+            "device_type": 0, 
+            "executable": true, 
+            "exists": true, 
+            "gid": 0, 
+            "gr_name": "root", 
+            "inode": 33584016, 
+            "isblk": false, 
+            "ischr": false, 
+            "isdir": false, 
+            "isfifo": false, 
+            "isgid": false, 
+            "islnk": false, 
+            "isreg": true, 
+            "issock": false, 
+            "isuid": false, 
+            "mimetype": "inode/x-empty", 
+            "mode": "0777", 
+            "mtime": 1593797552.2001038, 
+            "nlink": 1, 
+            "path": "/root/123.txt", 
+            "pw_name": "root", 
+            "readable": true, 
+            "rgrp": true, 
+            "roth": true, 
+            "rusr": true, 
+            "size": 0, 
+            "uid": 0, 
+            "version": "2016609978", 
+            "wgrp": true, 
+            "woth": true, 
+            "writeable": true, 
+            "wusr": true, 
+            "xgrp": true, 
+            "xoth": true, 
+            "xusr": true
+        }
+    }
+}
+2020-07-03 09:34:46,673 p=68136 u=srv_ansible n=ansible | TASK [si el archivo existe] ***********************************************************************
+2020-07-03 09:34:46,712 p=68136 u=srv_ansible n=ansible | skipping: [ansible3]
+2020-07-03 09:34:46,715 p=68136 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 09:34:46,716 p=68136 u=srv_ansible n=ansible | ansible3                   : ok=3    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-07-03 09:35:57,022 p=68175 u=srv_ansible n=ansible | PLAY [grupo2] *************************************************************************************
+2020-07-03 09:35:57,031 p=68175 u=srv_ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-07-03 09:35:58,715 p=68175 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 09:35:58,731 p=68175 u=srv_ansible n=ansible | TASK [verificar archivos] *************************************************************************
+2020-07-03 09:35:59,390 p=68175 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-03 09:35:59,405 p=68175 u=srv_ansible n=ansible | TASK [debug] **************************************************************************************
+2020-07-03 09:35:59,450 p=68175 u=srv_ansible n=ansible | ok: [ansible3] => {
+    "file": {
+        "changed": false, 
+        "failed": false, 
+        "stat": {
+            "atime": 1593797744.7160802, 
+            "attr_flags": "", 
+            "attributes": [], 
+            "block_size": 4096, 
+            "blocks": 0, 
+            "charset": "binary", 
+            "checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709", 
+            "ctime": 1593797736.3903842, 
+            "dev": 64768, 
+            "device_type": 0, 
+            "executable": true, 
+            "exists": true, 
+            "gid": 0, 
+            "gr_name": "root", 
+            "inode": 33584016, 
+            "isblk": false, 
+            "ischr": false, 
+            "isdir": false, 
+            "isfifo": false, 
+            "isgid": false, 
+            "islnk": false, 
+            "isreg": true, 
+            "issock": false, 
+            "isuid": false, 
+            "mimetype": "inode/x-empty", 
+            "mode": "0777", 
+            "mtime": 1593797552.2001038, 
+            "nlink": 1, 
+            "path": "/root/123.txt", 
+            "pw_name": "root", 
+            "readable": true, 
+            "rgrp": true, 
+            "roth": true, 
+            "rusr": true, 
+            "size": 0, 
+            "uid": 0, 
+            "version": "2016609978", 
+            "wgrp": true, 
+            "woth": true, 
+            "writeable": true, 
+            "wusr": true, 
+            "xgrp": true, 
+            "xoth": true, 
+            "xusr": true
+        }
+    }
+}
+2020-07-03 09:35:59,466 p=68175 u=srv_ansible n=ansible | TASK [si el archivo existe] ***********************************************************************
+2020-07-03 09:36:00,140 p=68175 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-03 09:36:00,143 p=68175 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-07-03 09:36:00,143 p=68175 u=srv_ansible n=ansible | ansible3                   : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

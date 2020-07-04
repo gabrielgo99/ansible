@@ -1,0 +1,12 @@
+---
+- name: Master - Trabajando con inclusiones
+  hosts: grupo2
+  tasks:
+    - name: incluyendo play
+      include: tasks.yaml
+      vars:
+        paquete: samba
+        servicio: smb
+        state: started
+
+...

@@ -1,0 +1,19 @@
+---
+- name: instalando e iniciando samba y apache
+  yum:
+    name:
+      - "{{ ansible_local.custom.paquetes.smb_pkg }}" 
+      - "{{ ansible_local.custom.paquetes.web_pkg }}" 
+    state: latest
+
+- name: iniciando servicio smb
+  service:
+    name: "{{ ansible_local.custom.servicios.smb_srv }}"
+    state: started
+    enabled: true
+
+- name: iniciando servicio apache
+  service: 
+    name: "{{ ansible_local.custom.servicios.web_srv }}" 
+    state: started
+    enabled: true

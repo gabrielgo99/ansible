@@ -1,0 +1,29 @@
+---
+- hosts: grupo2
+  tasks:
+    - name: instalar apache
+      yum:
+        name: httpd
+        state: latest
+    - name: firewalld
+      firewalld:
+        service: http
+        permanent: true
+        immediate: true
+        state: enabled
+   
+    - name: fact
+      copy:
+        content: "El nombre del servidor es:{{ ansible_hostname }},
+                  y la dirección IP es: {{ ansible_default_ipv4.address }}"
+        dest: /var/www/html/index.html
+    - name: servicio 
+      service: 
+        name: httpd
+        state: started
+        enabled: true
+[pkg]
+web_pkg: httpd
+web_srv: httpd
+db_pkg: mariadb-server
+ 

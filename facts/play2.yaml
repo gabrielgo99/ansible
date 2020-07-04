@@ -1,0 +1,18 @@
+---
+- hosts: grupo2
+  tasks:
+    - name: crear directorio
+      file:
+        path: /etc/ansible/facts.d
+        state: directory
+        recurse: true
+    - name: copiar archivo new facts
+      copy:
+        src: new.fact
+        dest: /etc/ansible/facts.d
+#[pkg]
+#web_pkg: httpd
+#web_srv: httpd
+#db_pkg: mariadb-server
+
+... 

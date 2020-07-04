@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+    - name: instalar mariadb server
+      yum:
+        name: mariadb-server
+        state: latest
+      when: inventory_hostname in groups['grupo1']

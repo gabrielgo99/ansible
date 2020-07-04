@@ -1,0 +1,43 @@
+---
+- hosts: grupo1
+  vars: 
+    srv: httpd
+    fw: firewalld
+    fw_srv: http
+  vars_files:
+    - vars/main.yaml
+
+  tasks:
+    - name: Instalando  HTTP
+      yum:
+        name: httpd
+        state: latest
+
+    - name: Iniciando {{ srv }}
+      service:
+        name: "{{ srv }}"
+        state: started
+        enabled: true
+
+    - name: Abriendo {{ fw }}
+      firewalld:
+        service: "{{ fw_srv }}"
+        immediate: true
+        permanent: true
+        state: enabled
+
+    - name: Copiando templates para HTTP
+      template: 
+        src: httpd.conf.j2
+        dest: /etc/httpd/conf/httpd.conf
+
+    - name: Estableciendo Bienvenida para ssh
+      template:
+        src: motd.j2
+        dest: /etc/motd
+
+    - name: service restart
+      service:
+        name: httpd
+        state: restarted
+

@@ -1,0 +1,9 @@
+---
+- hosts: grupo1
+  tasks:
+    - name: instalar "{{ pkg1 }}"
+      yum:
+        name: "{{ pkg1 }}"
+        state: latest
+
+...

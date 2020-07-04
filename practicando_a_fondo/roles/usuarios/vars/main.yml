@@ -1,0 +1,9 @@
+---
+groupA:
+  - usuarioA
+  - usuarioB
+
+groupB:
+  - usuarioC
+  - usuarioD
+# vars file for usuarios

@@ -1,0 +1,7 @@
+
+---
+server_admin: usuario@localhost
+web_root: "/var/www/html"
+curso: "Ansible Automatizacion - Camino a la certifcacion EX407"
+instructor: "Gabriel Goncalves"
+

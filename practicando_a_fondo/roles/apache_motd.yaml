@@ -1,0 +1,6 @@
+---
+- hosts: ansible5
+  become: true
+  force_handlers: true
+  roles:
+    - apache_motd

@@ -1,0 +1,13 @@
+
+---
+- hosts: grupo1
+  tasks:
+    - name: crear usuarios del sistema
+      user:
+        name: "{{ item.nombre }}"
+        state: present
+        groups: "{{ item.groups }}"
+      with_items:
+        - { nombre: 'roberto', groups: 'wheel' }
+        - { nombre: 'gabriel', groups: 'root' } 
+        

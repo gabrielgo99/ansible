@@ -1,0 +1,19 @@
+---
+# Podemos hacer la instalación incluyendo las variables
+# como un fichero en lugar de hacer un include (instalando.yaml)
+# en lugar de hacer un include
+- hosts: grupo2
+  vars_files:
+    - paquetes.yaml
+  tasks:
+    - name: instalando pkg
+      yum:
+        name: "{{ paquetes.mi_pkg }}"
+        state: latest
+
+    - name: iniciando servicio
+      service:
+        name: "{{ servicio.mi_srv}}"
+        state: started
+        enabled: true
+...

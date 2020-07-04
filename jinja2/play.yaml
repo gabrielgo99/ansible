@@ -1,0 +1,24 @@
+---
+- hosts: ansible2,ansible3
+  vars:
+    instructor: 'Gabriel Goncalves'
+  tasks: 
+    - name: instalando web server
+      yum:
+        name: httpd
+        state: latest
+    
+    - name: Creando index
+      template:
+        src: presentacion.j2
+        dest: /var/www/html/index.html
+        owner: apache
+        group: apache
+        mode: 0644
+    - name: Reiniciar servicio
+      service:
+        name: httpd
+        state: restarted
+        enabled: true
+...
+

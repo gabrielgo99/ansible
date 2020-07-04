@@ -1,0 +1,49 @@
+---
+- hosts: directorio
+  tasks:
+    - name: incluyendo variables
+      include_vars: vars/allvars.yaml
+    
+    - name: incluyendo task para directorios
+      include_tasks: tasks/directorio.yaml
+    
+    - name: abrir fw
+      firewalld:
+        service: ftp
+        state: enabled
+        immediate: true
+        permanent: true
+    - name: creando contenido
+      copy:
+        content: "{{ ansible_hostname }} , {{ ansible_default_ipv4.address }}\n"
+        dest: "{{ ftp_root }}/index.txt"
+       
+    - name: restart 
+      service: 
+        name: vsftpd
+        state: restarted
+
+- hosts: archivo
+  tasks:
+    - name: incluyendo variables
+      include_vars: vars/allvars.yaml
+    
+    - name: incluyendo task para directorios
+      include_tasks: tasks/archivo.yaml
+    
+    - name: abrir fw
+      firewalld:
+        service: http
+        state: enabled
+        immediate: true
+        permanent: true
+    
+    - name: creando contenido
+      copy:
+        content: "{{ ansible_hostname }} , {{ ansible_default_ipv4.address }}\n"
+        dest: "{{ web_root }}/index.html"
+       
+    - name: restart 
+      service: 
+        name: httpd
+        state: restarted

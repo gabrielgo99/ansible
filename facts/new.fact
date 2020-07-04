@@ -1,0 +1,5 @@
+[pkg]
+web_pkg: httpd
+web_srv: httpd
+db_pkg: mariadb-server
+ 

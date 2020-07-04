@@ -1,0 +1,9 @@
+---
+- hosts: grupo2
+  tasks:
+    - name: instalar mariadb server
+      yum:
+        name: mariadb-server
+        state: latest
+      with_items: " {{ ansible_mounts }}"
+      when: item.mount == "/" and item.size_available > 1453113 

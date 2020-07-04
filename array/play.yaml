@@ -1,0 +1,16 @@
+---
+- hosts: grupo1
+  vars_files:
+    - vars.yaml
+  tasks: 
+    - name: crear usuarios
+      user:
+        name: "{{ users.rob.first_name }}"
+        home: "{{ users.rob.home_dir }}"
+        comment: "{{ users.rob.first_name}} {{ users.rob.last_name}}"
+...
+# users:
+#   rob:
+#   first_name: rob
+#   last_name: smith
+#   home_dir: /home/rsmith

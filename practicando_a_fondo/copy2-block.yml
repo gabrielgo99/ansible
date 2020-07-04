@@ -1,0 +1,27 @@
+---
+- hosts: grupo2
+  become: true
+  tasks:
+    - block:
+      - name: Crear archivo
+        shell:  touch /root/123.txt
+     
+      rescue: 
+      - name: El task anterior fallo, creando archivo
+        shell:  touch /root/A123.txt
+     
+      always:
+      - name: crea esto
+        shell: touch /root/ABC 
+    
+    - block:
+      - name: Crear archivo A
+        shell:  touch /root/123-1.txt
+     
+      rescue: 
+      - name: El task anterior fallo, creando archivo A
+        shell:  touch /root/A123-1.txt
+     
+      always:
+      - name: crea esto A
+        shell: touch /root/ABC-1 

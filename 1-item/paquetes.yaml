@@ -1,0 +1,11 @@
+---
+- hosts: grupo1
+  tasks:
+    - name: Instalando varios paquetes
+      yum:
+        name: "{{ item }}"
+        state: latest
+      with_items:
+        - nmap
+        - net-tools
+...

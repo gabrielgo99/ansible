@@ -1,0 +1,19 @@
+---
+- name: instalando e iniciando database y ftp
+  yum:
+    name:
+      - "{{ ansible_local.custom.paquetes.db_pkg }}" 
+      - "{{ ansible_local.custom.paquetes.ftp_pkg }}" 
+    state: latest
+
+- name: iniciando servicio ftp
+  service:
+    name: "{{ ansible_local.custom.servicios.ftp_srv }}"
+    state: started
+    enabled: true
+
+- name: iniciando servicio database
+  service: 
+    name: "{{ ansible_local.custom.servicios.db_srv }}" 
+    state: started
+    enabled: true

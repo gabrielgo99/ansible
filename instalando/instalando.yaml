@@ -1,0 +1,18 @@
+---
+# Configuramos las variables haciendo un include (include_vars)
+- hosts: grupo2
+  tasks:
+    - name: incluyendo
+      include_vars: paquetes.yaml
+    
+    - name: instalando pkg
+      yum:
+        name: "{{ paquetes.mi_pkg }}"
+        state: latest
+
+    - name: iniciando servicio
+      service:
+        name: "{{ servicio.mi_srv}}"
+        state: started
+        enabled: true
+...

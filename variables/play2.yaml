@@ -1,0 +1,21 @@
+---
+- hosts: grupo2
+  vars_files:
+    - vars1.yaml
+  tasks:
+    - name: instalar {{ db_pkg }}
+      yum:
+        name: "{{ db_pkg }}"
+        state: latest
+    
+    - name: iniciando {{ db_srv }}
+      service: 
+        name: "{{ db_srv }}" 
+        state: started
+        enabled: true
+
+#---
+#db_pkg: mariadb-server
+#db_srv: mariadb
+
+...

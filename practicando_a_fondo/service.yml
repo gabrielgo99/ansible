@@ -1,0 +1,16 @@
+---
+- hosts: grupo2
+  become: true
+  tasks:
+    - name: servicio
+      service: 
+        name: httpd
+        state: started
+        enabled: true
+      register: srv
+    - name: debug servicio
+      debug:
+        var: srv
+# Con register declaramos la variable (el nombre que queramos) y con el modulo debug
+# invocamos la variable
+...

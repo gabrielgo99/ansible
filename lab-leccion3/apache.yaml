@@ -1,0 +1,33 @@
+---
+- hosts: grupo2
+  tasks: 
+    - name: instalando apache
+      yum:
+        name: httpd
+        state: latest
+    
+    - name: iniciando servicios
+      service:
+        name: httpd
+        state: started
+        enabled: true
+    
+    - name: abriendo firewall
+      firewalld:
+        service: http
+        immediate: true
+        permanent: true
+        state: enabled
+
+    - name: contenido de index
+      copy:
+        content: "Bienvenido a mi servidor web"
+        dest: /var/www/html/index.html
+        mode: 0644
+    - name: modificando index
+      lineinfile:
+        path: /var/www/html/index.html
+        insertbefore: '^SELINUX'
+        line: SELINUX
+        
+        

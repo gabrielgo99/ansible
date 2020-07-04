@@ -1,0 +1,4 @@
+---
+- src: /home/srv_ansible/uruarios-roles.tar.gz
+  name: users
+...
