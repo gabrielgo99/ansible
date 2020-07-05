@@ -1100,3 +1100,263 @@ The offending line appears to be:
 2020-07-03 09:36:00,140 p=68175 u=srv_ansible n=ansible | changed: [ansible3]
 2020-07-03 09:36:00,143 p=68175 u=srv_ansible n=ansible | PLAY RECAP ****************************************************************************************
 2020-07-03 09:36:00,143 p=68175 u=srv_ansible n=ansible | ansible3                   : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-04 12:56:21,222 p=69234 u=srv_ansible n=ansible | ERROR! 'host' is not a valid attribute for a Play
+
+The error appears to be in '/home/srv_ansible/practicando_a_fondo/stat-block.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- host: grupo2
+  ^ here
+
+2020-07-04 12:56:36,151 p=69243 u=srv_ansible n=ansible | ERROR! conflicting action statements: copy, rescue
+
+The error appears to be in '/home/srv_ansible/practicando_a_fondo/stat-block.yml': line 11, column 9, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+    - block:
+      - name: crear nuevo archivo si no existe
+        ^ here
+
+2020-07-04 12:59:21,744 p=69253 u=srv_ansible n=ansible | ERROR! conflicting action statements: copy, rescue
+
+The error appears to be in '/home/srv_ansible/practicando_a_fondo/stat-block.yml': line 11, column 9, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+    - block:
+      - name: crear nuevo archivo si no existe
+        ^ here
+
+2020-07-04 13:00:27,229 p=69262 u=srv_ansible n=ansible | PLAY [grupo2] ****************************************************************************
+2020-07-04 13:00:27,240 p=69262 u=srv_ansible n=ansible | TASK [Gathering Facts] *******************************************************************
+2020-07-04 13:00:29,355 p=69262 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-04 13:00:29,371 p=69262 u=srv_ansible n=ansible | TASK [check file] ************************************************************************
+2020-07-04 13:00:30,106 p=69262 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-04 13:00:30,121 p=69262 u=srv_ansible n=ansible | TASK [crear nuevo archivo si no existe] **************************************************
+2020-07-04 13:00:31,228 p=69262 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-04 13:00:31,230 p=69262 u=srv_ansible n=ansible | PLAY RECAP *******************************************************************************
+2020-07-04 13:00:31,230 p=69262 u=srv_ansible n=ansible | ansible3                   : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-05 11:27:26,367 p=69396 u=srv_ansible n=ansible | PLAY [grupo2] ****************************************************************************
+2020-07-05 11:27:26,376 p=69396 u=srv_ansible n=ansible | TASK [Gathering Facts] *******************************************************************
+2020-07-05 11:27:27,985 p=69396 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-05 11:27:28,001 p=69396 u=srv_ansible n=ansible | TASK [check file] ************************************************************************
+2020-07-05 11:27:28,607 p=69396 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-05 11:27:28,620 p=69396 u=srv_ansible n=ansible | TASK [crear nuevo archivo si no existe] **************************************************
+2020-07-05 11:27:29,661 p=69396 u=srv_ansible n=ansible | fatal: [ansible3]: FAILED! => {"changed": true, "checksum": "70220947313f9deaf39654b40cc8e10779585b61", "dest": "/root/321.txt", "failed_when_result": true, "gid": 0, "group": "root", "md5sum": "de48ebe9445af1b4c6f7db5753397978", "mode": "0644", "owner": "root", "secontext": "system_u:object_r:admin_home_t:s0", "size": 33, "src": "/home/srv_ansible/.ansible/tmp/ansible-tmp-1593941248.68-69428-64498490353657/source", "state": "file", "uid": 0}
+2020-07-05 11:27:29,674 p=69396 u=srv_ansible n=ansible | TASK [create new file if doesn't exists] *************************************************
+2020-07-05 11:27:30,523 p=69396 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-05 11:27:30,525 p=69396 u=srv_ansible n=ansible | PLAY RECAP *******************************************************************************
+2020-07-05 11:27:30,525 p=69396 u=srv_ansible n=ansible | ansible3                   : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=1    ignored=0   
+2020-07-05 11:31:20,276 p=69463 u=srv_ansible n=ansible | PLAY [grupo2] ****************************************************************************
+2020-07-05 11:31:20,285 p=69463 u=srv_ansible n=ansible | TASK [Gathering Facts] *******************************************************************
+2020-07-05 11:31:21,947 p=69463 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-05 11:31:21,962 p=69463 u=srv_ansible n=ansible | TASK [check file] ************************************************************************
+2020-07-05 11:31:22,627 p=69463 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-05 11:31:22,641 p=69463 u=srv_ansible n=ansible | TASK [crear nuevo archivo si existe] *****************************************************
+2020-07-05 11:31:23,751 p=69463 u=srv_ansible n=ansible | fatal: [ansible3]: FAILED! => {"changed": true, "checksum": "1cbce1cd995ff1d1736c82d7d4efb4e780f198d9", "dest": "/root/321.txt", "failed_when_result": true, "gid": 0, "group": "root", "md5sum": "545c9de2c12469436659aff78804393d", "mode": "0644", "owner": "root", "secontext": "system_u:object_r:admin_home_t:s0", "size": 33, "src": "/home/srv_ansible/.ansible/tmp/ansible-tmp-1593941482.71-69495-158544818705730/source", "state": "file", "uid": 0}
+2020-07-05 11:31:23,763 p=69463 u=srv_ansible n=ansible | TASK [create new file if doesn't exists] *************************************************
+2020-07-05 11:31:24,655 p=69463 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-05 11:31:24,657 p=69463 u=srv_ansible n=ansible | PLAY RECAP *******************************************************************************
+2020-07-05 11:31:24,657 p=69463 u=srv_ansible n=ansible | ansible3                   : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=1    ignored=0   
+2020-07-05 11:31:51,485 p=69528 u=srv_ansible n=ansible | PLAY [grupo2] ****************************************************************************
+2020-07-05 11:31:51,494 p=69528 u=srv_ansible n=ansible | TASK [Gathering Facts] *******************************************************************
+2020-07-05 11:31:52,828 p=69528 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-05 11:31:52,843 p=69528 u=srv_ansible n=ansible | TASK [check file] ************************************************************************
+2020-07-05 11:31:53,489 p=69528 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-05 11:31:53,503 p=69528 u=srv_ansible n=ansible | TASK [crear nuevo archivo si existe] *****************************************************
+2020-07-05 11:31:54,624 p=69528 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-05 11:31:54,626 p=69528 u=srv_ansible n=ansible | PLAY RECAP *******************************************************************************
+2020-07-05 11:31:54,627 p=69528 u=srv_ansible n=ansible | ansible3                   : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-05 11:42:12,827 p=69579 u=srv_ansible n=ansible | PLAY [all] *******************************************************************************
+2020-07-05 11:42:12,836 p=69579 u=srv_ansible n=ansible | TASK [Gathering Facts] *******************************************************************
+2020-07-05 11:42:15,897 p=69579 u=srv_ansible n=ansible | ok: [ansible2]
+2020-07-05 11:42:15,921 p=69579 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 11:42:15,924 p=69579 u=srv_ansible n=ansible | ok: [ansible4]
+2020-07-05 11:42:16,026 p=69579 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-05 11:42:16,261 p=69579 u=srv_ansible n=ansible | ok: [ansible1]
+2020-07-05 11:42:16,273 p=69579 u=srv_ansible n=ansible | TASK [crear copia de seguridad] **********************************************************
+2020-07-05 11:42:16,492 p=69579 u=srv_ansible n=ansible | skipping: [ansible1]
+2020-07-05 11:42:16,493 p=69579 u=srv_ansible n=ansible | skipping: [ansible3]
+2020-07-05 11:42:16,510 p=69579 u=srv_ansible n=ansible | skipping: [ansible4]
+2020-07-05 11:42:16,536 p=69579 u=srv_ansible n=ansible | skipping: [ansible5]
+2020-07-05 11:42:17,001 p=69579 u=srv_ansible n=ansible | [WARNING]: Consider using the unarchive module rather than running 'tar'.  If you need to
+use command because unarchive is insufficient you can add 'warn: false' to this command
+task or set 'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2020-07-05 11:42:17,001 p=69579 u=srv_ansible n=ansible | changed: [ansible2]
+2020-07-05 11:42:17,012 p=69579 u=srv_ansible n=ansible | TASK [crear copia de seguridad] **********************************************************
+2020-07-05 11:42:17,199 p=69579 u=srv_ansible n=ansible | skipping: [ansible1]
+2020-07-05 11:42:17,199 p=69579 u=srv_ansible n=ansible | skipping: [ansible2]
+2020-07-05 11:42:17,268 p=69579 u=srv_ansible n=ansible | skipping: [ansible4]
+2020-07-05 11:42:17,271 p=69579 u=srv_ansible n=ansible | skipping: [ansible5]
+2020-07-05 11:42:17,783 p=69579 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-05 11:42:17,786 p=69579 u=srv_ansible n=ansible | PLAY RECAP *******************************************************************************
+2020-07-05 11:42:17,786 p=69579 u=srv_ansible n=ansible | ansible1                   : ok=1    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2020-07-05 11:42:17,786 p=69579 u=srv_ansible n=ansible | ansible2                   : ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-07-05 11:42:17,786 p=69579 u=srv_ansible n=ansible | ansible3                   : ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-07-05 11:42:17,786 p=69579 u=srv_ansible n=ansible | ansible4                   : ok=1    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2020-07-05 11:42:17,787 p=69579 u=srv_ansible n=ansible | ansible5                   : ok=1    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2020-07-05 11:43:35,968 p=69837 u=srv_ansible n=ansible | ansible2 | CHANGED | rc=0 >>
+total 288K
+drwx------. 3 root        root          17 Jun 21 19:29 systemd-private-f9091cf61cdd41ae89725548b792f173-systemd-hostnamed.service-LvPDnZ
+-rw-------. 1 root        root         908 Jun 28 00:02 yum_save_tx.2020-06-28.00-02.XXM7ub.yumtx
+-rw-------. 1 root        root         238 Jun 28 00:31 yum_save_tx.2020-06-28.00-31.EM1L2O.yumtx
+-rw-------. 1 root        root        257K Jun 28 00:32 yum_save_tx.2020-06-28.00-32.xFP1aZ.yumtx
+-rw-------. 1 root        root         908 Jun 28 00:33 yum_save_tx.2020-06-28.00-33.h_ILln.yumtx
+drwx------. 3 root        root          17 Jun 28 11:07 systemd-private-7644168603ae4429b043f0c65cb9c9f1-httpd.service-W8QMje
+-rw-r--r--. 1 root        root         13K Jul  2 03:44 backup1.tar.gz
+drwx------. 2 srv_ansible srv_ansible   41 Jul  2 03:45 ansible_command_payload__4EZZV
+
+2020-07-05 11:43:36,155 p=69837 u=srv_ansible n=ansible | ansible3 | CHANGED | rc=0 >>
+total 600K
+drwxr-xr-x.  2 root        root           6 Jun 24 13:13 hsperfdata_root
+drwx------.  2 root        root           6 Jun 24 18:30 vmware-root_786-2957649005
+-rw-------.  1 root        root         79K Jun 24 18:32 yum_save_tx.2020-06-24.18-32.AaIYMk.yumtx
+drwx------.  2 gabriel     gabriel        6 Jun 24 18:33 VSCode Crashes
+drwx------.  2 root        root           6 Jun 24 18:49 vmware-root_714-2965382611
+drwxrwxr-x.  3 gabriel     gabriel       32 Jun 24 19:06 npm-3861-25ac25d1
+drwx------.  2 root        root           6 Jun 24 19:20 vmware-root_739-4248680507
+drwx------.  2 gabriel     gabriel        6 Jun 24 19:21 Temp-16a7c6de-d48c-439f-ac81-8a6434227470
+drwx------.  2 gabriel     gabriel        6 Jun 24 19:21 Temp-dfe628bb-1700-4188-8fcd-8563476774c2
+drwx------.  2 gabriel     gabriel       25 Jun 24 20:00 firefox
+drwxrwxr-x.  2 gabriel     gabriel        6 Jun 25 09:36 appInsights-nodeAIF-444c3af9-8e69-4462-ab49-4191e6ad1916
+drwxrwxr-x.  4 gabriel     gabriel       62 Jun 25 09:56 vscode-typescript1000
+drwxrwxr-x.  3 gabriel     gabriel       32 Jun 25 09:56 npm-63771-bf871f1c
+drwxrwxr-x.  3 gabriel     gabriel       32 Jun 25 11:58 npm-65591-7b26a859
+-rw-------.  1 gabriel     gabriel     500K Jun 25 18:45 tmpaddon
+drwx------.  2 gabriel     gabriel        6 Jun 25 20:11 mozilla_gabriel0
+drwx------.  2 gabriel     gabriel        6 Jun 25 20:12 tracker-extract-files.1000
+-rw-------.  1 root        root         631 Jun 26 06:54 yum_save_tx.2020-06-26.06-54.yFFbK8.yumtx
+drwx------. 11 gabriel     gabriel      205 Jun 26 08:57 gen092886599
+drwx------. 11 gabriel     gabriel      205 Jun 26 09:05 gen332486822
+-rw-rw-r--.  1 gabriel     gabriel       33 Jun 26 11:04 mykey
+drwxrwxr-x.  3 gabriel     gabriel       32 Jun 26 11:13 npm-129892-52db1cb4
+drwxrwxr-x.  3 gabriel     gabriel       32 Jun 26 12:45 npm-5583-00f080a9
+-rw-------.  1 root        root         631 Jun 27 09:02 yum_save_tx.2020-06-27.09-01.TSs01W.yumtx
+-rw-------.  1 root        root         631 Jun 28 06:17 yum_save_tx.2020-06-28.06-17.dRsKab.yumtx
+drwx------.  3 root        root          17 Jun 29 13:12 systemd-private-c1ddf5eb70784ae4af37805149315a89-rtkit-daemon.service-djRjyK
+drwx------.  3 root        root          17 Jun 29 13:12 systemd-private-c1ddf5eb70784ae4af37805149315a89-chronyd.service-uUENHP
+drwx------.  2 root        root           6 Jun 29 13:12 vmware-root_740-2999460834
+drwx------.  3 root        root          17 Jun 29 13:12 systemd-private-c1ddf5eb70784ae4af37805149315a89-cups.service-z9ZITo
+drwx------.  3 root        root          17 Jun 29 13:12 systemd-private-c1ddf5eb70784ae4af37805149315a89-mariadb.service-xaMau1
+drwx------.  3 root        root          17 Jun 29 13:12 systemd-private-c1ddf5eb70784ae4af37805149315a89-bolt.service-abVZH0
+drwx------.  3 root        root          17 Jun 29 13:12 systemd-private-c1ddf5eb70784ae4af37805149315a89-colord.service-69mAAV
+drwx------.  2 root        root          37 Jun 29 18:11 ansible_yum_payload_LnLZBW
+drwx------.  3 root        root          17 Jul  1 19:45 systemd-private-c1ddf5eb70784ae4af37805149315a89-httpd.service-MCNJX5
+-rw-r--r--.  1 root        root         204 Jul  5 11:42 backup2.tar.gz
+drwx------.  2 srv_ansible srv_ansible   41 Jul  5 11:43 ansible_command_payload_HPavFK
+
+2020-07-05 11:44:03,949 p=69876 u=srv_ansible n=ansible | ansible2 | CHANGED | rc=0 >>
+-rw-r--r--. 1 root        root         13K Jul  2 03:44 backup1.tar.gz
+
+2020-07-05 11:44:04,141 p=69876 u=srv_ansible n=ansible | ansible3 | CHANGED | rc=0 >>
+-rw-r--r--.  1 root        root         204 Jul  5 11:42 backup2.tar.gz
+
+2020-07-05 11:46:16,897 p=69910 u=srv_ansible n=ansible | PLAY [all] *******************************************************************************
+2020-07-05 11:46:16,906 p=69910 u=srv_ansible n=ansible | TASK [Gathering Facts] *******************************************************************
+2020-07-05 11:46:19,303 p=69910 u=srv_ansible n=ansible | ok: [ansible4]
+2020-07-05 11:46:19,337 p=69910 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 11:46:19,389 p=69910 u=srv_ansible n=ansible | ok: [ansible2]
+2020-07-05 11:46:19,587 p=69910 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-05 11:46:19,743 p=69910 u=srv_ansible n=ansible | ok: [ansible1]
+2020-07-05 11:46:19,755 p=69910 u=srv_ansible n=ansible | TASK [crear copia de seguridad] **********************************************************
+2020-07-05 11:46:19,960 p=69910 u=srv_ansible n=ansible | skipping: [ansible1]
+2020-07-05 11:46:19,977 p=69910 u=srv_ansible n=ansible | skipping: [ansible3]
+2020-07-05 11:46:20,010 p=69910 u=srv_ansible n=ansible | skipping: [ansible4]
+2020-07-05 11:46:20,038 p=69910 u=srv_ansible n=ansible | skipping: [ansible5]
+2020-07-05 11:46:20,480 p=69910 u=srv_ansible n=ansible | [WARNING]: Consider using the unarchive module rather than running 'tar'.  If you need to
+use command because unarchive is insufficient you can add 'warn: false' to this command
+task or set 'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2020-07-05 11:46:20,480 p=69910 u=srv_ansible n=ansible | changed: [ansible2]
+2020-07-05 11:46:20,492 p=69910 u=srv_ansible n=ansible | TASK [crear copia de seguridad] **********************************************************
+2020-07-05 11:46:20,689 p=69910 u=srv_ansible n=ansible | skipping: [ansible1]
+2020-07-05 11:46:20,689 p=69910 u=srv_ansible n=ansible | skipping: [ansible2]
+2020-07-05 11:46:20,758 p=69910 u=srv_ansible n=ansible | skipping: [ansible4]
+2020-07-05 11:46:20,766 p=69910 u=srv_ansible n=ansible | skipping: [ansible5]
+2020-07-05 11:46:21,256 p=69910 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-05 11:46:21,258 p=69910 u=srv_ansible n=ansible | PLAY RECAP *******************************************************************************
+2020-07-05 11:46:21,258 p=69910 u=srv_ansible n=ansible | ansible1                   : ok=1    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2020-07-05 11:46:21,259 p=69910 u=srv_ansible n=ansible | ansible2                   : ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-07-05 11:46:21,259 p=69910 u=srv_ansible n=ansible | ansible3                   : ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-07-05 11:46:21,259 p=69910 u=srv_ansible n=ansible | ansible4                   : ok=1    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2020-07-05 11:46:21,259 p=69910 u=srv_ansible n=ansible | ansible5                   : ok=1    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2020-07-05 11:48:00,931 p=70160 u=srv_ansible n=ansible | PLAY [all] *******************************************************************************
+2020-07-05 11:48:00,939 p=70160 u=srv_ansible n=ansible | TASK [Gathering Facts] *******************************************************************
+2020-07-05 11:48:03,233 p=70160 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 11:48:03,264 p=70160 u=srv_ansible n=ansible | ok: [ansible2]
+2020-07-05 11:48:03,306 p=70160 u=srv_ansible n=ansible | ok: [ansible4]
+2020-07-05 11:48:03,451 p=70160 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-05 11:48:03,603 p=70160 u=srv_ansible n=ansible | ok: [ansible1]
+2020-07-05 11:48:03,615 p=70160 u=srv_ansible n=ansible | TASK [crear copia de seguridad] **********************************************************
+2020-07-05 11:48:04,801 p=70160 u=srv_ansible n=ansible | [WARNING]: Consider using the unarchive module rather than running 'tar'.  If you need to
+use command because unarchive is insufficient you can add 'warn: false' to this command
+task or set 'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2020-07-05 11:48:04,801 p=70160 u=srv_ansible n=ansible | changed: [ansible2]
+2020-07-05 11:48:04,814 p=70160 u=srv_ansible n=ansible | fatal: [ansible4]: FAILED! => {"changed": true, "cmd": "tar cfz /tmp/backup1.tar.gz /etc/httpd", "delta": "0:00:00.019165", "end": "2020-07-04 01:05:21.134279", "msg": "non-zero return code", "rc": 2, "start": "2020-07-04 01:05:21.115114", "stderr": "tar: Removing leading `/' from member names\ntar: /etc/httpd: Cannot stat: No such file or directory\ntar: Exiting with failure status due to previous errors", "stderr_lines": ["tar: Removing leading `/' from member names", "tar: /etc/httpd: Cannot stat: No such file or directory", "tar: Exiting with failure status due to previous errors"], "stdout": "", "stdout_lines": []}
+2020-07-05 11:48:04,827 p=70160 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 11:48:04,889 p=70160 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-05 11:48:04,908 p=70160 u=srv_ansible n=ansible | fatal: [ansible1]: FAILED! => {"changed": true, "cmd": "tar cfz /tmp/backup1.tar.gz /etc/httpd", "delta": "0:00:00.008942", "end": "2020-07-05 11:48:04.859161", "msg": "non-zero return code", "rc": 2, "start": "2020-07-05 11:48:04.850219", "stderr": "tar: Removing leading `/' from member names\ntar: /etc/httpd: Cannot stat: No such file or directory\ntar: Exiting with failure status due to previous errors", "stderr_lines": ["tar: Removing leading `/' from member names", "tar: /etc/httpd: Cannot stat: No such file or directory", "tar: Exiting with failure status due to previous errors"], "stdout": "", "stdout_lines": []}
+2020-07-05 11:48:04,919 p=70160 u=srv_ansible n=ansible | TASK [crear copia de seguridad] **********************************************************
+2020-07-05 11:48:05,512 p=70160 u=srv_ansible n=ansible | changed: [ansible2]
+2020-07-05 11:48:05,553 p=70160 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 11:48:05,712 p=70160 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-05 11:48:05,714 p=70160 u=srv_ansible n=ansible | PLAY RECAP *******************************************************************************
+2020-07-05 11:48:05,714 p=70160 u=srv_ansible n=ansible | ansible1                   : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-07-05 11:48:05,714 p=70160 u=srv_ansible n=ansible | ansible2                   : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-05 11:48:05,714 p=70160 u=srv_ansible n=ansible | ansible3                   : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-05 11:48:05,714 p=70160 u=srv_ansible n=ansible | ansible4                   : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-07-05 11:48:05,715 p=70160 u=srv_ansible n=ansible | ansible5                   : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-05 11:53:01,112 p=70530 u=srv_ansible n=ansible | PLAY [all] *******************************************************************************
+2020-07-05 11:53:01,120 p=70530 u=srv_ansible n=ansible | TASK [Gathering Facts] *******************************************************************
+2020-07-05 11:53:03,396 p=70530 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 11:53:03,419 p=70530 u=srv_ansible n=ansible | ok: [ansible2]
+2020-07-05 11:53:03,463 p=70530 u=srv_ansible n=ansible | ok: [ansible4]
+2020-07-05 11:53:03,720 p=70530 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-05 11:53:03,798 p=70530 u=srv_ansible n=ansible | ok: [ansible1]
+2020-07-05 11:53:03,812 p=70530 u=srv_ansible n=ansible | TASK [crear copia de seguridad] **********************************************************
+2020-07-05 11:53:04,978 p=70530 u=srv_ansible n=ansible | [WARNING]: Consider using the unarchive module rather than running 'tar'.  If you need to
+use command because unarchive is insufficient you can add 'warn: false' to this command
+task or set 'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2020-07-05 11:53:04,978 p=70530 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 11:53:04,997 p=70530 u=srv_ansible n=ansible | changed: [ansible2]
+2020-07-05 11:53:05,004 p=70530 u=srv_ansible n=ansible | fatal: [ansible4]: FAILED! => {"changed": true, "cmd": "tar cfz /tmp/backup1.tar.gz /etc/httpd", "delta": "0:00:00.015794", "end": "2020-07-04 01:10:46.345671", "msg": "non-zero return code", "rc": 2, "start": "2020-07-04 01:10:46.329877", "stderr": "tar: Removing leading `/' from member names\ntar: /etc/httpd: Cannot stat: No such file or directory\ntar: Exiting with failure status due to previous errors", "stderr_lines": ["tar: Removing leading `/' from member names", "tar: /etc/httpd: Cannot stat: No such file or directory", "tar: Exiting with failure status due to previous errors"], "stdout": "", "stdout_lines": []}
+2020-07-05 11:53:05,101 p=70530 u=srv_ansible n=ansible | changed: [ansible3]
+2020-07-05 11:53:05,120 p=70530 u=srv_ansible n=ansible | fatal: [ansible1]: FAILED! => {"changed": true, "cmd": "tar cfz /tmp/backup1.tar.gz /etc/httpd", "delta": "0:00:00.006670", "end": "2020-07-05 11:53:05.075499", "msg": "non-zero return code", "rc": 2, "start": "2020-07-05 11:53:05.068829", "stderr": "tar: Removing leading `/' from member names\ntar: /etc/httpd: Cannot stat: No such file or directory\ntar: Exiting with failure status due to previous errors", "stderr_lines": ["tar: Removing leading `/' from member names", "tar: /etc/httpd: Cannot stat: No such file or directory", "tar: Exiting with failure status due to previous errors"], "stdout": "", "stdout_lines": []}
+2020-07-05 11:53:05,122 p=70530 u=srv_ansible n=ansible | PLAY RECAP *******************************************************************************
+2020-07-05 11:53:05,122 p=70530 u=srv_ansible n=ansible | ansible1                   : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-07-05 11:53:05,122 p=70530 u=srv_ansible n=ansible | ansible2                   : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-05 11:53:05,122 p=70530 u=srv_ansible n=ansible | ansible3                   : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-05 11:53:05,122 p=70530 u=srv_ansible n=ansible | ansible4                   : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-07-05 11:53:05,122 p=70530 u=srv_ansible n=ansible | ansible5                   : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-05 11:55:11,441 p=70867 u=srv_ansible n=ansible | PLAY [all] *******************************************************************************
+2020-07-05 11:55:11,450 p=70867 u=srv_ansible n=ansible | TASK [Gathering Facts] *******************************************************************
+2020-07-05 11:55:13,853 p=70867 u=srv_ansible n=ansible | ok: [ansible2]
+2020-07-05 11:55:13,882 p=70867 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 11:55:13,904 p=70867 u=srv_ansible n=ansible | ok: [ansible4]
+2020-07-05 11:55:14,104 p=70867 u=srv_ansible n=ansible | ok: [ansible3]
+2020-07-05 11:55:14,215 p=70867 u=srv_ansible n=ansible | ok: [ansible1]
+2020-07-05 11:55:14,228 p=70867 u=srv_ansible n=ansible | TASK [crear copia de seguridad] **********************************************************
+2020-07-05 11:55:14,450 p=70867 u=srv_ansible n=ansible | skipping: [ansible1]
+2020-07-05 11:55:14,451 p=70867 u=srv_ansible n=ansible | skipping: [ansible3]
+2020-07-05 11:55:14,468 p=70867 u=srv_ansible n=ansible | skipping: [ansible4]
+2020-07-05 11:55:14,485 p=70867 u=srv_ansible n=ansible | skipping: [ansible5]
+2020-07-05 11:55:14,964 p=70867 u=srv_ansible n=ansible | [WARNING]: Consider using the unarchive module rather than running 'tar'.  If you need to
+use command because unarchive is insufficient you can add 'warn: false' to this command
+task or set 'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2020-07-05 11:55:14,964 p=70867 u=srv_ansible n=ansible | changed: [ansible2]
+2020-07-05 11:55:14,967 p=70867 u=srv_ansible n=ansible | PLAY RECAP *******************************************************************************
+2020-07-05 11:55:14,967 p=70867 u=srv_ansible n=ansible | ansible1                   : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-07-05 11:55:14,967 p=70867 u=srv_ansible n=ansible | ansible2                   : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-05 11:55:14,967 p=70867 u=srv_ansible n=ansible | ansible3                   : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-07-05 11:55:14,967 p=70867 u=srv_ansible n=ansible | ansible4                   : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-07-05 11:55:14,967 p=70867 u=srv_ansible n=ansible | ansible5                   : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   

@@ -8,7 +8,7 @@
 # hlsearch on (H) or off (h):
 ~H
 # Last Search Pattern:
-~MSle0~/log
+~Msle0~/\<when\>
 
 # Last Substitute String:
 $
@@ -25,6 +25,7 @@ $
 ::q!
 
 # Search String History (newest to oldest):
+? \<when\>
 ?/log
 ?/logs
 ?/scalation
@@ -44,18 +45,14 @@ $
 
 # Registers:
 ""0	LINE	0
-	    - block:
-	      - name: Crear archivo
-	        shell:  touch /root/123.txt
-	     
-	      rescue: 
-	      - name: El task anterior fallo, creando archivo
-	        shell:  touch /root/A123.txt
-	     
-	      always:
-	      - name: crea esto
-	        shell: touch /root/ABC 
+	    - name: crear copia de seguridad
+	      shell: tar cfz /tmp/backup1.tar.gz /etc/httpd
+	
 "1	LINE	0
+	    - name: crear copia de seguridad
+	      shell: tar cfz /tmp/backup1.tar.gz /etc/httpd
+	
+"2	LINE	0
 	    - block:
 	      - name: Crear archivo
 	        shell:  touch /root/123.txt
@@ -67,17 +64,17 @@ $
 	      always:
 	      - name: crea esto
 	        shell: touch /root/ABC 
-"2	LINE	0
+"3	LINE	0
 	    - block:
 	      - name: Crear archivo
 	        shell:  touch /root/B123.txt
 	      
 	      - name: Crear archivo
 	        shell:  touch /root/C123.txt
-"3	LINE	0
+"4	LINE	0
 	      - name: Crear archivo
 	        shell:  touch /root/B123.txt
-"4	LINE	0
+"5	LINE	0
 	          content: "Hola este es el host  {{ ansible_hostname }} "
 	          dest: /var/www/html/copy1.html
 	          owner: apache
@@ -91,37 +88,55 @@ $
 	          regexp: "Hola este"
 	          line: " Hola este es el node {{ ansible_hostname }}"
 	
-"5	LINE	0
-	#log_path = /var/log/ansible.log
 "6	LINE	0
-	  notify: service restart
+	#log_path = /var/log/ansible.log
 "7	LINE	0
 	  notify: service restart
 "8	LINE	0
-	        state: restarted
+	  notify: service restart
 "9	LINE	0
-	        name: httpd
+	        state: restarted
 "-	CHAR	0
 	º
 
 # File marks:
-'0  24  0  ~/istalacion_git.txt
-'1  1  0  ~/.git/config
-'2  13  8  ~/practicando_a_fondo/debug.yaml
-'3  14  33  ~/practicando_a_fondo/stat.yaml
-'4  2  8  ~/practicando_a_fondo/stat.yaml
-'5  10  16  ~/practicando_a_fondo/stat.yaml
-'6  15  22  ~/practicando_a_fondo/service.yml
-'7  10  2  ~/practicando_a_fondo/service.yml
-'8  14  93  ~/practicando_a_fondo/file.yml
-'9  4  6  ~/practicando_a_fondo/file.yml
+'0  1  0  ~/comandos.txt
+'1  12  0  ~/practicando_a_fondo/tags.yml
+'2  15  12  ~/practicando_a_fondo/tags.yml
+'3  7  1  ~/practicando_a_fondo/tags.yml
+'4  13  6  ~/practicando_a_fondo/tags.yml
+'5  14  14  ~/practicando_a_fondo/tags.yml
+'6  36  0  ~/inventario
+'7  13  44  ~/practicando_a_fondo/stat-block.yml
+'8  20  10  ~/practicando_a_fondo/stat-block.yml
+'9  17  7  ~/practicando_a_fondo/stat-block.yml
 
 # Jumplist (newest first):
+-'  1  0  ~/comandos.txt
+-'  12  0  ~/practicando_a_fondo/tags.yml
+-'  1  0  ~/practicando_a_fondo/tags.yml
+-'  15  12  ~/practicando_a_fondo/tags.yml
+-'  7  1  ~/practicando_a_fondo/tags.yml
+-'  13  6  ~/practicando_a_fondo/tags.yml
+-'  14  6  ~/practicando_a_fondo/tags.yml
+-'  4  2  ~/practicando_a_fondo/tags.yml
+-'  36  0  ~/inventario
+-'  30  0  ~/inventario
+-'  1  0  ~/inventario
+-'  13  44  ~/practicando_a_fondo/stat-block.yml
+-'  20  10  ~/practicando_a_fondo/stat-block.yml
+-'  17  8  ~/practicando_a_fondo/stat-block.yml
+-'  3  2  ~/practicando_a_fondo/stat-block.yml
+-'  2  0  ~/practicando_a_fondo/stat-block.yml
+-'  1  0  ~/practicando_a_fondo/stat-block.yml
+-'  14  6  ~/practicando_a_fondo/stat.yaml
+-'  17  8  ~/practicando_a_fondo/stat.yml
+-'  15  8  ~/practicando_a_fondo/stat.yml
+-'  1  0  ~/practicando_a_fondo/stat.yml
 -'  24  0  ~/istalacion_git.txt
 -'  1  0  ~/istalacion_git.txt
 -'  1  0  ~/.git/config
 -'  13  8  ~/practicando_a_fondo/debug.yaml
--'  14  33  ~/practicando_a_fondo/stat.yaml
 -'  1  0  ~/practicando_a_fondo/stat.yaml
 -'  10  0  ~/practicando_a_fondo/stat.yaml
 -'  2  0  ~/practicando_a_fondo/stat.yaml
@@ -192,32 +207,87 @@ $
 -'  68  0  ~/.ansible.cfg
 -'  2  0  ~/.ansible.cfg
 -'  1  0  ~/.ansible.cfg
--'  1  0  ~/inventario
 -'  26  0  ~/inventario
 -'  10  24  ~/templates_jinja2/motd.j2
 -'  11  0  ~/templates_jinja2/motd.j2
--'  1  2  ~/templates_jinja2/play2.yaml
--'  24  8  ~/templates_jinja2/play2.yaml
--'  25  8  ~/templates_jinja2/play2.yaml
--'  43  0  ~/templates_jinja2/play2.yaml
--'  1  0  ~/templates_jinja2/motd.j2
--'  1  0  ~/templates_jinja2/httpd.conf.j2
--'  42  43  ~/httpd.conf.j2
--'  119  28  ~/httpd.conf.j2
--'  1  0  ~/httpd.conf.j2
--'  7  0  ~/templates_jinja2/vars/main.yaml
--'  1  0  ~/templates_jinja2/vars/main.yaml
--'  37  22  ~/jinja2/play2.yaml
--'  1  0  ~/jinja2/play2.yaml
--'  24  0  ~/jinja2/play.yaml
--'  13  8  ~/jinja2/play.yaml
--'  23  0  ~/jinja2/play.yaml
--'  20  8  ~/jinja2/play.yaml
--'  5  0  ~/jinja2/presentacion.j2
--'  1  0  ~/jinja2/presentacion.j2
--'  1  0  ~/jinja2/play.yaml
 
 # History of marks within files (newest to oldest):
+
+> ~/comandos.txt
+	"	1	0
+	^	1	0
+	.	104	44
+	+	104	44
+
+> ~/practicando_a_fondo/tags.yml
+	"	12	0
+	^	12	0
+	.	12	0
+	+	16	0
+	+	5	0
+	+	11	0
+	+	12	53
+	+	7	50
+	+	13	51
+	+	8	15
+	+	14	14
+	+	13	0
+	+	7	1
+	+	9	8
+	+	15	8
+	+	7	1
+	+	12	0
+
+> ~/inventario
+	"	36	0
+	^	36	0
+	.	35	8
+	+	35	8
+
+> ~/practicando_a_fondo/stat-block.yml
+	"	13	44
+	^	13	45
+	.	13	44
+	+	2	6
+	+	11	3
+	+	12	2
+	+	13	2
+	+	14	2
+	+	15	2
+	+	16	2
+	+	17	1
+	+	11	2
+	+	12	4
+	+	13	6
+	+	14	8
+	+	15	7
+	+	16	7
+	+	17	7
+	+	16	6
+	+	17	5
+	+	18	7
+	+	19	8
+	+	20	8
+	+	11	37
+	+	13	44
+
+> ~/practicando_a_fondo/stat.yaml
+	"	14	6
+	^	14	34
+	.	14	33
+	+	10	16
+	+	2	9
+	+	10	17
+	+	14	33
+
+> ~/practicando_a_fondo/stat.yml
+	"	17	8
+	^	15	46
+	.	15	45
+	+	20	31
+	+	7	15
+	+	17	46
+	+	15	45
 
 > ~/istalacion_git.txt
 	"	24	0
@@ -255,15 +325,6 @@ $
 	+	12	6
 	+	11	9
 	+	13	24
-
-> ~/practicando_a_fondo/stat.yaml
-	"	14	33
-	^	14	34
-	.	14	33
-	+	10	16
-	+	2	9
-	+	10	17
-	+	14	33
 
 > ~/practicando_a_fondo/service.yml
 	"	15	22
@@ -481,63 +542,3 @@ $
 	^	5	20
 	.	5	19
 	+	5	19
-
-> ~/practicando_a_fondo/roles/apache_motd/vars/main.yml
-	"	4	0
-	^	4	0
-	.	4	0
-	+	2	10
-	+	4	0
-	+	3	0
-	+	4	0
-
-> ~/practicando_a_fondo/instalando_roles.yaml
-	"	4	2
-	^	4	3
-	.	4	2
-	+	4	2
-
-> ~/practicando_a_fondo/roles/usuarios/tasks/main.yml
-	"	3	21
-	^	3	22
-	.	3	21
-	+	28	0
-	+	16	0
-	+	15	11
-	+	19	19
-	+	21	0
-	+	21	42
-	+	25	17
-	+	27	17
-	+	25	17
-	+	28	0
-	+	27	13
-	+	19	13
-	+	17	16
-	+	25	16
-	+	19	14
-	+	27	14
-	+	3	16
-	+	2	14
-	+	3	4
-	+	3	20
-	+	3	1
-	+	3	20
-	+	3	14
-	+	5	0
-	+	3	21
-
-> ~/practicando_a_fondo/creando_usuarios.yaml
-	"	5	2
-	.	5	0
-	+	6	14
-	+	7	2
-	+	5	17
-	+	5	5
-	+	5	2
-	+	5	3
-	+	5	18
-	+	5	0
-
-> ~/practicando_a_fondo/roles/usuarios/tasks/b.yml
-	"	1	0

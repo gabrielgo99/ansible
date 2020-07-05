@@ -28,3 +28,9 @@ grupo2
 [grupo1:vars]
 pkg1=cifs-utils
 
+[backup1]
+ansible2
+
+[backup2]
+ansible3
+

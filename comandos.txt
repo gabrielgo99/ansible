@@ -1,0 +1,105 @@
+
+*Ejecutar playbook cont tag “bk1”:
+
+$ ansible-playbook tags.yml -t bk1
+
+* Ver los roles:
+$ ansible-galaxy list
+* Crear un nuevo rol (vacío), sin hacer uso de la API:
+
+$ ansible-galaxy init --offline usuarios
+* Ver la distribución
+
+$ ansible servera -m setup -a 'filter=ansible_distribution*'
+Nota: El asterisco nos sirve para que nos de los detalles de la distribución
+
+* Ver los usuarios en serverb:
+
+$ ansible serverb -m shell -a 'ls -las /home'
+* Crear un usuario llamado carlos en Cervera:
+
+$ ansible serverb -m user -a 'name=carlos' 
+
+* Borrar usuario carlos en server:
+
+$ ansible serverb -m shell -a 'userdel -r carlos'
+
+O también podemos borrar un usuario de este otro modo:
+
+$ ansible servera -m user -a 'name=roberto state=absent force=yes remove=yes'
+* Instalar paquete autos en servera
+
+$ ansible servera -m yum -a 'name=autofs state=latest'
+* Hacer ping a los host comunes de grp1 y grp2
+
+$ ansible 'grp1:&grp2' -m ping -o
+* Hacer ping a los host del grupo1 y grupo2 :
+
+$ ansible 'grp1:grp2' -m ping -o
+* Hacer ping a todos  menos al “serverb”:
+
+$ ansible all:\!serverb -m ping -o
+
+O  si no queremos utilizar el escape (\) también podemos hacer:
+
+$ ansible 'all:!serverb' -m ping -o
+* Corregir hosts
+Si alguien cambia la configuración de un host, podemos volver a su configuración original con:
+
+$ ansible-playbook play2.yaml --diff
+*Facts;
+ Cuando creamos un fact, este debe terminar con la extensión “.fact”
+
+* Ver el estatus de samba en un grupo
+
+ ansible grupo2 -m shell -a 'systemctl status smb'
+
+* Comprobar si un paquete está instalado en un grupo
+
+$ ansible grupo2 -m shell -a 'rpm -qa | grep samba'
+Filtros:
+* Mostrar fqdn
+
+$ ansible ansible1 -m setup -a 'filter=ansible_fqdn'
+
+*Crear un archivo en todos los hosts
+
+$ ansible   all -m file -a 'path=/root/123.txt state=touch'
+
+
+*Mandar una salida a un texto y crear un archivo (tenemos que utilizar shell)
+
+
+$ ansible all -m shell -a 'echo "hola"> /root/321.txt’
+
+*Mostrar hostname
+
+$ ansible ansible1 -m setup -a 'filter=ansible_hostname'
+
+* Ver si el host “ansible3” tiene algún facts local
+
+ ansible ansible3 -m setup -a 'filter=ansible_local'
+
+Ver los Facts:
+
+$ ansible “host” -m setup
+
+
+Sustituir una variable y aplicar de forme directa:
+
+$ ansible-playbook 3.yaml -e 'pkg1=bash-completion'
+ 
+Ejecutar ansible a modo de prueba en “dry-run” 
+$: ansible-playbook -C simple.yaml 
+
+Ejecución paso a paso:
+$: ansible-paybook --step simple.yaml
+remote_user: Sobreescribe la configuración remote_user en ansible.cfg
+Become: sobreescribe la configuración de conversión en ansible.cfg
+become_user: sobreescribe la configuración de become_user en ansible.cfg
+* Mostrar los módulos
+ $ ansilbe-doc -l
+* Comprobar la sintaxis de un archivo .yaml
+
+$ ansible-playbook play1.yaml --syntax-check
+
