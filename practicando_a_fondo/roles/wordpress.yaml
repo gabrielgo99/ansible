@@ -1,0 +1,7 @@
+---
+- hosts: wordpress
+  become: true
+  roles:
+    - wordpress
+...
+

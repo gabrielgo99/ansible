@@ -34,3 +34,5 @@ ansible2
 [backup2]
 ansible3
 
+[wordpress]
+ansible5

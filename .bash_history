@@ -1,212 +1,3 @@
-exit
-ls -la
-ssh-copy-id 172.16.19.129
-exit
-ansible --version
-hostname -f
-cd /etc/sysconfig/network
-vi /etc/sysconfig/network
-su - 
-su -
-su 
-su - root
-hostname -f
-reboot
-exit
-ssh-keygen
-ls -la
-ssh-copy-id 172.16.19.131
-ssh 172.16.19.131
-ssh-copy-id 172.16.19.135
-ssh 172.16.19.135
-ip add
-pwd
-vi inventario
-ansible all
-ansible 172.16.0.131 -i inventario --list-host
-ansible 172.16.19.131 -i inventario --list-host
-ansible grupo -i inventario --list-host
-ansible grupo1 -i inventario --list-host
-ssh 172.16.0.129
-ssh 172.16.19.129
-ip add
-ssh 172.16.19.129
-reboot
-exit
-ip add
-rpm -qa | grep pyton
-rpm -qa | grep python
-yum install ansible
-su -
-ls
-vi inventario
-ssh ansible2
-cat /etc/hosts
-ssh ansible2
-phyton
-python3
-exit
-ls
-ls -la
-exit
-ls
-exit
-ls
-sudo su
-ls
-exit
-ls -la
-cat .ssh/authorized_keys 
-cat .ssh/known_hosts 
-ansible all -a hostname
-sudo su
-su - root
-ansible all -a hostname
-ansible ansible1 -m shell 'ls -ls /etc/motd'
-ansible ansible1 -m shell 'ls  /etc/motd'
-ansible ansible1 -m shell -a 'ls -ls /etc/motd'
-ansible ansible1 -m shell -a 'cat  /etc/motd'
-vi /etc/motd
-sudo su
-ansible ansible1 -m shell -a 'cat  /etc/motd'
-ansible all -m copy -a 'content=Ansible Managed\n" dest=/etc/motd'
-ansible ansible1 -m copy -a 'content=Ansible Managed\n" dest=/etc/motd'
-ansible ansible1 -m copy -a 'content="Ansible Managed\n" dest=/etc/motd'
-ansible all -m copy -a 'content="Ansible Managed\n" dest=/etc/motd'
-ls
-exit
-ls -las /usr/lib/python2.7/site-packages/ansible/modules
-ansible --version
-ansible-doc -l
-ansible-doc service
-ansible-doc service -s 
-ansible-doc service 
-ansible all -m ping
-ansible-doc -m
-ansible-doc -l
-ansible-doc -l | less
-ansible-doc user
-pwd
-ls
-mkdir 1
-cd 1
-vi play1.yaml
-ansible-playbook play1.yaml --syntax-check
-vi play1.yaml
-ansible-playbook play1.yaml --syntax-check
-vi play1.yaml
-ansible-playbook play1.yaml --syntax-check
-vi play1.yaml
-ansible-playbook play1.yaml --syntax-check
-vi play1.yaml
-ansible-playbook play1.yaml --syntax-check
-vi play1.yaml
-vi play1.yaml 
-ansible-playbook play1.yaml --syntax-check
-vi play1.yaml 
-ansible-playbook play1.yaml --syntax-check
-vi play1.yaml 
-ansible-playbook play1.yaml --syntax-check
-vi play1.yaml 
-ansible-playbook play1.yaml --syntax-check
-vi play1.yaml 
-ansible-playbook play1.yaml --syntax-check
-cat ~/inventario 
-ansible-playbook play1.yaml 
-ls
-cd inclusiones/
-vim master.yaml
-ansible-playbook master.yaml --syntax-check
-ansible-playbook master.yaml 
-ssh ansible3
-vi master.yaml 
-ansible-playbook master.yaml 
-ansible grupo2 -m shell -a 'rpm -qa | grep samba'
-ansible grupo2 -m command -a 'rpm -qa | grep samba'
-ansible grupo2 -m shell -a 'systemctl status samba'
-ansible grupo2 -m shell -a 'systemctl status smb'
-ssh ansible3
-ls
-cd ..
-ls
-cd in
-cd instalando/
-ls
-cat instalando
-cat instalando.yaml 
-ssh ansible3
-ssh gabriel@openshift
-ssh 172.16.19.140 gabriel@openshift
-ssh gab
-ssh 172.16.19.140 
-exit
-ls
-mkdir inclusiones
-cd inclusiones
-vim tasks.yaml
-ls
-cat master.yaml 
-cd ..
-mkdir instalando
-cd instalando
-vim paquetes.yaml
-vim instalando.yaml
-ls
-cat paquetes.yaml 
-cat instalando.yaml 
-ansible-playbook instalando.yaml 
-ls
-vi instalando.yaml 
-ansible-playbook instalando.yaml 
-cat instalando.yaml 
-cat paquetes.yaml 
-ansible-playbook instalando.yaml 
-cd ..
-ls
-cd instalando/
-ls
-cp instalando.yaml instalando2.yaml 
-vi instalando2.yaml 
-vi instalando.yaml 
-ansible-playbook instalando2.yaml 
-ssh-copy-id ansible4
-ssh ansible4
-ssh-copy-id ansible5
-ssh ansible5
-vi inventario 
-ls
-cd lab4/
-ls
-ansible-playbook copiar_fact.yaml 
-ping ansible3
-ssh ansible3
-ansible-playbook copiar_fact.yaml 
-ansible-playbook play.yaml 
-cd 
-vi inventario 
-cd lab4/
-.S
-LS
-ls
-vi play.yaml 
-cat play.yaml 
-cd
-vi inventario 
-cd lab4/
-ansible-playbook play.yaml 
-cd
-ls
-mkdir 1-item
-cd 1-item/
-vim paquetes.yaml
-ansible-playbook paquetes.yaml 
-vim paquetes.yaml
-ansible-playbook paquetes.yaml 
-vim paquetes.yaml
-ansible-playbook paquetes.yaml 
-ping google.es
-vim paquetes.yaml
-ansible-playbook paquetes.yaml 
 ls
 cd ..
 ls
@@ -947,3 +738,263 @@ ls
 vi instando_http_officel.yaml 
 su - root
 ssh ansible3
+cd practicando_a_fondo/
+ls
+vi stat.yml
+vi stat.yaml
+mv stat.yml stat-block.yml
+vi stat-block.yml 
+ansible-playbook stat-block.yml 
+vi stat-block.yml 
+ansible-playbook stat-block.yml 
+vi stat-block.yml 
+ansible-playbook stat-block.yml 
+vi stat-block.yml 
+ansible-playbook stat-block.yml 
+ls
+date
+ntp update
+ntpd update
+sudo su
+vi stat-block.yml 
+ansible-playbook stat-block.yml 
+vi stat-block.yml 
+ansible-playbook stat-block.yml 
+cd ..
+vim inventario
+cd practicando_a_fondo/
+vim tags.yml
+ansible-playbook tags.yml 
+ansible backup1:backup2 - m shell -a 'ls -ltrh'
+ansible backup1:backup2 - m shell -a 'ls -ltrh /tmp'
+ansible backup1:backup2 -m shell -a 'ls -ltrh /tmp'
+ansible backup1:backup2 -m shell -a 'ls -ltrh /tmp | grep backup*'
+vim tags.yml
+ansible-playbook tags.yml 
+vim tags.yml
+ansible-playbook tags.yml 
+ping google.es
+ssh ansible4
+ansible-playbook --help
+ansible-playbook tags.yml -t bk1
+vi tags.yml 
+ansible-playbook tags.yml -t bk1
+ls
+cd
+pwd
+vi comandos.txt
+git status
+git add .
+git status
+git commit -a -m 'archivo nuevo'
+git status
+git push origin ansible:ansible
+git status
+git push origin ansible:master
+git push --help
+git checkout
+git status
+git pull origin master:ansible
+git pull remote ansible:master
+git pull origin ansible:master
+git pull origin master:ansible
+git pull origin ansible:ansible
+git pull origin master
+git push origin ansible:master
+ls
+git log 75f823c..62572d3
+gkt
+git log -q
+git log 62572d3dbcdbdb671265d0302111b50ba2a282a7
+cd practicando_a_fondo/
+ansible-galaxy init --offline wordpress
+mv wordpress/ roles/
+ls -la roles/
+cd roles/
+cd wordpress/
+tree
+vi defaults/
+ls
+vi defaults/main.yml 
+tree
+rm -rfv files/
+rm -rfv meta
+rm -rfv tests/
+tree
+vi vars/main.yml 
+tree
+ls
+wget https://wordpress.org/latest.tar.gz
+ls
+tar xvf latest.tar.gz 
+ls
+cd wordpress/
+ls
+tree
+ls
+cd wp-content/
+ls
+cd ..
+grep wp-config.php * -R
+find -f "wp-config.php"
+find . "wp-config.php"
+find . -type f -name "wp-config.php"
+find . -type f -name "wp-config.php" -R
+find . -type f -name "wp-config.php" -r
+find .  -R -type f -name "wp-config.php" 
+find .  -name "wp-config.php" 
+find  -name "wp-config.php" 
+locate "wp-config.php" 
+sudo yum install locate
+sudo yum install mlocate
+sudo yum update
+locate wp-content.php
+sudo updatedb
+locate wp-content.php
+find -type f wp.config.php
+find -type f wp-config.php
+find -type f -name "wp-config.php"
+ls
+cat config-sample.php
+cat wp-config-sample.php 
+ls
+cp wp-config-sample.php wp-config.php.j2
+mv wp-config.php.j2 ../templates/
+cd ../templates/
+ls
+vi wp-config.php.j2 
+ssh ansible3
+ls
+cd practicando_a_fondo/roles/wordpress/
+ls
+mv wordpress/ wordpress_archivos
+ls
+cd vars/
+ls
+vi main.yml 
+pwd
+exit
+ls
+cd practicando_a_fondo/
+cd roles/
+ls
+cd wordpress/
+ls
+cd templates/
+ls
+vi wp-config.php.j2 
+cp wp-config.php.j2 wp-config.php-backup
+ls
+vi wp-config.php.j2 
+ssh ansible5
+ll
+cd practicando_a_fondo/
+cd roles/
+ls
+cd wordpress/
+ls
+vim tasks/main.yml 
+ansible-playbook tasks/main.yml -C
+vim tasks/main.yml 
+ansible-playbook tasks/main.yml -C
+vim tasks/main.yml 
+ansible-playbook tasks/main.yml -C
+vim tasks/main.yml 
+ansible-playbook tasks/main.yml -C
+vim tasks/main.yml 
+cd 
+cd practicando_a_fondo/roles/wordpress/tasks/
+vim main.yml 
+cd
+cd practicando_a_fondo/roles/wordpress/
+tree
+ls
+mv wordpress_archivos/  ~
+cd
+ls
+mv wordpress_archivos/ /tmp/
+ls
+cd practicando_a_fondo/roles/wordpress/
+ls
+tree
+cat defaults/main.yml 
+cat vars/main.yml 
+vim tasks/main.yml 
+cd ..
+cd wordpress/
+tree
+vim templates/wp-config.php.j2 
+vim tasks/main.yml 
+cd ..
+vim wordpress.yaml
+cd ~/inventario
+cat ~/inventario
+vi ~/inventario
+vi wordpress.yaml 
+time ansible-playbook wordpress.yaml 
+cd wordpress
+ls
+vi tasks/main.yml 
+cd ..
+time ansible-playbook wordpress.yaml 
+vi tasks/main.yml 
+vi wordpress/tasks/main.yml 
+time ansible-playbook wordpress.yaml 
+vi wordpress/tasks/main.yml 
+time ansible-playbook wordpress.yaml 
+vi wordpress/tasks/main.yml 
+time ansible-playbook wordpress.yaml 
+vi wordpress/tasks/main.yml 
+time ansible-playbook wordpress.yaml 
+vi wordpress/tasks/main.yml 
+time ansible-playbook wordpress.yaml 
+vi wordpress/tasks/main.yml 
+ls -l  wordpress/tasks/main.yml? 
+time ansible-playbook wordpress.yaml 
+vi wordpress/tasks/main.yml 
+cd wordpress
+vi vars/main.yml 
+time ansible-playbook wordpress.yaml 
+cd ..
+time ansible-playbook wordpress.yaml 
+cd wordpress/tasks/main.yml 
+vi wordpress/tasks/main.yml 
+time ansible-playbook wordpress.yaml 
+vi wordpress/tasks/main.yml 
+time ansible-playbook wordpress.yaml 
+vi wordpress/tasks/main.yml 
+time ansible-playbook wordpress.yaml 
+vi wordpress/tasks/main.yml 
+time ansible-playbook wordpress.yaml 
+tree
+cd wordpress
+tree
+cat vars/main.yml 
+rpm -qa | grep php
+yum install php
+sudo yum install php
+time ansible-playbook wordpress.yaml 
+ls
+cd ..
+ls
+time ansible-playbook wordpress.yaml 
+tail -f /var/log/lastlog
+tail -40 messages
+cd /var
+ls
+cd log
+ls
+tail messages
+tail -40 messages
+sudo tail messages
+sudo tail -40  messages
+sudo tail -100  messages
+sudo su
+cd ..
+cd
+ls
+cd practicando_a_fondo/
+ls
+cd roles/
+ls
+scp /Users/a/Downloads/wordpress-role-2018-03.tar 

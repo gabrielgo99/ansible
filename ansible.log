@@ -1360,3 +1360,725 @@ task or set 'command_warnings=False' in ansible.cfg to get rid of this message.
 2020-07-05 11:55:14,967 p=70867 u=srv_ansible n=ansible | ansible3                   : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
 2020-07-05 11:55:14,967 p=70867 u=srv_ansible n=ansible | ansible4                   : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
 2020-07-05 11:55:14,967 p=70867 u=srv_ansible n=ansible | ansible5                   : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2020-07-05 12:45:23,688 p=71361 u=srv_ansible n=ansible | - Role wordpress was created successfully
+2020-07-05 20:07:47,097 p=72415 u=srv_ansible n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: No JSON object could be decoded
+
+Syntax Error while loading YAML.
+  could not find expected ':'
+
+The error appears to be in '/home/srv_ansible/practicando_a_fondo/roles/wordpress/tasks/main.yml': line 35, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+i
+- name: Update root password for all hosts
+^ here
+
+2020-07-05 20:08:14,351 p=72424 u=srv_ansible n=ansible | ERROR! 'yum' is not a valid attribute for a Play
+
+The error appears to be in '/home/srv_ansible/practicando_a_fondo/roles/wordpress/tasks/main.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- name: Install packages
+  ^ here
+
+2020-07-05 20:09:50,217 p=72434 u=srv_ansible n=ansible | ERROR! 'with_items' is not a valid attribute for a Play
+
+The error appears to be in '/home/srv_ansible/practicando_a_fondo/roles/wordpress/tasks/main.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- name: Install packages
+  ^ here
+
+2020-07-05 20:10:28,145 p=72444 u=srv_ansible n=ansible | ERROR! 'yum' is not a valid attribute for a Play
+
+The error appears to be in '/home/srv_ansible/practicando_a_fondo/roles/wordpress/tasks/main.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- name: Install packages
+  ^ here
+
+2020-07-05 21:16:06,595 p=72582 u=srv_ansible n=ansible | PLAY [wordpress] *************************************************************************
+2020-07-05 21:16:06,650 p=72582 u=srv_ansible n=ansible | TASK [Gathering Facts] *******************************************************************
+2020-07-05 21:16:09,051 p=72582 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 21:16:09,064 p=72582 u=srv_ansible n=ansible | TASK [wordpress : Install packages] ******************************************************
+2020-07-05 21:16:09,137 p=72605 u=srv_ansible n=ansible | [DEPRECATION WARNING]: Invoking "yum" only once while using a loop via squash_actions is 
+deprecated. Instead of using a loop to supply multiple items and specifying `name: "{{ 
+item }}"`, please use `name: ['{{ mariadb_packages }}', '{{ apache_packages }}']` and 
+remove the loop. This feature will be removed in version 2.11. Deprecation warnings can 
+be disabled by setting deprecation_warnings=False in ansible.cfg.
+2020-07-05 21:16:50,843 p=72582 u=srv_ansible n=ansible | changed: [ansible5] => (item=[u'mariadb-server', u'MySQL-python', u'php-mysql', u'httpd', u'php', u'wget'])
+2020-07-05 21:16:50,858 p=72582 u=srv_ansible n=ansible | TASK [wordpress : Setup custom log location] *********************************************
+2020-07-05 21:16:51,405 p=72582 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 21:16:51,418 p=72582 u=srv_ansible n=ansible | TASK [wordpress : Ensure service starts initially] ***************************************
+2020-07-05 21:16:55,378 p=72582 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 21:16:55,389 p=72582 u=srv_ansible n=ansible | TASK [wordpress : Update root password for localhost] ************************************
+2020-07-05 21:16:55,932 p=72582 u=srv_ansible n=ansible | fatal: [ansible5]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (mysql_user) module: hosts, login Supported parameters include: append_privs, ca_cert, check_implicit_admin, client_cert, client_key, config_file, connect_timeout, encrypted, host, host_all, login_host, login_********, login_port, login_unix_socket, login_user, ********, priv, sql_log_bin, state, update_********, user"}
+2020-07-05 21:16:55,934 p=72582 u=srv_ansible n=ansible | PLAY RECAP *******************************************************************************
+2020-07-05 21:16:55,934 p=72582 u=srv_ansible n=ansible | ansible5                   : ok=4    changed=3    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-07-05 21:35:30,845 p=72648 u=srv_ansible n=ansible | PLAY [wordpress] *************************************************************************
+2020-07-05 21:35:30,858 p=72648 u=srv_ansible n=ansible | TASK [Gathering Facts] *******************************************************************
+2020-07-05 21:35:32,394 p=72648 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 21:35:32,406 p=72648 u=srv_ansible n=ansible | TASK [wordpress : Install packages] ******************************************************
+2020-07-05 21:35:32,446 p=72671 u=srv_ansible n=ansible | [DEPRECATION WARNING]: Invoking "yum" only once while using a loop via squash_actions is 
+deprecated. Instead of using a loop to supply multiple items and specifying `name: "{{ 
+item }}"`, please use `name: ['{{ mariadb_packages }}', '{{ apache_packages }}']` and 
+remove the loop. This feature will be removed in version 2.11. Deprecation warnings can 
+be disabled by setting deprecation_warnings=False in ansible.cfg.
+2020-07-05 21:35:33,221 p=72648 u=srv_ansible n=ansible | ok: [ansible5] => (item=[u'mariadb-server', u'MySQL-python', u'php-mysql', u'httpd', u'php', u'wget'])
+2020-07-05 21:35:33,233 p=72648 u=srv_ansible n=ansible | TASK [wordpress : Setup custom log location] *********************************************
+2020-07-05 21:35:33,736 p=72648 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 21:35:33,748 p=72648 u=srv_ansible n=ansible | TASK [wordpress : Ensure service starts initially] ***************************************
+2020-07-05 21:35:34,526 p=72648 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 21:35:34,538 p=72648 u=srv_ansible n=ansible | TASK [wordpress : Update root password for localhost] ************************************
+2020-07-05 21:35:35,064 p=72648 u=srv_ansible n=ansible | fatal: [ansible5]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (mysql_user) module: login Supported parameters include: append_privs, ca_cert, check_implicit_admin, client_cert, client_key, config_file, connect_timeout, encrypted, host, host_all, login_host, login_********, login_port, login_unix_socket, login_user, ********, priv, sql_log_bin, state, update_********, user"}
+2020-07-05 21:35:35,066 p=72648 u=srv_ansible n=ansible | PLAY RECAP *******************************************************************************
+2020-07-05 21:35:35,066 p=72648 u=srv_ansible n=ansible | ansible5                   : ok=4    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-07-05 21:39:47,741 p=72712 u=srv_ansible n=ansible | PLAY [wordpress] *************************************************************************
+2020-07-05 21:39:47,756 p=72712 u=srv_ansible n=ansible | TASK [Gathering Facts] *******************************************************************
+2020-07-05 21:39:49,199 p=72712 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 21:39:49,213 p=72712 u=srv_ansible n=ansible | TASK [wordpress : Install packages] ******************************************************
+2020-07-05 21:39:49,257 p=72735 u=srv_ansible n=ansible | [DEPRECATION WARNING]: Invoking "yum" only once while using a loop via squash_actions is 
+deprecated. Instead of using a loop to supply multiple items and specifying `name: "{{ 
+item }}"`, please use `name: ['{{ mariadb_packages }}', '{{ apache_packages }}']` and 
+remove the loop. This feature will be removed in version 2.11. Deprecation warnings can 
+be disabled by setting deprecation_warnings=False in ansible.cfg.
+2020-07-05 21:39:50,094 p=72712 u=srv_ansible n=ansible | ok: [ansible5] => (item=[u'mariadb-server', u'MySQL-python', u'php-mysql', u'httpd', u'php', u'wget'])
+2020-07-05 21:39:50,106 p=72712 u=srv_ansible n=ansible | TASK [wordpress : Setup custom log location] *********************************************
+2020-07-05 21:39:50,661 p=72712 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 21:39:50,675 p=72712 u=srv_ansible n=ansible | TASK [wordpress : Ensure service starts initially] ***************************************
+2020-07-05 21:39:51,493 p=72712 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 21:39:51,505 p=72712 u=srv_ansible n=ansible | TASK [wordpress : Update root password for localhost] ************************************
+2020-07-05 21:39:52,082 p=72712 u=srv_ansible n=ansible | fatal: [ansible5]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (mysql_user) module: login Supported parameters include: append_privs, ca_cert, check_implicit_admin, client_cert, client_key, config_file, connect_timeout, encrypted, host, host_all, login_host, login_********, login_port, login_unix_socket, login_user, ********, priv, sql_log_bin, state, update_********, user"}
+2020-07-05 21:39:52,084 p=72712 u=srv_ansible n=ansible | PLAY RECAP *******************************************************************************
+2020-07-05 21:39:52,084 p=72712 u=srv_ansible n=ansible | ansible5                   : ok=4    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-07-05 21:41:26,904 p=72775 u=srv_ansible n=ansible | PLAY [wordpress] *************************************************************************
+2020-07-05 21:41:26,923 p=72775 u=srv_ansible n=ansible | TASK [Gathering Facts] *******************************************************************
+2020-07-05 21:41:28,205 p=72775 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 21:41:28,217 p=72775 u=srv_ansible n=ansible | TASK [wordpress : Install packages] ******************************************************
+2020-07-05 21:41:28,254 p=72798 u=srv_ansible n=ansible | [DEPRECATION WARNING]: Invoking "yum" only once while using a loop via squash_actions is 
+deprecated. Instead of using a loop to supply multiple items and specifying `name: "{{ 
+item }}"`, please use `name: ['{{ mariadb_packages }}', '{{ apache_packages }}']` and 
+remove the loop. This feature will be removed in version 2.11. Deprecation warnings can 
+be disabled by setting deprecation_warnings=False in ansible.cfg.
+2020-07-05 21:41:28,937 p=72775 u=srv_ansible n=ansible | ok: [ansible5] => (item=[u'mariadb-server', u'MySQL-python', u'php-mysql', u'httpd', u'php', u'wget'])
+2020-07-05 21:41:28,953 p=72775 u=srv_ansible n=ansible | TASK [wordpress : Setup custom log location] *********************************************
+2020-07-05 21:41:29,429 p=72775 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 21:41:29,441 p=72775 u=srv_ansible n=ansible | TASK [wordpress : Ensure service starts initially] ***************************************
+2020-07-05 21:41:30,148 p=72775 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 21:41:30,160 p=72775 u=srv_ansible n=ansible | TASK [wordpress : Update root password for localhost] ************************************
+2020-07-05 21:41:30,644 p=72775 u=srv_ansible n=ansible | fatal: [ansible5]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (mysql_user) module: login Supported parameters include: append_privs, ca_cert, check_implicit_admin, client_cert, client_key, config_file, connect_timeout, encrypted, host, host_all, login_host, login_********, login_port, login_unix_socket, login_user, ********, priv, sql_log_bin, state, update_********, user"}
+2020-07-05 21:41:30,645 p=72775 u=srv_ansible n=ansible | PLAY RECAP *******************************************************************************
+2020-07-05 21:41:30,645 p=72775 u=srv_ansible n=ansible | ansible5                   : ok=4    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-07-05 21:42:16,176 p=72836 u=srv_ansible n=ansible | PLAY [wordpress] *************************************************************************
+2020-07-05 21:42:16,189 p=72836 u=srv_ansible n=ansible | TASK [Gathering Facts] *******************************************************************
+2020-07-05 21:42:17,125 p=72836 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 21:42:17,137 p=72836 u=srv_ansible n=ansible | TASK [wordpress : Install packages] ******************************************************
+2020-07-05 21:42:17,174 p=72856 u=srv_ansible n=ansible | [DEPRECATION WARNING]: Invoking "yum" only once while using a loop via squash_actions is 
+deprecated. Instead of using a loop to supply multiple items and specifying `name: "{{ 
+item }}"`, please use `name: ['{{ mariadb_packages }}', '{{ apache_packages }}']` and 
+remove the loop. This feature will be removed in version 2.11. Deprecation warnings can 
+be disabled by setting deprecation_warnings=False in ansible.cfg.
+2020-07-05 21:42:17,854 p=72836 u=srv_ansible n=ansible | ok: [ansible5] => (item=[u'mariadb-server', u'MySQL-python', u'php-mysql', u'httpd', u'php', u'wget'])
+2020-07-05 21:42:17,866 p=72836 u=srv_ansible n=ansible | TASK [wordpress : Setup custom log location] *********************************************
+2020-07-05 21:42:18,341 p=72836 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 21:42:18,352 p=72836 u=srv_ansible n=ansible | TASK [wordpress : Ensure service starts initially] ***************************************
+2020-07-05 21:42:19,041 p=72836 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 21:42:19,052 p=72836 u=srv_ansible n=ansible | TASK [wordpress : Update root password for localhost] ************************************
+2020-07-05 21:42:19,562 p=72836 u=srv_ansible n=ansible | [WARNING]: Module did not set no_log for update_********
+
+2020-07-05 21:42:19,562 p=72836 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 21:42:19,573 p=72836 u=srv_ansible n=ansible | TASK [wordpress : Update root password for all hosts] ************************************
+2020-07-05 21:42:19,910 p=72836 u=srv_ansible n=ansible | failed: [ansible5] (item=::1) => {"ansible_loop_var": "item", "changed": false, "item": "::1", "msg": "unable to connect to database, check login_user and login_******** are correct or /root/.my.cnf has the credentials. Exception message: (1045, \"Access denied for user 'root'@'localhost' (using ********: YES)\")"}
+2020-07-05 21:42:20,214 p=72836 u=srv_ansible n=ansible | failed: [ansible5] (item=127.0.0.1) => {"ansible_loop_var": "item", "changed": false, "item": "127.0.0.1", "msg": "unable to connect to database, check login_user and login_******** are correct or /root/.my.cnf has the credentials. Exception message: (1045, \"Access denied for user 'root'@'localhost' (using ********: YES)\")"}
+2020-07-05 21:42:20,519 p=72836 u=srv_ansible n=ansible | failed: [ansible5] (item=ansible5.localdomain) => {"ansible_loop_var": "item", "changed": false, "item": "ansible5.localdomain", "msg": "unable to connect to database, check login_user and login_******** are correct or /root/.my.cnf has the credentials. Exception message: (1045, \"Access denied for user 'root'@'localhost' (using ********: YES)\")"}
+2020-07-05 21:42:20,795 p=72836 u=srv_ansible n=ansible | failed: [ansible5] (item=ansible5) => {"ansible_loop_var": "item", "changed": false, "item": "ansible5", "msg": "unable to connect to database, check login_user and login_******** are correct or /root/.my.cnf has the credentials. Exception message: (1045, \"Access denied for user 'root'@'localhost' (using ********: YES)\")"}
+2020-07-05 21:42:20,801 p=72836 u=srv_ansible n=ansible | PLAY RECAP *******************************************************************************
+2020-07-05 21:42:20,801 p=72836 u=srv_ansible n=ansible | ansible5                   : ok=5    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-07-05 21:46:13,081 p=72925 u=srv_ansible n=ansible | PLAY [wordpress] *************************************************************************
+2020-07-05 21:46:13,093 p=72925 u=srv_ansible n=ansible | TASK [Gathering Facts] *******************************************************************
+2020-07-05 21:46:14,342 p=72925 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 21:46:14,354 p=72925 u=srv_ansible n=ansible | TASK [wordpress : Install packages] ******************************************************
+2020-07-05 21:46:14,393 p=72948 u=srv_ansible n=ansible | [DEPRECATION WARNING]: Invoking "yum" only once while using a loop via squash_actions is 
+deprecated. Instead of using a loop to supply multiple items and specifying `name: "{{ 
+item }}"`, please use `name: ['{{ mariadb_packages }}', '{{ apache_packages }}']` and 
+remove the loop. This feature will be removed in version 2.11. Deprecation warnings can 
+be disabled by setting deprecation_warnings=False in ansible.cfg.
+2020-07-05 21:46:15,081 p=72925 u=srv_ansible n=ansible | ok: [ansible5] => (item=[u'mariadb-server', u'MySQL-python', u'php-mysql', u'httpd', u'php', u'wget'])
+2020-07-05 21:46:15,093 p=72925 u=srv_ansible n=ansible | TASK [wordpress : Setup custom log location] *********************************************
+2020-07-05 21:46:15,560 p=72925 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 21:46:15,571 p=72925 u=srv_ansible n=ansible | TASK [wordpress : Ensure service starts initially] ***************************************
+2020-07-05 21:46:16,259 p=72925 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 21:46:16,270 p=72925 u=srv_ansible n=ansible | TASK [wordpress : Update root password for localhost] ************************************
+2020-07-05 21:46:16,761 p=72925 u=srv_ansible n=ansible | [WARNING]: Module did not set no_log for update_********
+
+2020-07-05 21:46:16,761 p=72925 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 21:46:16,771 p=72925 u=srv_ansible n=ansible | TASK [wordpress : Update root password for all hosts] ************************************
+2020-07-05 21:46:17,136 p=72925 u=srv_ansible n=ansible | changed: [ansible5] => (item=::1)
+2020-07-05 21:46:17,421 p=72925 u=srv_ansible n=ansible | changed: [ansible5] => (item=127.0.0.1)
+2020-07-05 21:46:17,698 p=72925 u=srv_ansible n=ansible | changed: [ansible5] => (item=ansible5.localdomain)
+2020-07-05 21:46:17,982 p=72925 u=srv_ansible n=ansible | changed: [ansible5] => (item=ansible5)
+2020-07-05 21:46:17,996 p=72925 u=srv_ansible n=ansible | TASK [wordpress : Remove anonymous users] ************************************************
+2020-07-05 21:46:18,326 p=72925 u=srv_ansible n=ansible | failed: [ansible5] (item=localhost) => {"ansible_loop_var": "item", "changed": false, "item": "localhost", "msg": "Unsupported parameters for (mysql_user) module: login Supported parameters include: append_privs, ca_cert, check_implicit_admin, client_cert, client_key, config_file, connect_timeout, encrypted, host, host_all, login_host, login_********, login_port, login_unix_socket, login_user, ********, priv, sql_log_bin, state, update_********, user"}
+2020-07-05 21:46:18,590 p=72925 u=srv_ansible n=ansible | failed: [ansible5] (item=ansible5.localdomain) => {"ansible_loop_var": "item", "changed": false, "item": "ansible5.localdomain", "msg": "Unsupported parameters for (mysql_user) module: login Supported parameters include: append_privs, ca_cert, check_implicit_admin, client_cert, client_key, config_file, connect_timeout, encrypted, host, host_all, login_host, login_********, login_port, login_unix_socket, login_user, ********, priv, sql_log_bin, state, update_********, user"}
+2020-07-05 21:46:18,850 p=72925 u=srv_ansible n=ansible | failed: [ansible5] (item=ansible5) => {"ansible_loop_var": "item", "changed": false, "item": "ansible5", "msg": "Unsupported parameters for (mysql_user) module: login Supported parameters include: append_privs, ca_cert, check_implicit_admin, client_cert, client_key, config_file, connect_timeout, encrypted, host, host_all, login_host, login_********, login_port, login_unix_socket, login_user, ********, priv, sql_log_bin, state, update_********, user"}
+2020-07-05 21:46:18,861 p=72925 u=srv_ansible n=ansible | PLAY RECAP *******************************************************************************
+2020-07-05 21:46:18,861 p=72925 u=srv_ansible n=ansible | ansible5                   : ok=6    changed=3    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-07-05 21:47:31,263 p=73039 u=srv_ansible n=ansible | PLAY [wordpress] *************************************************************************
+2020-07-05 21:47:31,282 p=73039 u=srv_ansible n=ansible | TASK [Gathering Facts] *******************************************************************
+2020-07-05 21:47:32,514 p=73039 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 21:47:32,527 p=73039 u=srv_ansible n=ansible | TASK [wordpress : Install packages] ******************************************************
+2020-07-05 21:47:32,564 p=73062 u=srv_ansible n=ansible | [DEPRECATION WARNING]: Invoking "yum" only once while using a loop via squash_actions is 
+deprecated. Instead of using a loop to supply multiple items and specifying `name: "{{ 
+item }}"`, please use `name: ['{{ mariadb_packages }}', '{{ apache_packages }}']` and 
+remove the loop. This feature will be removed in version 2.11. Deprecation warnings can 
+be disabled by setting deprecation_warnings=False in ansible.cfg.
+2020-07-05 21:47:33,226 p=73039 u=srv_ansible n=ansible | ok: [ansible5] => (item=[u'mariadb-server', u'MySQL-python', u'php-mysql', u'httpd', u'php', u'wget'])
+2020-07-05 21:47:33,237 p=73039 u=srv_ansible n=ansible | TASK [wordpress : Setup custom log location] *********************************************
+2020-07-05 21:47:33,691 p=73039 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 21:47:33,702 p=73039 u=srv_ansible n=ansible | TASK [wordpress : Ensure service starts initially] ***************************************
+2020-07-05 21:47:34,383 p=73039 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 21:47:34,394 p=73039 u=srv_ansible n=ansible | TASK [wordpress : Update root password for localhost] ************************************
+2020-07-05 21:47:34,874 p=73039 u=srv_ansible n=ansible | [WARNING]: Module did not set no_log for update_********
+
+2020-07-05 21:47:34,875 p=73039 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 21:47:34,885 p=73039 u=srv_ansible n=ansible | TASK [wordpress : Update root password for all hosts] ************************************
+2020-07-05 21:47:35,240 p=73039 u=srv_ansible n=ansible | ok: [ansible5] => (item=::1)
+2020-07-05 21:47:35,531 p=73039 u=srv_ansible n=ansible | ok: [ansible5] => (item=127.0.0.1)
+2020-07-05 21:47:35,811 p=73039 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5.localdomain)
+2020-07-05 21:47:36,089 p=73039 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5)
+2020-07-05 21:47:36,104 p=73039 u=srv_ansible n=ansible | TASK [wordpress : Remove anonymous users] ************************************************
+2020-07-05 21:47:36,412 p=73039 u=srv_ansible n=ansible | changed: [ansible5] => (item=localhost)
+2020-07-05 21:47:36,688 p=73039 u=srv_ansible n=ansible | changed: [ansible5] => (item=ansible5.localdomain)
+2020-07-05 21:47:36,961 p=73039 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5)
+2020-07-05 21:47:36,975 p=73039 u=srv_ansible n=ansible | TASK [wordpress : Remove empty root password] ********************************************
+2020-07-05 21:47:37,283 p=73039 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 21:47:37,294 p=73039 u=srv_ansible n=ansible | TASK [wordpress : Remove the test database] **********************************************
+2020-07-05 21:47:37,751 p=73039 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 21:47:37,762 p=73039 u=srv_ansible n=ansible | TASK [wordpress : Stop Service] **********************************************************
+2020-07-05 21:47:41,782 p=73039 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 21:47:41,794 p=73039 u=srv_ansible n=ansible | TASK [wordpress : List ib_logfile remnats] ***********************************************
+2020-07-05 21:47:42,242 p=73039 u=srv_ansible n=ansible | fatal: [ansible5]: FAILED! => {"changed": false, "cmd": "ls -l /var/lib/mysql/ib_logfile", "delta": "0:00:00.004952", "end": "2020-07-04 11:41:47.057341", "msg": "non-zero return code", "rc": 2, "start": "2020-07-04 11:41:47.052389", "stderr": "ls: cannot access /var/lib/mysql/ib_logfile: No such file or directory", "stderr_lines": ["ls: cannot access /var/lib/mysql/ib_logfile: No such file or directory"], "stdout": "", "stdout_lines": []}
+2020-07-05 21:47:42,244 p=73039 u=srv_ansible n=ansible | PLAY RECAP *******************************************************************************
+2020-07-05 21:47:42,244 p=73039 u=srv_ansible n=ansible | ansible5                   : ok=10   changed=4    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-07-05 21:53:34,269 p=73192 u=srv_ansible n=ansible | PLAY [wordpress] *************************************************************************
+2020-07-05 21:53:34,282 p=73192 u=srv_ansible n=ansible | TASK [Gathering Facts] *******************************************************************
+2020-07-05 21:53:35,522 p=73192 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 21:53:35,534 p=73192 u=srv_ansible n=ansible | TASK [wordpress : Install packages] ******************************************************
+2020-07-05 21:53:35,572 p=73215 u=srv_ansible n=ansible | [DEPRECATION WARNING]: Invoking "yum" only once while using a loop via squash_actions is 
+deprecated. Instead of using a loop to supply multiple items and specifying `name: "{{ 
+item }}"`, please use `name: ['{{ mariadb_packages }}', '{{ apache_packages }}']` and 
+remove the loop. This feature will be removed in version 2.11. Deprecation warnings can 
+be disabled by setting deprecation_warnings=False in ansible.cfg.
+2020-07-05 21:53:36,241 p=73192 u=srv_ansible n=ansible | ok: [ansible5] => (item=[u'mariadb-server', u'MySQL-python', u'php-mysql', u'httpd', u'php', u'wget'])
+2020-07-05 21:53:36,255 p=73192 u=srv_ansible n=ansible | TASK [wordpress : Setup custom log location] *********************************************
+2020-07-05 21:53:36,720 p=73192 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 21:53:36,731 p=73192 u=srv_ansible n=ansible | TASK [wordpress : Ensure service starts initially] ***************************************
+2020-07-05 21:53:39,418 p=73192 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 21:53:39,429 p=73192 u=srv_ansible n=ansible | TASK [wordpress : Update root password for localhost] ************************************
+2020-07-05 21:53:39,898 p=73192 u=srv_ansible n=ansible | [WARNING]: Module did not set no_log for update_********
+
+2020-07-05 21:53:39,898 p=73192 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 21:53:39,910 p=73192 u=srv_ansible n=ansible | TASK [wordpress : Update root password for all hosts] ************************************
+2020-07-05 21:53:40,245 p=73192 u=srv_ansible n=ansible | ok: [ansible5] => (item=::1)
+2020-07-05 21:53:40,529 p=73192 u=srv_ansible n=ansible | ok: [ansible5] => (item=127.0.0.1)
+2020-07-05 21:53:40,805 p=73192 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5.localdomain)
+2020-07-05 21:53:41,077 p=73192 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5)
+2020-07-05 21:53:41,091 p=73192 u=srv_ansible n=ansible | TASK [wordpress : Remove anonymous users] ************************************************
+2020-07-05 21:53:41,398 p=73192 u=srv_ansible n=ansible | ok: [ansible5] => (item=localhost)
+2020-07-05 21:53:41,676 p=73192 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5.localdomain)
+2020-07-05 21:53:41,942 p=73192 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5)
+2020-07-05 21:53:41,956 p=73192 u=srv_ansible n=ansible | TASK [wordpress : Remove empty root password] ********************************************
+2020-07-05 21:53:42,255 p=73192 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 21:53:42,266 p=73192 u=srv_ansible n=ansible | TASK [wordpress : Remove the test database] **********************************************
+2020-07-05 21:53:42,755 p=73192 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 21:53:42,765 p=73192 u=srv_ansible n=ansible | TASK [wordpress : Stop Service] **********************************************************
+2020-07-05 21:53:47,093 p=73192 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 21:53:47,104 p=73192 u=srv_ansible n=ansible | TASK [wordpress : List ib_logfile remnats] ***********************************************
+2020-07-05 21:53:47,573 p=73192 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 21:53:47,584 p=73192 u=srv_ansible n=ansible | TASK [wordpress : Remove ib_logfiles] ****************************************************
+2020-07-05 21:53:47,900 p=73192 u=srv_ansible n=ansible | ok: [ansible5] => (item=-rw-rw----. 1 mysql mysql 5242880 Jul  4 11:48 /var/lib/mysql/ib_logfile0)
+2020-07-05 21:53:48,179 p=73192 u=srv_ansible n=ansible | ok: [ansible5] => (item=-rw-rw----. 1 mysql mysql 5242880 Jul  4 11:08 /var/lib/mysql/ib_logfile1)
+2020-07-05 21:53:48,193 p=73192 u=srv_ansible n=ansible | TASK [wordpress : Start service] *********************************************************
+2020-07-05 21:53:50,521 p=73192 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 21:53:50,532 p=73192 u=srv_ansible n=ansible | TASK [wordpress : Create MYSQL Data for Wordpress] ***************************************
+2020-07-05 21:53:50,851 p=73192 u=srv_ansible n=ansible | changed: [ansible5] => (item=wordpress_db)
+2020-07-05 21:53:50,864 p=73192 u=srv_ansible n=ansible | TASK [wordpress : Create Wordpress User] *************************************************
+2020-07-05 21:53:50,905 p=73192 u=srv_ansible n=ansible | fatal: [ansible5]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'db_worpress_password' is undefined\n\nThe error appears to be in '/home/srv_ansible/practicando_a_fondo/roles/wordpress/tasks/main.yml': line 112, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Create Wordpress User\n  ^ here\n"}
+2020-07-05 21:53:50,906 p=73192 u=srv_ansible n=ansible | PLAY RECAP *******************************************************************************
+2020-07-05 21:53:50,906 p=73192 u=srv_ansible n=ansible | ansible5                   : ok=14   changed=5    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-07-05 22:04:25,020 p=73395 u=srv_ansible n=ansible | ERROR! the playbook: wordpress.yaml could not be found
+2020-07-05 22:04:31,087 p=73400 u=srv_ansible n=ansible | PLAY [wordpress] *************************************************************************
+2020-07-05 22:04:31,099 p=73400 u=srv_ansible n=ansible | TASK [Gathering Facts] *******************************************************************
+2020-07-05 22:04:32,365 p=73400 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:04:32,377 p=73400 u=srv_ansible n=ansible | TASK [wordpress : Install packages] ******************************************************
+2020-07-05 22:04:32,414 p=73423 u=srv_ansible n=ansible | [DEPRECATION WARNING]: Invoking "yum" only once while using a loop via squash_actions is 
+deprecated. Instead of using a loop to supply multiple items and specifying `name: "{{ 
+item }}"`, please use `name: ['{{ mariadb_packages }}', '{{ apache_packages }}']` and 
+remove the loop. This feature will be removed in version 2.11. Deprecation warnings can 
+be disabled by setting deprecation_warnings=False in ansible.cfg.
+2020-07-05 22:04:33,084 p=73400 u=srv_ansible n=ansible | ok: [ansible5] => (item=[u'mariadb-server', u'MySQL-python', u'php-mysql', u'httpd', u'php', u'wget'])
+2020-07-05 22:04:33,099 p=73400 u=srv_ansible n=ansible | TASK [wordpress : Setup custom log location] *********************************************
+2020-07-05 22:04:33,558 p=73400 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:04:33,570 p=73400 u=srv_ansible n=ansible | TASK [wordpress : Ensure service starts initially] ***************************************
+2020-07-05 22:04:34,255 p=73400 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:04:34,266 p=73400 u=srv_ansible n=ansible | TASK [wordpress : Update root password for localhost] ************************************
+2020-07-05 22:04:34,766 p=73400 u=srv_ansible n=ansible | [WARNING]: Module did not set no_log for update_********
+
+2020-07-05 22:04:34,766 p=73400 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:04:34,777 p=73400 u=srv_ansible n=ansible | TASK [wordpress : Update root password for all hosts] ************************************
+2020-07-05 22:04:35,140 p=73400 u=srv_ansible n=ansible | ok: [ansible5] => (item=::1)
+2020-07-05 22:04:35,419 p=73400 u=srv_ansible n=ansible | ok: [ansible5] => (item=127.0.0.1)
+2020-07-05 22:04:35,708 p=73400 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5.localdomain)
+2020-07-05 22:04:35,981 p=73400 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5)
+2020-07-05 22:04:35,996 p=73400 u=srv_ansible n=ansible | TASK [wordpress : Remove anonymous users] ************************************************
+2020-07-05 22:04:36,325 p=73400 u=srv_ansible n=ansible | ok: [ansible5] => (item=localhost)
+2020-07-05 22:04:36,598 p=73400 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5.localdomain)
+2020-07-05 22:04:36,868 p=73400 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5)
+2020-07-05 22:04:36,883 p=73400 u=srv_ansible n=ansible | TASK [wordpress : Remove empty root password] ********************************************
+2020-07-05 22:04:37,192 p=73400 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:04:37,203 p=73400 u=srv_ansible n=ansible | TASK [wordpress : Remove the test database] **********************************************
+2020-07-05 22:04:37,638 p=73400 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:04:37,650 p=73400 u=srv_ansible n=ansible | TASK [wordpress : Stop Service] **********************************************************
+2020-07-05 22:04:40,367 p=73400 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:04:40,378 p=73400 u=srv_ansible n=ansible | TASK [wordpress : List ib_logfile remnats] ***********************************************
+2020-07-05 22:04:40,834 p=73400 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:04:40,845 p=73400 u=srv_ansible n=ansible | TASK [wordpress : Remove ib_logfiles] ****************************************************
+2020-07-05 22:04:41,161 p=73400 u=srv_ansible n=ansible | ok: [ansible5] => (item=-rw-rw----. 1 mysql mysql 5242880 Jul  4 12:00 /var/lib/mysql/ib_logfile0)
+2020-07-05 22:04:41,427 p=73400 u=srv_ansible n=ansible | ok: [ansible5] => (item=-rw-rw----. 1 mysql mysql 5242880 Jul  4 11:08 /var/lib/mysql/ib_logfile1)
+2020-07-05 22:04:41,441 p=73400 u=srv_ansible n=ansible | TASK [wordpress : Start service] *********************************************************
+2020-07-05 22:04:43,797 p=73400 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:04:43,807 p=73400 u=srv_ansible n=ansible | TASK [wordpress : Create MYSQL Data for Wordpress] ***************************************
+2020-07-05 22:04:44,121 p=73400 u=srv_ansible n=ansible | ok: [ansible5] => (item=wordpress_db)
+2020-07-05 22:04:44,134 p=73400 u=srv_ansible n=ansible | TASK [wordpress : Create Wordpress User] *************************************************
+2020-07-05 22:04:44,175 p=73400 u=srv_ansible n=ansible | fatal: [ansible5]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'db_worpress_password' is undefined\n\nThe error appears to be in '/home/srv_ansible/practicando_a_fondo/roles/wordpress/tasks/main.yml': line 112, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n- name: Create Wordpress User\n  ^ here\n"}
+2020-07-05 22:04:44,177 p=73400 u=srv_ansible n=ansible | PLAY RECAP *******************************************************************************
+2020-07-05 22:04:44,177 p=73400 u=srv_ansible n=ansible | ansible5                   : ok=14   changed=3    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-07-05 22:06:29,839 p=73586 u=srv_ansible n=ansible | PLAY [wordpress] *************************************************************************
+2020-07-05 22:06:29,852 p=73586 u=srv_ansible n=ansible | TASK [Gathering Facts] *******************************************************************
+2020-07-05 22:06:31,099 p=73586 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:06:31,112 p=73586 u=srv_ansible n=ansible | TASK [wordpress : Install packages] ******************************************************
+2020-07-05 22:06:31,148 p=73609 u=srv_ansible n=ansible | [DEPRECATION WARNING]: Invoking "yum" only once while using a loop via squash_actions is 
+deprecated. Instead of using a loop to supply multiple items and specifying `name: "{{ 
+item }}"`, please use `name: ['{{ mariadb_packages }}', '{{ apache_packages }}']` and 
+remove the loop. This feature will be removed in version 2.11. Deprecation warnings can 
+be disabled by setting deprecation_warnings=False in ansible.cfg.
+2020-07-05 22:06:31,825 p=73586 u=srv_ansible n=ansible | ok: [ansible5] => (item=[u'mariadb-server', u'MySQL-python', u'php-mysql', u'httpd', u'php', u'wget'])
+2020-07-05 22:06:31,840 p=73586 u=srv_ansible n=ansible | TASK [wordpress : Setup custom log location] *********************************************
+2020-07-05 22:06:32,303 p=73586 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:06:32,315 p=73586 u=srv_ansible n=ansible | TASK [wordpress : Ensure service starts initially] ***************************************
+2020-07-05 22:06:33,017 p=73586 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:06:33,027 p=73586 u=srv_ansible n=ansible | TASK [wordpress : Update root password for localhost] ************************************
+2020-07-05 22:06:33,521 p=73586 u=srv_ansible n=ansible | [WARNING]: Module did not set no_log for update_********
+
+2020-07-05 22:06:33,521 p=73586 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:06:33,532 p=73586 u=srv_ansible n=ansible | TASK [wordpress : Update root password for all hosts] ************************************
+2020-07-05 22:06:33,908 p=73586 u=srv_ansible n=ansible | ok: [ansible5] => (item=::1)
+2020-07-05 22:06:34,194 p=73586 u=srv_ansible n=ansible | ok: [ansible5] => (item=127.0.0.1)
+2020-07-05 22:06:34,481 p=73586 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5.localdomain)
+2020-07-05 22:06:34,761 p=73586 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5)
+2020-07-05 22:06:34,776 p=73586 u=srv_ansible n=ansible | TASK [wordpress : Remove anonymous users] ************************************************
+2020-07-05 22:06:35,090 p=73586 u=srv_ansible n=ansible | ok: [ansible5] => (item=localhost)
+2020-07-05 22:06:35,376 p=73586 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5.localdomain)
+2020-07-05 22:06:35,644 p=73586 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5)
+2020-07-05 22:06:35,658 p=73586 u=srv_ansible n=ansible | TASK [wordpress : Remove empty root password] ********************************************
+2020-07-05 22:06:35,971 p=73586 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:06:35,982 p=73586 u=srv_ansible n=ansible | TASK [wordpress : Remove the test database] **********************************************
+2020-07-05 22:06:36,422 p=73586 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:06:36,434 p=73586 u=srv_ansible n=ansible | TASK [wordpress : Stop Service] **********************************************************
+2020-07-05 22:06:37,712 p=73586 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:06:37,723 p=73586 u=srv_ansible n=ansible | TASK [wordpress : List ib_logfile remnats] ***********************************************
+2020-07-05 22:06:38,192 p=73586 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:06:38,204 p=73586 u=srv_ansible n=ansible | TASK [wordpress : Remove ib_logfiles] ****************************************************
+2020-07-05 22:06:38,531 p=73586 u=srv_ansible n=ansible | ok: [ansible5] => (item=-rw-rw----. 1 mysql mysql 5242880 Jul  4 12:02 /var/lib/mysql/ib_logfile0)
+2020-07-05 22:06:38,790 p=73586 u=srv_ansible n=ansible | ok: [ansible5] => (item=-rw-rw----. 1 mysql mysql 5242880 Jul  4 11:08 /var/lib/mysql/ib_logfile1)
+2020-07-05 22:06:38,804 p=73586 u=srv_ansible n=ansible | TASK [wordpress : Start service] *********************************************************
+2020-07-05 22:06:41,174 p=73586 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:06:41,186 p=73586 u=srv_ansible n=ansible | TASK [wordpress : Create MYSQL Data for Wordpress] ***************************************
+2020-07-05 22:06:41,509 p=73586 u=srv_ansible n=ansible | ok: [ansible5] => (item=wordpress_db)
+2020-07-05 22:06:41,521 p=73586 u=srv_ansible n=ansible | TASK [wordpress : Create Wordpress User] *************************************************
+2020-07-05 22:06:41,852 p=73586 u=srv_ansible n=ansible | changed: [ansible5] => (item={u'db': u'wordpress_db', u'privs': u'ALL'})
+2020-07-05 22:06:41,864 p=73586 u=srv_ansible n=ansible | TASK [wordpress : Enable Apache in the firewalld] ****************************************
+2020-07-05 22:06:42,779 p=73586 u=srv_ansible n=ansible | [WARNING]: The value True (type bool) in a string field was converted to u'True' (type
+string). If this does not look like what you expect, quote the entire value to ensure it
+does not change.
+
+2020-07-05 22:06:42,780 p=73586 u=srv_ansible n=ansible | fatal: [ansible5]: FAILED! => {"changed": false, "msg": "value of state must be one of: absent, disabled, enabled, present, got: True"}
+2020-07-05 22:06:42,781 p=73586 u=srv_ansible n=ansible | PLAY RECAP *******************************************************************************
+2020-07-05 22:06:42,781 p=73586 u=srv_ansible n=ansible | ansible5                   : ok=15   changed=4    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-07-05 22:07:40,308 p=73788 u=srv_ansible n=ansible | PLAY [wordpress] *************************************************************************
+2020-07-05 22:07:40,321 p=73788 u=srv_ansible n=ansible | TASK [Gathering Facts] *******************************************************************
+2020-07-05 22:07:41,275 p=73788 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:07:41,289 p=73788 u=srv_ansible n=ansible | TASK [wordpress : Install packages] ******************************************************
+2020-07-05 22:07:41,333 p=73808 u=srv_ansible n=ansible | [DEPRECATION WARNING]: Invoking "yum" only once while using a loop via squash_actions is 
+deprecated. Instead of using a loop to supply multiple items and specifying `name: "{{ 
+item }}"`, please use `name: ['{{ mariadb_packages }}', '{{ apache_packages }}']` and 
+remove the loop. This feature will be removed in version 2.11. Deprecation warnings can 
+be disabled by setting deprecation_warnings=False in ansible.cfg.
+2020-07-05 22:07:42,069 p=73788 u=srv_ansible n=ansible | ok: [ansible5] => (item=[u'mariadb-server', u'MySQL-python', u'php-mysql', u'httpd', u'php', u'wget'])
+2020-07-05 22:07:42,085 p=73788 u=srv_ansible n=ansible | TASK [wordpress : Setup custom log location] *********************************************
+2020-07-05 22:07:42,650 p=73788 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:07:42,663 p=73788 u=srv_ansible n=ansible | TASK [wordpress : Ensure service starts initially] ***************************************
+2020-07-05 22:07:43,504 p=73788 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:07:43,515 p=73788 u=srv_ansible n=ansible | TASK [wordpress : Update root password for localhost] ************************************
+2020-07-05 22:07:44,033 p=73788 u=srv_ansible n=ansible | [WARNING]: Module did not set no_log for update_********
+
+2020-07-05 22:07:44,033 p=73788 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:07:44,044 p=73788 u=srv_ansible n=ansible | TASK [wordpress : Update root password for all hosts] ************************************
+2020-07-05 22:07:44,398 p=73788 u=srv_ansible n=ansible | ok: [ansible5] => (item=::1)
+2020-07-05 22:07:44,723 p=73788 u=srv_ansible n=ansible | ok: [ansible5] => (item=127.0.0.1)
+2020-07-05 22:07:45,025 p=73788 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5.localdomain)
+2020-07-05 22:07:45,292 p=73788 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5)
+2020-07-05 22:07:45,307 p=73788 u=srv_ansible n=ansible | TASK [wordpress : Remove anonymous users] ************************************************
+2020-07-05 22:07:45,629 p=73788 u=srv_ansible n=ansible | ok: [ansible5] => (item=localhost)
+2020-07-05 22:07:45,908 p=73788 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5.localdomain)
+2020-07-05 22:07:46,173 p=73788 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5)
+2020-07-05 22:07:46,188 p=73788 u=srv_ansible n=ansible | TASK [wordpress : Remove empty root password] ********************************************
+2020-07-05 22:07:46,517 p=73788 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:07:46,529 p=73788 u=srv_ansible n=ansible | TASK [wordpress : Remove the test database] **********************************************
+2020-07-05 22:07:46,999 p=73788 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:07:47,011 p=73788 u=srv_ansible n=ansible | TASK [wordpress : Stop Service] **********************************************************
+2020-07-05 22:07:48,848 p=73788 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:07:48,860 p=73788 u=srv_ansible n=ansible | TASK [wordpress : List ib_logfile remnats] ***********************************************
+2020-07-05 22:07:49,374 p=73788 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:07:49,386 p=73788 u=srv_ansible n=ansible | TASK [wordpress : Remove ib_logfiles] ****************************************************
+2020-07-05 22:07:49,756 p=73788 u=srv_ansible n=ansible | ok: [ansible5] => (item=-rw-rw----. 1 mysql mysql 5242880 Jul  4 12:03 /var/lib/mysql/ib_logfile0)
+2020-07-05 22:07:50,078 p=73788 u=srv_ansible n=ansible | ok: [ansible5] => (item=-rw-rw----. 1 mysql mysql 5242880 Jul  4 11:08 /var/lib/mysql/ib_logfile1)
+2020-07-05 22:07:50,093 p=73788 u=srv_ansible n=ansible | TASK [wordpress : Start service] *********************************************************
+2020-07-05 22:07:52,513 p=73788 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:07:52,525 p=73788 u=srv_ansible n=ansible | TASK [wordpress : Create MYSQL Data for Wordpress] ***************************************
+2020-07-05 22:07:52,890 p=73788 u=srv_ansible n=ansible | ok: [ansible5] => (item=wordpress_db)
+2020-07-05 22:07:52,907 p=73788 u=srv_ansible n=ansible | TASK [wordpress : Create Wordpress User] *************************************************
+2020-07-05 22:07:53,293 p=73788 u=srv_ansible n=ansible | ok: [ansible5] => (item={u'db': u'wordpress_db', u'privs': u'ALL'})
+2020-07-05 22:07:53,307 p=73788 u=srv_ansible n=ansible | TASK [wordpress : Enable Apache in the firewalld] ****************************************
+2020-07-05 22:07:54,361 p=73788 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:07:54,377 p=73788 u=srv_ansible n=ansible | TASK [wordpress : Get Wordpress] *********************************************************
+2020-07-05 22:08:24,481 p=73788 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:08:24,502 p=73788 u=srv_ansible n=ansible | TASK [wordpress : Wordpress | Extract archive] *******************************************
+2020-07-05 22:08:27,432 p=73788 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:08:27,465 p=73788 u=srv_ansible n=ansible | TASK [wordpress : Wordpress | Move extracted directory to "/var/www/html/"] **************
+2020-07-05 22:08:28,970 p=73788 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:08:28,982 p=73788 u=srv_ansible n=ansible | TASK [wordpress : Create upload directory] ***********************************************
+2020-07-05 22:08:29,334 p=73788 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:08:29,346 p=73788 u=srv_ansible n=ansible | TASK [wordpress : Remove sample config file] *********************************************
+2020-07-05 22:08:29,647 p=73788 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:08:29,659 p=73788 u=srv_ansible n=ansible | TASK [wordpress : Fix ownership] *********************************************************
+2020-07-05 22:08:29,953 p=73788 u=srv_ansible n=ansible | fatal: [ansible5]: FAILED! => {"changed": true, "cmd": "Chown -R apache:apache \"/var/www/html/\"", "delta": "0:00:00.003724", "end": "2020-07-04 12:04:18.750992", "msg": "non-zero return code", "rc": 127, "start": "2020-07-04 12:04:18.747268", "stderr": "/bin/sh: Chown: command not found", "stderr_lines": ["/bin/sh: Chown: command not found"], "stdout": "", "stdout_lines": []}
+2020-07-05 22:08:29,961 p=73788 u=srv_ansible n=ansible | PLAY RECAP *******************************************************************************
+2020-07-05 22:08:29,961 p=73788 u=srv_ansible n=ansible | ansible5                   : ok=21   changed=8    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-07-05 22:09:43,996 p=74046 u=srv_ansible n=ansible | PLAY [wordpress] *************************************************************************
+2020-07-05 22:09:44,008 p=74046 u=srv_ansible n=ansible | TASK [Gathering Facts] *******************************************************************
+2020-07-05 22:09:45,343 p=74046 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:09:45,355 p=74046 u=srv_ansible n=ansible | TASK [wordpress : Install packages] ******************************************************
+2020-07-05 22:09:45,392 p=74069 u=srv_ansible n=ansible | [DEPRECATION WARNING]: Invoking "yum" only once while using a loop via squash_actions is 
+deprecated. Instead of using a loop to supply multiple items and specifying `name: "{{ 
+item }}"`, please use `name: ['{{ mariadb_packages }}', '{{ apache_packages }}']` and 
+remove the loop. This feature will be removed in version 2.11. Deprecation warnings can 
+be disabled by setting deprecation_warnings=False in ansible.cfg.
+2020-07-05 22:09:46,126 p=74046 u=srv_ansible n=ansible | ok: [ansible5] => (item=[u'mariadb-server', u'MySQL-python', u'php-mysql', u'httpd', u'php', u'wget'])
+2020-07-05 22:09:46,141 p=74046 u=srv_ansible n=ansible | TASK [wordpress : Setup custom log location] *********************************************
+2020-07-05 22:09:46,607 p=74046 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:09:46,619 p=74046 u=srv_ansible n=ansible | TASK [wordpress : Ensure service starts initially] ***************************************
+2020-07-05 22:09:47,308 p=74046 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:09:47,319 p=74046 u=srv_ansible n=ansible | TASK [wordpress : Update root password for localhost] ************************************
+2020-07-05 22:09:47,835 p=74046 u=srv_ansible n=ansible | [WARNING]: Module did not set no_log for update_********
+
+2020-07-05 22:09:47,835 p=74046 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:09:47,846 p=74046 u=srv_ansible n=ansible | TASK [wordpress : Update root password for all hosts] ************************************
+2020-07-05 22:09:48,170 p=74046 u=srv_ansible n=ansible | ok: [ansible5] => (item=::1)
+2020-07-05 22:09:48,473 p=74046 u=srv_ansible n=ansible | ok: [ansible5] => (item=127.0.0.1)
+2020-07-05 22:09:48,748 p=74046 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5.localdomain)
+2020-07-05 22:09:49,013 p=74046 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5)
+2020-07-05 22:09:49,027 p=74046 u=srv_ansible n=ansible | TASK [wordpress : Remove anonymous users] ************************************************
+2020-07-05 22:09:49,355 p=74046 u=srv_ansible n=ansible | ok: [ansible5] => (item=localhost)
+2020-07-05 22:09:49,627 p=74046 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5.localdomain)
+2020-07-05 22:09:49,899 p=74046 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5)
+2020-07-05 22:09:49,913 p=74046 u=srv_ansible n=ansible | TASK [wordpress : Remove empty root password] ********************************************
+2020-07-05 22:09:50,214 p=74046 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:09:50,225 p=74046 u=srv_ansible n=ansible | TASK [wordpress : Remove the test database] **********************************************
+2020-07-05 22:09:50,660 p=74046 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:09:50,672 p=74046 u=srv_ansible n=ansible | TASK [wordpress : Stop Service] **********************************************************
+2020-07-05 22:09:55,721 p=74046 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:09:55,733 p=74046 u=srv_ansible n=ansible | TASK [wordpress : List ib_logfile remnats] ***********************************************
+2020-07-05 22:09:56,244 p=74046 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:09:56,256 p=74046 u=srv_ansible n=ansible | TASK [wordpress : Remove ib_logfiles] ****************************************************
+2020-07-05 22:09:56,597 p=74046 u=srv_ansible n=ansible | ok: [ansible5] => (item=-rw-rw----. 1 mysql mysql 5242880 Jul  4 12:05 /var/lib/mysql/ib_logfile0)
+2020-07-05 22:09:56,904 p=74046 u=srv_ansible n=ansible | ok: [ansible5] => (item=-rw-rw----. 1 mysql mysql 5242880 Jul  4 11:08 /var/lib/mysql/ib_logfile1)
+2020-07-05 22:09:56,919 p=74046 u=srv_ansible n=ansible | TASK [wordpress : Start service] *********************************************************
+2020-07-05 22:09:59,364 p=74046 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:09:59,379 p=74046 u=srv_ansible n=ansible | TASK [wordpress : Create MYSQL Data for Wordpress] ***************************************
+2020-07-05 22:09:59,720 p=74046 u=srv_ansible n=ansible | ok: [ansible5] => (item=wordpress_db)
+2020-07-05 22:09:59,732 p=74046 u=srv_ansible n=ansible | TASK [wordpress : Create Wordpress User] *************************************************
+2020-07-05 22:10:00,067 p=74046 u=srv_ansible n=ansible | ok: [ansible5] => (item={u'db': u'wordpress_db', u'privs': u'ALL'})
+2020-07-05 22:10:00,081 p=74046 u=srv_ansible n=ansible | TASK [wordpress : Enable Apache in the firewalld] ****************************************
+2020-07-05 22:10:00,803 p=74046 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:10:00,814 p=74046 u=srv_ansible n=ansible | TASK [wordpress : Get Wordpress] *********************************************************
+2020-07-05 22:10:24,965 p=74046 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:10:24,977 p=74046 u=srv_ansible n=ansible | TASK [wordpress : Wordpress | Extract archive] *******************************************
+2020-07-05 22:10:26,935 p=74046 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:10:26,965 p=74046 u=srv_ansible n=ansible | TASK [wordpress : Wordpress | Move extracted directory to "/var/www/html/"] **************
+2020-07-05 22:10:27,610 p=74046 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:10:27,622 p=74046 u=srv_ansible n=ansible | TASK [wordpress : Create upload directory] ***********************************************
+2020-07-05 22:10:27,927 p=74046 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:10:27,939 p=74046 u=srv_ansible n=ansible | TASK [wordpress : Remove sample config file] *********************************************
+2020-07-05 22:10:28,256 p=74046 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:10:28,268 p=74046 u=srv_ansible n=ansible | TASK [wordpress : Fix ownership] *********************************************************
+2020-07-05 22:10:28,579 p=74046 u=srv_ansible n=ansible | [WARNING]: Consider using the file module with owner rather than running 'chown'.  If you
+need to use command because file is insufficient you can add 'warn: false' to this
+command task or set 'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2020-07-05 22:10:28,580 p=74046 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:10:28,592 p=74046 u=srv_ansible n=ansible | TASK [wordpress : Fetch random satls for WordPress config] *******************************
+2020-07-05 22:10:29,579 p=74046 u=srv_ansible n=ansible | [WARNING]: Consider using the get_url or uri module rather than running 'curl'.  If you
+need to use command because get_url or uri is insufficient you can add 'warn: false' to
+this command task or set 'command_warnings=False' in ansible.cfg to get rid of this
+message.
+
+2020-07-05 22:10:29,579 p=74046 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:10:29,592 p=74046 u=srv_ansible n=ansible | TASK [wordpress : Copy wp-config.php] ****************************************************
+2020-07-05 22:10:29,695 p=74046 u=srv_ansible n=ansible | fatal: [ansible5]: FAILED! => {"changed": false, "msg": "src and dest are required"}
+2020-07-05 22:10:29,696 p=74046 u=srv_ansible n=ansible | PLAY RECAP *******************************************************************************
+2020-07-05 22:10:29,697 p=74046 u=srv_ansible n=ansible | ansible5                   : ok=23   changed=7    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-07-05 22:13:20,000 p=74321 u=srv_ansible n=ansible | PLAY [wordpress] *************************************************************************
+2020-07-05 22:13:20,012 p=74321 u=srv_ansible n=ansible | TASK [Gathering Facts] *******************************************************************
+2020-07-05 22:13:21,268 p=74321 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:13:21,280 p=74321 u=srv_ansible n=ansible | TASK [wordpress : Install packages] ******************************************************
+2020-07-05 22:13:21,317 p=74344 u=srv_ansible n=ansible | [DEPRECATION WARNING]: Invoking "yum" only once while using a loop via squash_actions is 
+deprecated. Instead of using a loop to supply multiple items and specifying `name: "{{ 
+item }}"`, please use `name: ['{{ mariadb_packages }}', '{{ apache_packages }}']` and 
+remove the loop. This feature will be removed in version 2.11. Deprecation warnings can 
+be disabled by setting deprecation_warnings=False in ansible.cfg.
+2020-07-05 22:13:21,982 p=74321 u=srv_ansible n=ansible | ok: [ansible5] => (item=[u'mariadb-server', u'MySQL-python', u'php-mysql', u'httpd', u'php', u'wget'])
+2020-07-05 22:13:21,996 p=74321 u=srv_ansible n=ansible | TASK [wordpress : Setup custom log location] *********************************************
+2020-07-05 22:13:22,463 p=74321 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:13:22,475 p=74321 u=srv_ansible n=ansible | TASK [wordpress : Ensure service starts initially] ***************************************
+2020-07-05 22:13:23,159 p=74321 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:13:23,170 p=74321 u=srv_ansible n=ansible | TASK [wordpress : Update root password for localhost] ************************************
+2020-07-05 22:13:23,665 p=74321 u=srv_ansible n=ansible | [WARNING]: Module did not set no_log for update_********
+
+2020-07-05 22:13:23,665 p=74321 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:13:23,676 p=74321 u=srv_ansible n=ansible | TASK [wordpress : Update root password for all hosts] ************************************
+2020-07-05 22:13:24,039 p=74321 u=srv_ansible n=ansible | ok: [ansible5] => (item=::1)
+2020-07-05 22:13:24,324 p=74321 u=srv_ansible n=ansible | ok: [ansible5] => (item=127.0.0.1)
+2020-07-05 22:13:24,597 p=74321 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5.localdomain)
+2020-07-05 22:13:24,862 p=74321 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5)
+2020-07-05 22:13:24,877 p=74321 u=srv_ansible n=ansible | TASK [wordpress : Remove anonymous users] ************************************************
+2020-07-05 22:13:25,189 p=74321 u=srv_ansible n=ansible | ok: [ansible5] => (item=localhost)
+2020-07-05 22:13:25,466 p=74321 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5.localdomain)
+2020-07-05 22:13:25,727 p=74321 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5)
+2020-07-05 22:13:25,741 p=74321 u=srv_ansible n=ansible | TASK [wordpress : Remove empty root password] ********************************************
+2020-07-05 22:13:26,057 p=74321 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:13:26,068 p=74321 u=srv_ansible n=ansible | TASK [wordpress : Remove the test database] **********************************************
+2020-07-05 22:13:26,505 p=74321 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:13:26,517 p=74321 u=srv_ansible n=ansible | TASK [wordpress : Stop Service] **********************************************************
+2020-07-05 22:13:30,367 p=74321 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:13:30,380 p=74321 u=srv_ansible n=ansible | TASK [wordpress : List ib_logfile remnats] ***********************************************
+2020-07-05 22:13:30,825 p=74321 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:13:30,836 p=74321 u=srv_ansible n=ansible | TASK [wordpress : Remove ib_logfiles] ****************************************************
+2020-07-05 22:13:31,143 p=74321 u=srv_ansible n=ansible | ok: [ansible5] => (item=-rw-rw----. 1 mysql mysql 5242880 Jul  4 12:09 /var/lib/mysql/ib_logfile0)
+2020-07-05 22:13:31,404 p=74321 u=srv_ansible n=ansible | ok: [ansible5] => (item=-rw-rw----. 1 mysql mysql 5242880 Jul  4 11:08 /var/lib/mysql/ib_logfile1)
+2020-07-05 22:13:31,417 p=74321 u=srv_ansible n=ansible | TASK [wordpress : Start service] *********************************************************
+2020-07-05 22:13:33,774 p=74321 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:13:33,785 p=74321 u=srv_ansible n=ansible | TASK [wordpress : Create MYSQL Data for Wordpress] ***************************************
+2020-07-05 22:13:34,112 p=74321 u=srv_ansible n=ansible | ok: [ansible5] => (item=wordpress_db)
+2020-07-05 22:13:34,126 p=74321 u=srv_ansible n=ansible | TASK [wordpress : Create Wordpress User] *************************************************
+2020-07-05 22:13:34,444 p=74321 u=srv_ansible n=ansible | ok: [ansible5] => (item={u'db': u'wordpress_db', u'privs': u'ALL'})
+2020-07-05 22:13:34,457 p=74321 u=srv_ansible n=ansible | TASK [wordpress : Enable Apache in the firewalld] ****************************************
+2020-07-05 22:13:35,126 p=74321 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:13:35,138 p=74321 u=srv_ansible n=ansible | TASK [wordpress : Get Wordpress] *********************************************************
+2020-07-05 22:14:20,740 p=74321 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:14:20,751 p=74321 u=srv_ansible n=ansible | TASK [wordpress : Wordpress | Extract archive] *******************************************
+2020-07-05 22:14:22,500 p=74321 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:14:22,530 p=74321 u=srv_ansible n=ansible | TASK [wordpress : Wordpress | Move extracted directory to "/var/www/html/"] **************
+2020-07-05 22:14:23,145 p=74321 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:14:23,157 p=74321 u=srv_ansible n=ansible | TASK [wordpress : Create upload directory] ***********************************************
+2020-07-05 22:14:23,453 p=74321 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-05 22:14:23,464 p=74321 u=srv_ansible n=ansible | TASK [wordpress : Remove sample config file] *********************************************
+2020-07-05 22:14:23,750 p=74321 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:14:23,762 p=74321 u=srv_ansible n=ansible | TASK [wordpress : Fix ownership] *********************************************************
+2020-07-05 22:14:24,052 p=74321 u=srv_ansible n=ansible | [WARNING]: Consider using the file module with owner rather than running 'chown'.  If you
+need to use command because file is insufficient you can add 'warn: false' to this
+command task or set 'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2020-07-05 22:14:24,052 p=74321 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:14:24,064 p=74321 u=srv_ansible n=ansible | TASK [wordpress : Fetch random satls for WordPress config] *******************************
+2020-07-05 22:14:25,001 p=74321 u=srv_ansible n=ansible | [WARNING]: Consider using the get_url or uri module rather than running 'curl'.  If you
+need to use command because get_url or uri is insufficient you can add 'warn: false' to
+this command task or set 'command_warnings=False' in ansible.cfg to get rid of this
+message.
+
+2020-07-05 22:14:25,002 p=74321 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:14:25,013 p=74321 u=srv_ansible n=ansible | TASK [wordpress : Copy wp-config.php] ****************************************************
+2020-07-05 22:14:25,725 p=74321 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:14:25,737 p=74321 u=srv_ansible n=ansible | TASK [wordpress : Restore files context] *************************************************
+2020-07-05 22:14:26,308 p=74321 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:14:26,319 p=74321 u=srv_ansible n=ansible | TASK [wordpress : Start and Enable HTTPD Service] ****************************************
+2020-07-05 22:14:26,925 p=74321 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-05 22:14:26,926 p=74321 u=srv_ansible n=ansible | PLAY RECAP *******************************************************************************
+2020-07-05 22:14:26,926 p=74321 u=srv_ansible n=ansible | ansible5                   : ok=26   changed=10   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-06 05:27:41,668 p=75795 u=srv_ansible n=ansible | ERROR! the playbook: wordpress.yaml could not be found
+2020-07-06 05:28:03,711 p=75802 u=srv_ansible n=ansible | PLAY [wordpress] *************************************************************************
+2020-07-06 05:28:03,725 p=75802 u=srv_ansible n=ansible | TASK [Gathering Facts] *******************************************************************
+2020-07-06 05:28:05,081 p=75802 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-06 05:28:05,094 p=75802 u=srv_ansible n=ansible | TASK [wordpress : Install packages] ******************************************************
+2020-07-06 05:28:05,134 p=75825 u=srv_ansible n=ansible | [DEPRECATION WARNING]: Invoking "yum" only once while using a loop via squash_actions is 
+deprecated. Instead of using a loop to supply multiple items and specifying `name: "{{ 
+item }}"`, please use `name: ['{{ mariadb_packages }}', '{{ apache_packages }}']` and 
+remove the loop. This feature will be removed in version 2.11. Deprecation warnings can 
+be disabled by setting deprecation_warnings=False in ansible.cfg.
+2020-07-06 05:28:12,987 p=75802 u=srv_ansible n=ansible | ok: [ansible5] => (item=[u'mariadb-server', u'MySQL-python', u'php-mysql', u'httpd', u'php', u'wget'])
+2020-07-06 05:28:13,002 p=75802 u=srv_ansible n=ansible | TASK [wordpress : Setup custom log location] *********************************************
+2020-07-06 05:28:13,471 p=75802 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-06 05:28:13,483 p=75802 u=srv_ansible n=ansible | TASK [wordpress : Ensure service starts initially] ***************************************
+2020-07-06 05:28:14,174 p=75802 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-06 05:28:14,185 p=75802 u=srv_ansible n=ansible | TASK [wordpress : Update root password for localhost] ************************************
+2020-07-06 05:28:14,712 p=75802 u=srv_ansible n=ansible | [WARNING]: Module did not set no_log for update_********
+
+2020-07-06 05:28:14,712 p=75802 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-06 05:28:14,722 p=75802 u=srv_ansible n=ansible | TASK [wordpress : Update root password for all hosts] ************************************
+2020-07-06 05:28:15,066 p=75802 u=srv_ansible n=ansible | ok: [ansible5] => (item=::1)
+2020-07-06 05:28:15,363 p=75802 u=srv_ansible n=ansible | ok: [ansible5] => (item=127.0.0.1)
+2020-07-06 05:28:15,644 p=75802 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5.localdomain)
+2020-07-06 05:28:15,920 p=75802 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5)
+2020-07-06 05:28:15,934 p=75802 u=srv_ansible n=ansible | TASK [wordpress : Remove anonymous users] ************************************************
+2020-07-06 05:28:16,249 p=75802 u=srv_ansible n=ansible | ok: [ansible5] => (item=localhost)
+2020-07-06 05:28:16,526 p=75802 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5.localdomain)
+2020-07-06 05:28:16,797 p=75802 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5)
+2020-07-06 05:28:16,811 p=75802 u=srv_ansible n=ansible | TASK [wordpress : Remove empty root password] ********************************************
+2020-07-06 05:28:17,121 p=75802 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-06 05:28:17,132 p=75802 u=srv_ansible n=ansible | TASK [wordpress : Remove the test database] **********************************************
+2020-07-06 05:28:17,606 p=75802 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-06 05:28:17,618 p=75802 u=srv_ansible n=ansible | TASK [wordpress : Stop Service] **********************************************************
+2020-07-06 05:28:18,881 p=75802 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-06 05:28:18,892 p=75802 u=srv_ansible n=ansible | TASK [wordpress : List ib_logfile remnats] ***********************************************
+2020-07-06 05:28:19,341 p=75802 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-06 05:28:19,352 p=75802 u=srv_ansible n=ansible | TASK [wordpress : Remove ib_logfiles] ****************************************************
+2020-07-06 05:28:19,676 p=75802 u=srv_ansible n=ansible | ok: [ansible5] => (item=-rw-rw----. 1 mysql mysql 5242880 Jul  6 18:12 /var/lib/mysql/ib_logfile0)
+2020-07-06 05:28:19,940 p=75802 u=srv_ansible n=ansible | ok: [ansible5] => (item=-rw-rw----. 1 mysql mysql 5242880 Jul  4 11:08 /var/lib/mysql/ib_logfile1)
+2020-07-06 05:28:19,954 p=75802 u=srv_ansible n=ansible | TASK [wordpress : Start service] *********************************************************
+2020-07-06 05:28:22,458 p=75802 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-06 05:28:22,472 p=75802 u=srv_ansible n=ansible | TASK [wordpress : Create MYSQL Data for Wordpress] ***************************************
+2020-07-06 05:28:22,803 p=75802 u=srv_ansible n=ansible | ok: [ansible5] => (item=wordpress_db)
+2020-07-06 05:28:22,817 p=75802 u=srv_ansible n=ansible | TASK [wordpress : Create Wordpress User] *************************************************
+2020-07-06 05:28:23,162 p=75802 u=srv_ansible n=ansible | ok: [ansible5] => (item={u'db': u'wordpress_db', u'privs': u'ALL'})
+2020-07-06 05:28:23,176 p=75802 u=srv_ansible n=ansible | TASK [wordpress : Enable Apache in the firewalld] ****************************************
+2020-07-06 05:28:23,853 p=75802 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-06 05:28:23,864 p=75802 u=srv_ansible n=ansible | TASK [wordpress : Get Wordpress] *********************************************************
+2020-07-06 05:28:49,107 p=75802 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-06 05:28:49,120 p=75802 u=srv_ansible n=ansible | TASK [wordpress : Wordpress | Extract archive] *******************************************
+2020-07-06 05:28:51,406 p=75802 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-06 05:28:51,437 p=75802 u=srv_ansible n=ansible | TASK [wordpress : Wordpress | Move extracted directory to "/var/www/html/"] **************
+2020-07-06 05:28:52,157 p=75802 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-06 05:28:52,168 p=75802 u=srv_ansible n=ansible | TASK [wordpress : Create upload directory] ***********************************************
+2020-07-06 05:28:52,468 p=75802 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-06 05:28:52,483 p=75802 u=srv_ansible n=ansible | TASK [wordpress : Remove sample config file] *********************************************
+2020-07-06 05:28:52,775 p=75802 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-06 05:28:52,787 p=75802 u=srv_ansible n=ansible | TASK [wordpress : Fix ownership] *********************************************************
+2020-07-06 05:28:53,096 p=75802 u=srv_ansible n=ansible | [WARNING]: Consider using the file module with owner rather than running 'chown'.  If you
+need to use command because file is insufficient you can add 'warn: false' to this
+command task or set 'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2020-07-06 05:28:53,096 p=75802 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-06 05:28:53,108 p=75802 u=srv_ansible n=ansible | TASK [wordpress : Fetch random satls for WordPress config] *******************************
+2020-07-06 05:28:54,107 p=75802 u=srv_ansible n=ansible | [WARNING]: Consider using the get_url or uri module rather than running 'curl'.  If you
+need to use command because get_url or uri is insufficient you can add 'warn: false' to
+this command task or set 'command_warnings=False' in ansible.cfg to get rid of this
+message.
+
+2020-07-06 05:28:54,107 p=75802 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-06 05:28:54,119 p=75802 u=srv_ansible n=ansible | TASK [wordpress : Copy wp-config.php] ****************************************************
+2020-07-06 05:28:54,860 p=75802 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-06 05:28:54,871 p=75802 u=srv_ansible n=ansible | TASK [wordpress : Restore files context] *************************************************
+2020-07-06 05:28:55,443 p=75802 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-06 05:28:55,456 p=75802 u=srv_ansible n=ansible | TASK [wordpress : Start and Enable HTTPD Service] ****************************************
+2020-07-06 05:28:55,837 p=75802 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-06 05:28:55,839 p=75802 u=srv_ansible n=ansible | PLAY RECAP *******************************************************************************
+2020-07-06 05:28:55,839 p=75802 u=srv_ansible n=ansible | ansible5                   : ok=26   changed=9    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-07-06 07:43:09,920 p=76344 u=srv_ansible n=ansible | PLAY [wordpress] *************************************************************************
+2020-07-06 07:43:09,944 p=76344 u=srv_ansible n=ansible | TASK [Gathering Facts] *******************************************************************
+2020-07-06 07:43:11,601 p=76344 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-06 07:43:11,614 p=76344 u=srv_ansible n=ansible | TASK [wordpress : Install packages] ******************************************************
+2020-07-06 07:43:11,656 p=76367 u=srv_ansible n=ansible | [DEPRECATION WARNING]: Invoking "yum" only once while using a loop via squash_actions is 
+deprecated. Instead of using a loop to supply multiple items and specifying `name: "{{ 
+item }}"`, please use `name: ['{{ mariadb_packages }}', '{{ apache_packages }}']` and 
+remove the loop. This feature will be removed in version 2.11. Deprecation warnings can 
+be disabled by setting deprecation_warnings=False in ansible.cfg.
+2020-07-06 07:43:17,206 p=76344 u=srv_ansible n=ansible | ok: [ansible5] => (item=[u'mariadb-server', u'MySQL-python', u'php-mysql', u'httpd', u'php', u'wget'])
+2020-07-06 07:43:17,220 p=76344 u=srv_ansible n=ansible | TASK [wordpress : Setup custom log location] *********************************************
+2020-07-06 07:43:17,695 p=76344 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-06 07:43:17,707 p=76344 u=srv_ansible n=ansible | TASK [wordpress : Ensure service starts initially] ***************************************
+2020-07-06 07:43:18,416 p=76344 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-06 07:43:18,428 p=76344 u=srv_ansible n=ansible | TASK [wordpress : Update root password for localhost] ************************************
+2020-07-06 07:43:18,967 p=76344 u=srv_ansible n=ansible | [WARNING]: Module did not set no_log for update_********
+
+2020-07-06 07:43:18,967 p=76344 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-06 07:43:18,978 p=76344 u=srv_ansible n=ansible | TASK [wordpress : Update root password for all hosts] ************************************
+2020-07-06 07:43:19,314 p=76344 u=srv_ansible n=ansible | ok: [ansible5] => (item=::1)
+2020-07-06 07:43:19,597 p=76344 u=srv_ansible n=ansible | ok: [ansible5] => (item=127.0.0.1)
+2020-07-06 07:43:19,865 p=76344 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5.localdomain)
+2020-07-06 07:43:20,123 p=76344 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5)
+2020-07-06 07:43:20,137 p=76344 u=srv_ansible n=ansible | TASK [wordpress : Remove anonymous users] ************************************************
+2020-07-06 07:43:20,467 p=76344 u=srv_ansible n=ansible | ok: [ansible5] => (item=localhost)
+2020-07-06 07:43:20,761 p=76344 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5.localdomain)
+2020-07-06 07:43:21,097 p=76344 u=srv_ansible n=ansible | ok: [ansible5] => (item=ansible5)
+2020-07-06 07:43:21,111 p=76344 u=srv_ansible n=ansible | TASK [wordpress : Remove empty root password] ********************************************
+2020-07-06 07:43:21,432 p=76344 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-06 07:43:21,443 p=76344 u=srv_ansible n=ansible | TASK [wordpress : Remove the test database] **********************************************
+2020-07-06 07:43:21,945 p=76344 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-06 07:43:21,957 p=76344 u=srv_ansible n=ansible | TASK [wordpress : Stop service] **********************************************************
+2020-07-06 07:43:24,280 p=76344 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-06 07:43:24,292 p=76344 u=srv_ansible n=ansible | TASK [wordpress : List ib_logfile remnats] ***********************************************
+2020-07-06 07:43:24,766 p=76344 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-06 07:43:24,778 p=76344 u=srv_ansible n=ansible | TASK [wordpress : Remove ib_logfiles] ****************************************************
+2020-07-06 07:43:25,108 p=76344 u=srv_ansible n=ansible | ok: [ansible5] => (item=-rw-rw----. 1 mysql mysql 5242880 Jul  6 20:25 /var/lib/mysql/ib_logfile0)
+2020-07-06 07:43:25,371 p=76344 u=srv_ansible n=ansible | ok: [ansible5] => (item=-rw-rw----. 1 mysql mysql 5242880 Jul  4 11:08 /var/lib/mysql/ib_logfile1)
+2020-07-06 07:43:25,384 p=76344 u=srv_ansible n=ansible | TASK [wordpress : Start service] *********************************************************
+2020-07-06 07:43:27,752 p=76344 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-06 07:43:27,765 p=76344 u=srv_ansible n=ansible | TASK [wordpress : Create MYSQL Databases for Wordpress] **********************************
+2020-07-06 07:43:28,099 p=76344 u=srv_ansible n=ansible | ok: [ansible5] => (item=wordpress_db)
+2020-07-06 07:43:28,113 p=76344 u=srv_ansible n=ansible | TASK [wordpress : Create Wordpress User] *************************************************
+2020-07-06 07:43:28,455 p=76344 u=srv_ansible n=ansible | ok: [ansible5] => (item={u'db': u'wordpress_db', u'privs': u'ALL'})
+2020-07-06 07:43:28,466 p=76344 u=srv_ansible n=ansible | TASK [wordpress : Enable Apache in the firewalld] ****************************************
+2020-07-06 07:43:29,244 p=76344 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-06 07:43:29,255 p=76344 u=srv_ansible n=ansible | TASK [wordpress : Get Wordpress] *********************************************************
+2020-07-06 07:43:47,858 p=76344 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-06 07:43:47,868 p=76344 u=srv_ansible n=ansible | TASK [wordpress : Wordpress | Extract archive] *******************************************
+2020-07-06 07:43:49,913 p=76344 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-06 07:43:49,941 p=76344 u=srv_ansible n=ansible | TASK [wordpress : Wrodpress | Move extracted directory to /var/www/html/] ****************
+2020-07-06 07:43:50,809 p=76344 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-06 07:43:50,820 p=76344 u=srv_ansible n=ansible | TASK [wordpress : Create uploads directory] **********************************************
+2020-07-06 07:43:51,123 p=76344 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-06 07:43:51,133 p=76344 u=srv_ansible n=ansible | TASK [wordpress : Remove sample config file] *********************************************
+2020-07-06 07:43:51,430 p=76344 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-06 07:43:51,441 p=76344 u=srv_ansible n=ansible | TASK [wordpress : Fix ownership] *********************************************************
+2020-07-06 07:43:51,739 p=76344 u=srv_ansible n=ansible | [WARNING]: Consider using the file module with owner rather than running 'chown'.  If you
+need to use command because file is insufficient you can add 'warn: false' to this
+command task or set 'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2020-07-06 07:43:51,739 p=76344 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-06 07:43:51,751 p=76344 u=srv_ansible n=ansible | TASK [wordpress : Fetch random salts for WordPress config] *******************************
+2020-07-06 07:43:52,355 p=76344 u=srv_ansible n=ansible | [WARNING]: Consider using the get_url or uri module rather than running 'curl'.  If you
+need to use command because get_url or uri is insufficient you can add 'warn: false' to
+this command task or set 'command_warnings=False' in ansible.cfg to get rid of this
+message.
+
+2020-07-06 07:43:52,356 p=76344 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-06 07:43:52,368 p=76344 u=srv_ansible n=ansible | TASK [wordpress : Copy wp-config.php] ****************************************************
+2020-07-06 07:43:53,095 p=76344 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-06 07:43:53,106 p=76344 u=srv_ansible n=ansible | TASK [wordpress : Restore files context] *************************************************
+2020-07-06 07:43:53,636 p=76344 u=srv_ansible n=ansible | changed: [ansible5]
+2020-07-06 07:43:53,647 p=76344 u=srv_ansible n=ansible | TASK [wordpress : Start and Enable HTTPD Service] ****************************************
+2020-07-06 07:43:54,008 p=76344 u=srv_ansible n=ansible | ok: [ansible5]
+2020-07-06 07:43:54,009 p=76344 u=srv_ansible n=ansible | PLAY RECAP *******************************************************************************
+2020-07-06 07:43:54,009 p=76344 u=srv_ansible n=ansible | ansible5                   : ok=26   changed=9    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

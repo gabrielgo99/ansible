@@ -8,23 +8,28 @@
 # hlsearch on (H) or off (h):
 ~H
 # Last Search Pattern:
-~Msle0~/\<when\>
+~MSle0~/login
 
 # Last Substitute String:
 $
 
 # Command Line History (newest to oldest):
-:wq!
 :q!
+:wq!
+:set number
+:/hosts
 :wq
 :wq!ç
 :q
-:set number
 :\10cc
 :r!cat vars1.yaml
 ::q!
 
 # Search String History (newest to oldest):
+?/ServerAdmii
+?/login
+? hosts
+?/hosts
 ? \<when\>
 ?/log
 ?/logs
@@ -45,14 +50,25 @@ $
 
 # Registers:
 ""0	LINE	0
-	    - name: crear copia de seguridad
-	      shell: tar cfz /tmp/backup1.tar.gz /etc/httpd
-	
+	    login_user: "root"
+	    login_password: "{{ mysql_root_password }}"
 "1	LINE	0
+	  tasks:
+"2	LINE	0
+	    login_host: "localhost"
+"3	LINE	0
+	
+"4	LINE	0
+	# tasks file for wordpress
+"5	LINE	0
+	# vars file for wordpress
+"6	LINE	0
+	# defaults file for wordpress
+"7	LINE	0
 	    - name: crear copia de seguridad
 	      shell: tar cfz /tmp/backup1.tar.gz /etc/httpd
 	
-"2	LINE	0
+"8	LINE	0
 	    - block:
 	      - name: Crear archivo
 	        shell:  touch /root/123.txt
@@ -64,54 +80,69 @@ $
 	      always:
 	      - name: crea esto
 	        shell: touch /root/ABC 
-"3	LINE	0
+"9	LINE	0
 	    - block:
 	      - name: Crear archivo
 	        shell:  touch /root/B123.txt
 	      
 	      - name: Crear archivo
 	        shell:  touch /root/C123.txt
-"4	LINE	0
-	      - name: Crear archivo
-	        shell:  touch /root/B123.txt
-"5	LINE	0
-	          content: "Hola este es el host  {{ ansible_hostname }} "
-	          dest: /var/www/html/copy1.html
-	          owner: apache
-	          group: apache
-	          mode: 0644
-	          backup: yes
-	
-	      - name: Modulo lineinfile
-	        lineinfile:
-	          path: /var/www/html/copy1.html
-	          regexp: "Hola este"
-	          line: " Hola este es el node {{ ansible_hostname }}"
-	
-"6	LINE	0
-	#log_path = /var/log/ansible.log
-"7	LINE	0
-	  notify: service restart
-"8	LINE	0
-	  notify: service restart
-"9	LINE	0
-	        state: restarted
 "-	CHAR	0
-	º
+	i
 
 # File marks:
-'0  1  0  ~/comandos.txt
-'1  12  0  ~/practicando_a_fondo/tags.yml
-'2  15  12  ~/practicando_a_fondo/tags.yml
-'3  7  1  ~/practicando_a_fondo/tags.yml
-'4  13  6  ~/practicando_a_fondo/tags.yml
-'5  14  14  ~/practicando_a_fondo/tags.yml
-'6  36  0  ~/inventario
-'7  13  44  ~/practicando_a_fondo/stat-block.yml
-'8  20  10  ~/practicando_a_fondo/stat-block.yml
-'9  17  7  ~/practicando_a_fondo/stat-block.yml
+'0  166  4  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+'1  158  9  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+'2  130  17  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+'3  115  24  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+'4  2  0  ~/practicando_a_fondo/roles/wordpress/vars/main.yml
+'5  117  6  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+'6  85  40  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+'7  98  4  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+'8  67  11  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+'9  28  40  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
 
 # Jumplist (newest first):
+-'  166  4  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+-'  158  2  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+-'  130  4  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+-'  115  4  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+-'  2  0  ~/practicando_a_fondo/roles/wordpress/vars/main.yml
+-'  117  4  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+-'  231  0  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+-'  85  2  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+-'  98  2  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+-'  67  4  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+-'  28  4  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+-'  31  4  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+-'  151  3  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+-'  1  0  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+-'  24  37  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+-'  36  37  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+-'  37  0  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+-'  32  4  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+-'  1  0  tasks/main.yml
+-'  162  2  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+-'  6  2  ~/practicando_a_fondo/roles/wordpress.yaml
+-'  7  0  ~/practicando_a_fondo/roles/wordpress.yaml
+-'  37  10  ~/inventario
+-'  36  0  ~/inventario
+-'  1  0  ~/practicando_a_fondo/roles/wordpress.yaml
+-'  178  0  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+-'  64  0  ~/practicando_a_fondo/roles/wordpress/templates/wp-config.php.j2
+-'  1  0  ~/practicando_a_fondo/roles/wordpress/templates/wp-config.php.j2
+-'  179  0  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+-'  143  2  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+-'  102  0  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+-'  5  4  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+-'  3  2  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+-'  35  0  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+-'  72  0  ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+-'  6  0  ~/practicando_a_fondo/roles/wordpress/vars/main.yml
+-'  1  0  ~/practicando_a_fondo/roles/wordpress/vars/main.yml
+-'  16  0  ~/practicando_a_fondo/roles/wordpress/defaults/main.yml
+-'  1  0  ~/practicando_a_fondo/roles/wordpress/defaults/main.yml
+-'  1  0  ~/practicando_a_fondo/roles/wordpress/defaults
 -'  1  0  ~/comandos.txt
 -'  12  0  ~/practicando_a_fondo/tags.yml
 -'  1  0  ~/practicando_a_fondo/tags.yml
@@ -120,7 +151,6 @@ $
 -'  13  6  ~/practicando_a_fondo/tags.yml
 -'  14  6  ~/practicando_a_fondo/tags.yml
 -'  4  2  ~/practicando_a_fondo/tags.yml
--'  36  0  ~/inventario
 -'  30  0  ~/inventario
 -'  1  0  ~/inventario
 -'  13  44  ~/practicando_a_fondo/stat-block.yml
@@ -170,48 +200,130 @@ $
 -'  114  0  ~/.ansible.cfg
 -'  346  0  ~/.ansible.cfg
 -'  19  0  ~/practicando_a_fondo/roles/apache_motd/tasks/main.yaml
--'  33  4  ~/practicando_a_fondo/roles/apache_motd/tasks/main.yaml
--'  4  21  ~/practicando_a_fondo/roles/apache_motd.yaml
--'  2  0  ~/practicando_a_fondo/roles/apache_motd.yaml
--'  34  0  ~/practicando_a_fondo/roles/apache_motd/tasks/main.yaml
--'  1  0  ~/practicando_a_fondo/roles/apache_motd/tasks/main.yaml
--'  6  4  ~/practicando_a_fondo/roles/apache_motd.yaml
--'  28  0  ~/practicando_a_fondo/roles/apache_motd/tasks/main.yaml
--'  1  0  ~/practicando_a_fondo/roles/apache_motd.yaml
--'  5  19  ~/practicando_a_fondo/roles/apache_motd/handlers/main.yml
--'  1  0  ~/practicando_a_fondo/roles/apache_motd/handlers/main.yml
--'  4  0  ~/practicando_a_fondo/roles/apache_motd/vars/main.yml
--'  1  0  ~/practicando_a_fondo/roles/apache_motd/vars/main.yml
--'  4  2  ~/practicando_a_fondo/instalando_roles.yaml
--'  1  0  ~/practicando_a_fondo/instalando_roles.yaml
--'  3  21  ~/practicando_a_fondo/roles/usuarios/tasks/main.yml
--'  4  0  ~/practicando_a_fondo/roles/usuarios/tasks/main.yml
--'  1  1  ~/practicando_a_fondo/roles
--'  5  2  ~/practicando_a_fondo/creando_usuarios.yaml
--'  1  0  ~/practicando_a_fondo/roles/usuarios/tasks/b.yml
--'  27  3  ~/practicando_a_fondo/roles/usuarios/tasks/main.yml
--'  7  0  ~/practicando_a_fondo/creando_usuarios.yaml
--'  8  11  ~/practicando_a_fondo/roles/usuarios/tasks/b.yaml
--'  1  0  ~/practicando_a_fondo/roles/usuarios/tasks/b.yaml
--'  19  3  ~/practicando_a_fondo/roles/usuarios/tasks/main.yml
--'  6  6  ~/practicando_a_fondo/roles/usuarios/vars/main.yml
--'  8  2  ~/practicando_a_fondo/roles/usuarios/vars/main.yml
--'  1  0  ~/practicando_a_fondo/creando_usuarios.yaml
--'  1  0  ~/practicando_a_fondo/roles/usuarios/tasks/main.yml
--'  1  0  ~/practicando_a_fondo/roles/usuarios/vars/main.yml
--'  7  0  ~/practicando_a_fondo/instando_http_officel.yaml
--'  4  0  ~/practicando_a_fondo/instando_http_officel.yaml
--'  69  0  ~/.ansible.cfg
--'  1  0  ~/.ansible
--'  1  0  ~/practicando_a_fondo/instando_http_officel.yaml
--'  68  0  ~/.ansible.cfg
--'  2  0  ~/.ansible.cfg
--'  1  0  ~/.ansible.cfg
--'  26  0  ~/inventario
--'  10  24  ~/templates_jinja2/motd.j2
--'  11  0  ~/templates_jinja2/motd.j2
 
 # History of marks within files (newest to oldest):
+
+> ~/practicando_a_fondo/roles/wordpress/tasks/main.yml
+	"	166	4
+	^	166	7
+	.	166	6
+	+	232	0
+	+	13	16
+	+	44	48
+	+	50	28
+	+	30	29
+	+	31	0
+	+	34	0
+	+	36	42
+	+	38	13
+	+	39	0
+	+	56	17
+	+	57	0
+	+	58	0
+	+	72	4
+	+	61	25
+	+	62	30
+	+	64	1
+	+	72	4
+	+	68	1
+	+	67	9
+	+	69	22
+	+	70	0
+	+	34	3
+	+	35	0
+	+	77	3
+	+	72	0
+	+	73	2
+	+	74	2
+	+	75	2
+	+	76	2
+	+	80	1
+	+	79	1
+	+	82	21
+	+	84	31
+	+	101	17
+	+	35	0
+	+	3	4
+	+	4	5
+	+	5	5
+	+	3	2
+	+	4	3
+	+	5	3
+	+	230	0
+	+	103	1
+	+	113	0
+	+	112	1
+	+	116	44
+	+	118	17
+	+	119	0
+	+	123	18
+	+	125	38
+	+	198	0
+	+	134	43
+	+	136	24
+	+	135	56
+	+	140	56
+	+	143	0
+	+	144	79
+	+	150	13
+	+	149	57
+	+	157	1
+	+	158	61
+	+	178	2
+	+	160	47
+	+	162	19
+	+	27	7
+	+	39	7
+	+	40	8
+	+	42	13
+	+	67	8
+	+	31	13
+	+	28	40
+	+	57	13
+	+	85	40
+	+	115	24
+	+	130	17
+	+	158	9
+	+	166	6
+
+> ~/practicando_a_fondo/roles/wordpress/vars/main.yml
+	"	2	0
+	^	2	28
+	.	2	28
+	+	7	0
+	+	5	33
+	+	2	28
+
+> tasks/main.yml
+	"	1	0
+
+> ~/practicando_a_fondo/roles/wordpress.yaml
+	"	6	2
+	^	6	3
+	.	6	2
+	+	1	3
+	+	6	2
+
+> ~/inventario
+	"	37	10
+	^	37	11
+	.	37	10
+	+	35	8
+	+	38	7
+	+	37	10
+
+> ~/practicando_a_fondo/roles/wordpress/templates/wp-config.php.j2
+	"	49	19
+	^	49	20
+	.	49	19
+	+	49	19
+
+> ~/practicando_a_fondo/roles/wordpress/defaults/main.yml
+	"	16	0
+	^	16	0
+	.	15	24
+	+	17	0
+	+	15	24
 
 > ~/comandos.txt
 	"	1	0
@@ -237,12 +349,6 @@ $
 	+	15	8
 	+	7	1
 	+	12	0
-
-> ~/inventario
-	"	36	0
-	^	36	0
-	.	35	8
-	+	35	8
 
 > ~/practicando_a_fondo/stat-block.yml
 	"	13	44
@@ -417,128 +523,3 @@ $
 
 > ~/practicando_a_fondo/copy1.html
 	"	1	0
-
-> ~/practicando_a_fondo/copy
-	"	1	0
-
-> ~/copy1.yml
-	"	7	22
-	^	7	23
-	.	7	22
-	+	8	31
-	+	11	16
-	+	5	4
-	+	6	4
-	+	7	3
-	+	8	3
-	+	9	3
-	+	10	3
-	+	11	3
-	+	5	4
-	+	6	5
-	+	7	7
-	+	8	5
-	+	9	5
-	+	10	5
-	+	11	5
-	+	8	7
-	+	9	7
-	+	10	6
-	+	11	7
-	+	8	32
-	+	12	8
-	+	7	22
-
-> ~/.ansible.cfg
-	"	113	39
-	^	113	40
-	.	113	39
-	+	68	57
-	+	69	0
-	+	68	0
-	+	69	58
-	+	343	0
-	+	344	0
-	+	345	0
-	+	346	0
-	+	114	0
-	+	112	0
-	+	113	39
-
-> ~/practicando_a_fondo/roles/apache_motd/tasks/main.yaml
-	"	19	0
-	.	19	0
-	+	3	0
-	+	3	0
-	+	2	22
-	+	3	1
-	+	4	3
-	+	5	2
-	+	6	0
-	+	7	0
-	+	8	3
-	+	9	4
-	+	10	1
-	+	11	2
-	+	12	0
-	+	12	0
-	+	12	26
-	+	14	0
-	+	15	3
-	+	16	3
-	+	17	3
-	+	18	2
-	+	20	0
-	+	21	2
-	+	22	2
-	+	23	4
-	+	22	4
-	+	25	0
-	+	26	2
-	+	27	4
-	+	28	4
-	+	19	26
-	+	34	0
-	+	7	29
-	+	12	18
-	+	7	0
-	+	8	0
-	+	9	0
-	+	10	0
-	+	11	0
-	+	12	0
-	+	13	0
-	+	14	1
-	+	15	2
-	+	16	2
-	+	17	2
-	+	18	2
-	+	19	1
-	+	21	2
-	+	22	2
-	+	23	3
-	+	27	3
-	+	28	3
-	+	29	0
-	+	33	33
-	+	19	0
-	+	35	28
-	+	36	17
-	+	37	2
-	+	19	0
-
-> ~/practicando_a_fondo/roles/apache_motd.yaml
-	"	4	21
-	^	4	22
-	.	4	21
-	+	6	16
-	+	2	16
-	+	4	2
-	+	5	1
-	+	4	21
-
-> ~/practicando_a_fondo/roles/apache_motd/handlers/main.yml
-	"	5	19
-	^	5	20
-	.	5	19
-	+	5	19
