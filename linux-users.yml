@@ -1,0 +1,371 @@
+---
+- hosts: ansible2
+  user: srv_ansible
+  become: yes
+  tasks:
+
+  - name: Creamos el grupo 'ansible'
+    group:
+      name: ansible
+      state: present
+  
+  - name: Creamos el grupo 'staffstg' 
+    group:
+      name: staffstg
+      state: present
+
+  - name: Creamos el grupo 'staffmon' 
+    group:
+      name: staffmon
+      state: present
+
+  - name: Creamos el grupo 'staffatl' 
+    group:
+      name: staffatl
+      state: present
+
+  - name: Creamos el grupo 'staffdat'
+    group:
+      name: staffdat
+      state: present
+
+  - name: Creamos el grupo 'staffsec' 
+    group:
+      name: staffsec
+      state: present
+
+  - name: Creamos el grupo 'staffope' 
+    group:
+      name: staffope
+      state: present
+
+  - name: Creamos el grupo 'staffwin' 
+    group:
+      name: staffwin
+      state: present
+
+  - name: Añadimos el grupo 'ansible' a sudoers sin necesidad de contraseña
+    lineinfile:
+      dest: /etc/sudoers
+      state: present
+      regexp: '^%ansible'
+      line: '%ansible ALL=(ALL) NOPASSWD: ALL'
+      validate: 'visudo -cf %s'
+
+  - name: Crear y añadir usuario 'angel'  al grupo 'wheel, ansible'
+    user: name=angel uid=1100 groups="wheel, ansible" append=yes state=present createhome=yes 
+          comment="Angel Ferras"
+  
+  - name: Crear y añadir usuario 'gabriel'  al grupo 'wheel, ansible'
+    user: name=xe91396 uid=1101 groups="wheel, ansible" append=yes state=present createhome=yes
+          comment="Gabriel Goncalves"
+
+  - name: Crear y añadir usuario 'jurado,'  al grupo 'wheel, ansible'
+    user: name=jurado uid=1102 groups="wheel, ansible, staffstg" append=yes state=present
+          createhome=yes comment="Francisco Jurado"
+
+  - name: Crear y añadir usuario 'riquelme'  al grupo 'staffope'
+    user: name=e001709  uid=1103 groups="staffope" append=yes state=present createhome=yes
+          comment="Jose Antonio Sanchez Riquelme"
+
+  - name: Crear y añadir usuario 'arjona'  al grupo 'staffope'
+    user: name=e019993  uid=1104 groups="staffope" append=yes state=present createhome=yes
+          comment="Antonio Perez Arjona"
+
+  - name: Crear y añadir usuario 'medina'  al grupo 'staffatl'
+    user: name=e021477 uid=1105 groups="staffatl" append=yes state=present createhome=yes
+          comment="Jose Antonio Medina"
+
+  - name: Crear y añadir usuario 'daniel'  al grupo 'staffdat'
+    user: name=e029437  uid=1106 groups="staffdat" append=yes state=present createhome=yes
+          comment="Daniel Quintero Villalba"
+
+  - name: Crear y añadir usuario 'david'  al grupo 'staffwin'
+    user: name=e048919  uid=1107 groups="staffwin" append=yes state=present createhome=yes
+          comment="David Sancho Moral"
+
+  - name: Crear y añadir usuario 'andrades'  al grupo 'staffsec'
+    user: name=e054750  uid=1108 groups="staffsec" append=yes state=present createhome=yes
+          comment="Francisco Andrades Galindo"
+
+
+  - name: Crear y añadir usuario 'marcos'  al grupo 'staffmon, staffsec, staffwin'
+    user: name=e057147 uid=1109 groups="staffmon, staffsec, staffwin" append=yes state=present createhome=yes
+          comment="Marcos Real Martin"
+
+  - name: Crear y añadir usuario 'jesus'  al grupo 'staffstg, staffdat'
+    user: name=e057335  uid=1110 groups="staffstg, staffdat" append=yes state=present createhome=yes
+          comment="Jesus Fernandez Castillo"
+
+  - name: Crear y añadir usuario 'gallego'  al grupo 'staffwin, staffmon, staffatl'
+    user: name=xe87813  uid=1111 groups="staffwin, staffmon, staffatl" append=yes state=present createhome=yes
+          comment="Francisco Gallego Rosado"
+
+  - name: Crear y añadir usuario 'mario'  al grupo 'staffatl, staffope'
+    user: name=e057370  uid=1112 groups="staffatl, staffope" append=yes state=present createhome=yes
+          comment="Mario Gonzalez Muñoz"
+
+  - name: Añadir la clave rsa al usuario 'e054712'
+    authorized_key:
+      user: angel
+      state: present
+      key: "{{ lookup('file', '/home/srv_ansible/.ssh/id_rsa.pub') }}"
+
+  - name: Añadir la clave rsa al usuario 'xe91396'
+    authorized_key:
+      user: xe91396
+      state: present
+      key: "{{ lookup('file', '/home/srv_ansible/.ssh/id_rsa.pub') }}"
+
+  - name: Añadir la clave rsa al usuario 'xe86846'
+    authorized_key:
+      user: jurado 
+      state: present
+      key: "{{ lookup('file', '/home/srv_ansible/.ssh/id_rsa.pub') }}"
+
+  - name: Añadir la clave rsa al usuario 'e001709'
+    authorized_key:
+      user: e001709
+      state: present
+      key: "{{ lookup('file', '/home/srv_ansible/.ssh/id_rsa.pub') }}"
+
+  - name: Añadir la clave rsa al usuario 'e019993'
+    authorized_key:
+      user: e019993
+      state: present
+      key: "{{ lookup('file', '/home/srv_ansible/.ssh/id_rsa.pub') }}"
+
+  - name: Añadir la clave rsa al usuario 'e021477'
+    authorized_key:
+      user: e021477
+      state: present
+      key: "{{ lookup('file', '/home/srv_ansible/.ssh/id_rsa.pub') }}"
+
+  - name: Añadir la clave rsa al usuario 'e029437'
+    authorized_key:
+      user: e029437
+      state: present
+      key: "{{ lookup('file', '/home/srv_ansible/.ssh/id_rsa.pub') }}"
+
+  - name: Añadir la clave rsa al usuario 'e048919'
+    authorized_key:
+      user: e048919
+      state: present
+      key: "{{ lookup('file', '/home/srv_ansible/.ssh/id_rsa.pub') }}"
+
+  - name: Añadir la clave rsa al usuario 'e054750'
+    authorized_key:
+      user: e054750
+      state: present
+      key: "{{ lookup('file', '/home/srv_ansible/.ssh/id_rsa.pub') }}"
+
+  - name: Añadir la clave rsa al usuario 'e057147'
+    authorized_key:
+      user: e057147
+      state: present
+      key: "{{ lookup('file', '/home/srv_ansible/.ssh/id_rsa.pub') }}"
+
+  - name: Añadir la clave rsa al usuario 'e057335'
+    authorized_key:
+      user: e057335
+      state: present
+      key: "{{ lookup('file', '/home/srv_ansible/.ssh/id_rsa.pub') }}"
+
+  - name: Añadir la clave rsa al usuario 'xe87813'
+    authorized_key:
+      user: xe87813
+      state: present
+      key: "{{ lookup('file', '/home/srv_ansible/.ssh/id_rsa.pub') }}"
+
+  - name: Añadir la clave rsa al usuario 'e057370'
+    authorized_key:
+      user: e057370
+      state: present
+      key: "{{ lookup('file', '/home/srv_ansible/.ssh/id_rsa.pub') }}"
+
+[srv_ansible@ansible1 ~]$ cat users7.yaml
+
+---
+- hosts: v6991opp008.ad.bbva.com
+  user: sistemas
+  become: yes
+  tasks:
+
+  - name: Creamos el grupo 'ansible'
+    group:
+      name: ansible
+      state: present
+  
+  - name: Creamos el grupo 'staffstg' 
+    group:
+      name: staffstg
+      state: present
+
+  - name: Creamos el grupo 'staffmon' 
+    group:
+      name: staffmon
+      state: present
+
+  - name: Creamos el grupo 'staffatl' 
+    group:
+      name: staffatl
+      state: present
+
+  - name: Creamos el grupo 'staffdat'
+    group:
+      name: staffdat
+      state: present
+
+  - name: Creamos el grupo 'staffsec' 
+    group:
+      name: staffsec
+      state: present
+
+  - name: Creamos el grupo 'staffope' 
+    group:
+      name: staffope
+      state: present
+
+  - name: Creamos el grupo 'staffwin' 
+    group:
+      name: staffwin
+      state: present
+
+  - name: Añadimos el grupo 'ansible' a sudoers sin necesidad de contraseña
+    lineinfile:
+      dest: /etc/sudoers
+      state: present
+      regexp: '^%ansible'
+      line: '%ansible ALL=(ALL) NOPASSWD: ALL'
+      validate: 'visudo -cf %s'
+
+  - name: Crear y añadir usuario 'angel'  al grupo 'wheel, ansible'
+    user: name=e054712 uid=1100 groups="wheel, ansible" append=yes state=present createhome=yes 
+          comment="Angel Ferras"
+  
+  - name: Crear y añadir usuario 'gabriel'  al grupo 'wheel, ansible'
+    user: name=xe91396 uid=1101 groups="wheel, ansible" append=yes state=present createhome=yes
+          comment="Gabriel Goncalves"
+
+  - name: Crear y añadir usuario 'jurado,'  al grupo 'wheel, ansible'
+    user: name=xe86846 uid=1102 groups="wheel, ansible, staffstg" append=yes state=present
+          createhome=yes comment="Francisco Jurado"
+
+  - name: Crear y añadir usuario 'riquelme'  al grupo 'staffope'
+    user: name=e001709  uid=1103 groups="staffope" append=yes state=present createhome=yes
+          comment="Jose Antonio Sanchez Riquelme"
+
+  - name: Crear y añadir usuario 'arjona'  al grupo 'staffope'
+    user: name=e019993  uid=1104 groups="staffope" append=yes state=present createhome=yes
+          comment="Antonio Perez Arjona"
+
+  - name: Crear y añadir usuario 'medina'  al grupo 'staffatl'
+    user: name=e021477 uid=1105 groups="staffatl" append=yes state=present createhome=yes
+          comment="Jose Antonio Medina"
+
+  - name: Crear y añadir usuario 'daniel'  al grupo 'staffdat'
+    user: name=e029437  uid=1106 groups="staffdat" append=yes state=present createhome=yes
+          comment="Daniel Quintero Villalba"
+
+  - name: Crear y añadir usuario 'david'  al grupo 'staffwin'
+    user: name=e048919  uid=1107 groups="staffwin" append=yes state=present createhome=yes
+          comment="David Sancho Moral"
+
+  - name: Crear y añadir usuario 'andrades'  al grupo 'staffsec'
+    user: name=e054750  uid=1108 groups="staffsec" append=yes state=present createhome=yes
+          comment="Francisco Andrades Galindo"
+
+
+  - name: Crear y añadir usuario 'marcos'  al grupo 'staffmon, staffsec, staffwin'
+    user: name=e057147 uid=1109 groups="staffmon, staffsec, staffwin" append=yes state=present createhome=yes
+          comment="Marcos Real Martin"
+
+  - name: Crear y añadir usuario 'jesus'  al grupo 'staffstg, staffdat'
+    user: name=e057335  uid=1110 groups="staffstg, staffdat" append=yes state=present createhome=yes
+          comment="Jesus Fernandez Castillo"
+
+  - name: Crear y añadir usuario 'gallego'  al grupo 'staffwin, staffmon, staffatl'
+    user: name=xe87813  uid=1111 groups="staffwin, staffmon, staffatl" append=yes state=present createhome=yes
+          comment="Francisco Gallego Rosado"
+
+  - name: Crear y añadir usuario 'mario'  al grupo 'staffatl, staffope'
+    user: name=e057370  uid=1112 groups="staffatl, staffope" append=yes state=present createhome=yes
+          comment="Mario Gonzalez Muñoz"
+
+  - name: Añadir la clave rsa al usuario 'e054712'
+    authorized_key:
+      user: e054712
+      state: present
+      key: "{{ lookup('file', '/home/sistemas/.ssh/id_rsa.pub') }}"
+
+  - name: Añadir la clave rsa al usuario 'xe91396'
+    authorized_key:
+      user: xe91396
+      state: present
+      key: "{{ lookup('file', '/home/sistemas/.ssh/id_rsa.pub') }}"
+
+  - name: Añadir la clave rsa al usuario 'xe86846'
+    authorized_key:
+      user: xe86846 
+      state: present
+      key: "{{ lookup('file', '/home/sistemas/.ssh/id_rsa.pub') }}"
+
+  - name: Añadir la clave rsa al usuario 'e001709'
+    authorized_key:
+      user: e001709
+      state: present
+      key: "{{ lookup('file', '/home/sistemas/.ssh/id_rsa.pub') }}"
+
+  - name: Añadir la clave rsa al usuario 'e019993'
+    authorized_key:
+      user: e019993
+      state: present
+      key: "{{ lookup('file', '/home/sistemas/.ssh/id_rsa.pub') }}"
+
+  - name: Añadir la clave rsa al usuario 'e021477'
+    authorized_key:
+      user: e021477
+      state: present
+      key: "{{ lookup('file', '/home/sistemas/.ssh/id_rsa.pub') }}"
+
+  - name: Añadir la clave rsa al usuario 'e029437'
+    authorized_key:
+      user: e029437
+      state: present
+      key: "{{ lookup('file', '/home/sistemas/.ssh/id_rsa.pub') }}"
+
+  - name: Añadir la clave rsa al usuario 'e048919'
+    authorized_key:
+      user: e048919
+      state: present
+      key: "{{ lookup('file', '/home/sistemas/.ssh/id_rsa.pub') }}"
+
+  - name: Añadir la clave rsa al usuario 'e054750'
+    authorized_key:
+      user: e054750
+      state: present
+      key: "{{ lookup('file', '/home/sistemas/.ssh/id_rsa.pub') }}"
+
+  - name: Añadir la clave rsa al usuario 'e057147'
+    authorized_key:
+      user: e057147
+      state: present
+      key: "{{ lookup('file', '/home/sistemas/.ssh/id_rsa.pub') }}"
+
+  - name: Añadir la clave rsa al usuario 'e057335'
+    authorized_key:
+      user: e057335
+      state: present
+      key: "{{ lookup('file', '/home/sistemas/.ssh/id_rsa.pub') }}"
+
+  - name: Añadir la clave rsa al usuario 'xe87813'
+    authorized_key:
+      user: xe87813
+      state: present
+      key: "{{ lookup('file', '/home/sistemas/.ssh/id_rsa.pub') }}"
+
+  - name: Añadir la clave rsa al usuario 'e057370'
+    authorized_key:
+      user: e057370
+      state: present
+      key: "{{ lookup('file', '/home/sistemas/.ssh/id_rsa.pub') }}"
